@@ -181,8 +181,8 @@ export default function Home() {
               alt="Hero"
               className="w-full h-full object-cover object-center"
             />
-            {/* Overlay: dark on left for text readability, lighter toward right */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#1a2e1a]/85 via-[#1a2e1a]/50 to-[#1a2e1a]/20" />
+            {/* Semi-transparent overlay only behind text area */}
+            <div className="absolute inset-0 bg-[#1a2e1a]/30" />
           </motion.div>
         </AnimatePresence>
 
@@ -197,8 +197,9 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.6 }}
+                  className="bg-black/25 backdrop-blur-sm rounded-2xl p-8"
                 >
-                  <span className="inline-flex items-center gap-2 bg-[#459443]/15 border border-[#459443]/40 rounded-full px-4 py-1.5 mb-6">
+                  <span className="inline-flex items-center gap-2 bg-[#459443]/20 border border-[#459443]/50 rounded-full px-4 py-1.5 mb-6">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#459443]" />
                     <span className="text-[#459443] text-xs font-medium uppercase tracking-wider">
                       {slide.badge}
