@@ -190,15 +190,6 @@ export default function Home() {
           <div className="absolute -top-24 -right-24 w-[480px] h-[480px] rounded-full opacity-10" style={{ background: "radial-gradient(circle, #459443 0%, transparent 70%)" }} />
           {/* Mid circle bottom-left */}
           <div className="absolute -bottom-32 -left-20 w-[380px] h-[380px] rounded-full opacity-8" style={{ background: "radial-gradient(circle, #459443 0%, transparent 70%)" }} />
-          {/* Geometric grid lines */}
-          <svg className="absolute inset-0 w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#459443" strokeWidth="0.8" />
-              </pattern>
-            </defs>
-            <rect width="100%" height="100%" fill="url(#grid)" />
-          </svg>
           {/* Right side decorative panel */}
           <div className="absolute right-0 top-0 bottom-0 w-2/5 opacity-20" style={{ background: "linear-gradient(to left, #459443 0%, transparent 100%)" }} />
           {/* Diagonal accent line */}
