@@ -179,7 +179,7 @@ export default function Services() {
                         alt={service.title}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0" style={{ backgroundColor: service.accent + "cc" }} />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
                       <div className="absolute inset-0 flex flex-col justify-end p-6">
                         <service.icon size={28} className="text-white mb-3 opacity-90" />
                         <h2 className="text-xl font-bold text-white leading-snug">{service.title}</h2>
