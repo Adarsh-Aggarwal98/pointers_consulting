@@ -30,7 +30,7 @@ const stagger = {
 
 function AnimatedSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const inView = useInView(ref, { once: true, margin: "0px" });
   return (
     <motion.div ref={ref} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"} className={className}>
       {children}
@@ -165,29 +165,53 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero Slider */}
-      <section className="relative w-full overflow-hidden" style={{ height: "calc(100vh - 0px)", minHeight: 560, maxHeight: 780 }}>
-        {/* Background Images */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={current}
-            initial={{ opacity: 0, scale: 1.04 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.8 }}
-            className="absolute inset-0"
-          >
-            <img
-              src={slide.image}
-              alt="Hero"
-              className="w-full h-full object-cover object-top"
-            />
-          </motion.div>
-        </AnimatePresence>
+      <section className="relative w-full overflow-hidden" style={{ height: "calc(100vh - 0px)", minHeight: 560, maxHeight: 780, background: "linear-gradient(135deg, #0d1f0d 0%, #1a3a1a 40%, #1e4020 70%, #162e16 100%)" }}>
+        {/* Decorative background elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {/* Large circle top-right */}
+          <div className="absolute -top-24 -right-24 w-[480px] h-[480px] rounded-full opacity-10" style={{ background: "radial-gradient(circle, #459443 0%, transparent 70%)" }} />
+          {/* Mid circle bottom-left */}
+          <div className="absolute -bottom-32 -left-20 w-[380px] h-[380px] rounded-full opacity-8" style={{ background: "radial-gradient(circle, #459443 0%, transparent 70%)" }} />
+          {/* Geometric grid lines */}
+          <svg className="absolute inset-0 w-full h-full opacity-5" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#459443" strokeWidth="0.8" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#grid)" />
+          </svg>
+          {/* Right side decorative panel */}
+          <div className="absolute right-0 top-0 bottom-0 w-2/5 opacity-20" style={{ background: "linear-gradient(to left, #459443 0%, transparent 100%)" }} />
+          {/* Diagonal accent line */}
+          <svg className="absolute right-[38%] top-0 bottom-0 h-full opacity-15" width="2" viewBox="0 0 2 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="1" y1="0" x2="1" y2="100" stroke="#459443" strokeWidth="2" />
+          </svg>
+          {/* Floating stat badges on right */}
+          <div className="absolute right-[5%] top-[28%] hidden lg:flex flex-col gap-5">
+            <div className="bg-white/8 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-4 text-white w-44">
+              <div className="text-2xl font-bold text-[#459443]">600+</div>
+              <div className="text-xs text-white/60 mt-0.5">SMSF Funds Managed</div>
+            </div>
+            <div className="bg-white/8 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-4 text-white w-44">
+              <div className="text-2xl font-bold text-[#459443]">$420M+</div>
+              <div className="text-xs text-white/60 mt-0.5">Assets Under Management</div>
+            </div>
+            <div className="bg-white/8 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-4 text-white w-44">
+              <div className="text-2xl font-bold text-[#459443]">18+</div>
+              <div className="text-xs text-white/60 mt-0.5">Years of Experience</div>
+            </div>
+          </div>
+          {/* Small decorative dots */}
+          <div className="absolute top-[20%] right-[42%] w-2 h-2 rounded-full bg-[#459443] opacity-60" />
+          <div className="absolute top-[55%] right-[44%] w-1.5 h-1.5 rounded-full bg-[#459443] opacity-40" />
+          <div className="absolute top-[35%] right-[40%] w-1 h-1 rounded-full bg-white opacity-30" />
+        </div>
 
-        {/* Navbar height spacer */}
+        {/* Content */}
         <div className="relative z-10 flex flex-col h-full pt-36 pb-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex items-center">
-            <div className="max-w-2xl">
+          <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 flex-1 flex items-center">
+            <div className="max-w-xl">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={current + "-content"}
@@ -203,11 +227,11 @@ export default function Home() {
                     </span>
                   </span>
 
-                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.45)' }}>
+                  <h1 className="text-4xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5">
                     {slide.title}
                   </h1>
 
-                  <p className="text-white/90 text-lg leading-relaxed mb-8 font-light max-w-xl" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
+                  <p className="text-white/75 text-lg leading-relaxed mb-8 font-light">
                     {slide.subtitle}
                   </p>
 
@@ -231,7 +255,7 @@ export default function Home() {
           </div>
 
           {/* Slider Controls */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex items-center justify-between">
+          <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 w-full flex items-center justify-between">
             {/* Dots */}
             <div className="flex gap-2">
               {slides.map((_, i) => (
