@@ -1,248 +1,258 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { Link } from "wouter";
-import { motion, useInView } from "framer-motion";
-import { ArrowRight, Award, Users, Target, Heart } from "lucide-react";
+import { motion } from "framer-motion";
+import { ArrowRight, Award, Users, Target, CheckCircle, Phone, Star } from "lucide-react";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 25 },
+  hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 };
 
-function AnimatedSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true, margin: "-60px" });
-  return (
-    <motion.div ref={ref} variants={fadeUp} initial="hidden" animate={inView ? "visible" : "hidden"} className={className}>
-      {children}
-    </motion.div>
-  );
-}
-
-const team = [
-  {
-    name: "Andrew Pointers",
-    role: "Principal & SMSF Specialist",
-    bio: "Andrew has over 20 years of experience in SMSF administration and compliance. A registered SMSF auditor and CPA, he founded Pointers Consulting with a vision to deliver genuinely specialist SMSF advice to Australian families and business owners.",
-    credentials: "CPA, Registered SMSF Auditor, Tax Agent",
-  },
-  {
-    name: "Jessica Chen",
-    role: "Senior Business Adviser",
-    bio: "Jessica brings 15 years of business advisory experience, having worked with both Big 4 accounting firms and boutique advisory practices. She specialises in business structuring, tax planning, and succession planning for private businesses.",
-    credentials: "CA, MBA, Registered Tax Agent",
-  },
-  {
-    name: "Marcus Williams",
-    role: "SMSF Administrator",
-    bio: "Marcus manages the day-to-day administration of SMSF portfolios for over 200 client funds. His meticulous attention to detail and deep knowledge of SMSF legislation ensures our clients' funds remain compliant and efficiently administered.",
-    credentials: "BBus (Accounting), ASIC RG 146",
-  },
-  {
-    name: "Sarah O'Brien",
-    role: "Financial Planner",
-    bio: "Sarah is an authorised representative with extensive experience in personal financial planning, including retirement income strategies, superannuation optimisation, and estate planning coordination for high-net-worth families.",
-    credentials: "CFP, B.Fin, ASIC AFS Licence",
-  },
-];
+const stagger = {
+  visible: { transition: { staggerChildren: 0.1 } },
+};
 
 const values = [
   {
+    icon: Target,
+    title: "Client-First",
+    desc: "Every decision we make is guided by what's best for our clients. We measure our success by yours.",
+  },
+  {
     icon: Award,
-    title: "Genuine Expertise",
-    description:
-      "We are specialists, not generalists. SMSF and business advisory is all we do, which means our depth of knowledge in these areas is unmatched.",
+    title: "Professional Excellence",
+    desc: "We hold ourselves to the highest professional standards, maintaining current knowledge of ever-evolving Australian tax and super laws.",
   },
   {
     icon: Users,
-    title: "Client-First Approach",
-    description:
-      "Every recommendation we make is in your best interest. We are bound by professional and legal obligations to act in your interest, and we take those obligations seriously.",
+    title: "Long-Term Relationships",
+    desc: "We invest in understanding your full financial picture, building relationships that deliver compounding value over time.",
   },
   {
-    icon: Target,
-    title: "Proactive Advice",
-    description:
-      "We contact you when there are opportunities or risks you should know about. We don't wait for you to come to us — we get ahead of issues before they become problems.",
+    icon: Star,
+    title: "Proactive Guidance",
+    desc: "We don't wait for you to call us with problems. We identify opportunities and issues before they become urgent.",
+  },
+];
+
+const team = [
+  {
+    name: "Sam Patel",
+    role: "Founder & Principal Adviser",
+    bio: "With over 18 years of experience in Australian tax and SMSF, Sam founded Pointers Consulting with a mission to make high-quality financial advice accessible to all Australians. Registered Tax Agent #26122730.",
+    quals: ["CPA Australia", "Registered SMSF Auditor", "Tax Agent #26122730"],
   },
   {
-    icon: Heart,
-    title: "Long-Term Partnerships",
-    description:
-      "We build relationships that last decades. Our clients grow with us, and we grow with our clients. We measure our success by theirs.",
+    name: "Advisory Team",
+    role: "SMSF & Tax Specialists",
+    bio: "Our team of qualified advisers combines deep technical expertise with genuine care for client outcomes. We speak your language — whether that's the ATO's legislation or your business's growth goals.",
+    quals: ["CPA/CA Qualified", "SMSF Specialists", "Business Advisers"],
   },
 ];
 
 export default function About() {
   useEffect(() => {
-    document.title = "About Us | Pointers Consulting — SMSF & Business Advisory";
+    document.title = "About Us | Pointers Consulting";
   }, []);
 
   return (
-    <div className="pt-20 overflow-x-hidden">
-      {/* Header */}
-      <section className="bg-[hsl(222,47%,11%)] py-20 lg:py-28">
+    <div className="overflow-x-hidden">
+      {/* Hero */}
+      <section className="bg-[#1a2e1a] pt-36 pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <span className="text-[hsl(43,100%,50%)] font-semibold text-sm uppercase tracking-wider">
-                About Us
-              </span>
-              <h1 className="font-serif text-4xl lg:text-5xl font-bold text-white mt-3 mb-5">
-                Australia's Trusted SMSF Specialists
-              </h1>
-              <p className="text-white/70 text-lg leading-relaxed">
-                Pointers Consulting was founded on a simple premise: Australians deserve specialist SMSF and business advisory advice, not generic accounting services dressed up as specialist advice.
-              </p>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="grid grid-cols-2 gap-4"
-            >
-              {[
-                { num: "2006", label: "Year Founded" },
-                { num: "600+", label: "SMSF Funds" },
-                { num: "$420M+", label: "Assets Managed" },
-                { num: "98%", label: "Client Retention" },
-              ].map((s) => (
-                <div
-                  key={s.label}
-                  className="bg-white/5 border border-white/10 rounded-xl p-5 text-center"
-                >
-                  <div className="text-3xl font-bold text-[hsl(43,100%,50%)] font-serif">{s.num}</div>
-                  <div className="text-white/50 text-xs mt-1">{s.label}</div>
-                </div>
-              ))}
-            </motion.div>
-          </div>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <span className="text-[#459443] font-semibold text-sm uppercase tracking-wider">About Us</span>
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">
+              Who We Are
+            </h1>
+            <p className="text-white/70 text-xl max-w-2xl font-light">
+              A boutique advisory firm specialising in SMSF, tax and business advisory — backed by an AI powered support hub delivering smarter, faster service to Australians.
+            </p>
+          </motion.div>
         </div>
       </section>
 
-      {/* Story */}
-      <section className="py-20 lg:py-28 bg-white">
+      {/* Mission */}
+      <section className="py-20 bg-[#fafffa]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <AnimatedSection>
-              <span className="text-[hsl(43,100%,45%)] font-semibold text-sm uppercase tracking-wider">
-                Our Story
-              </span>
-              <h2 className="font-serif text-3xl lg:text-4xl font-bold text-[hsl(222,47%,11%)] mt-3 mb-6">
-                Built on a Belief in Specialist Advice
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+            <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+              <span className="text-[#459443] font-semibold text-sm uppercase tracking-wider">Our Mission</span>
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#1a2e1a] mt-3 mb-6">
+                Making SMSF & Tax Simple, Fast, and Stress-Free
               </h2>
-              <div className="space-y-4 text-gray-700 leading-relaxed">
-                <p>
-                  Pointers Consulting was established in Melbourne in 2006 by Andrew Pointers, a CPA and registered SMSF auditor who had spent the previous decade watching Australian families make costly mistakes with their super because their accountant "also handled SMSFs" as a sideline service.
-                </p>
-                <p>
-                  Andrew's vision was straightforward: build a firm where SMSF and business advisory was the core offering, not an add-on. A firm where clients could trust that the people advising them genuinely knew their subject matter inside and out, and stayed current with the rapidly evolving regulatory landscape.
-                </p>
-                <p>
-                  Today, Pointers Consulting manages over 600 SMSF funds with more than $420 million in total assets. Our team of licensed specialists, registered auditors, and business advisers serve clients across Australia, from first-time SMSF trustees to sophisticated investors with complex multi-entity structures.
-                </p>
-                <p>
-                  Our commitment has never wavered: provide specialist advice, build long-term relationships, and genuinely help our clients achieve their financial goals. It's a simple formula, but it's why clients who joined us in 2006 are still with us today.
+              <p className="text-gray-700 text-lg leading-relaxed mb-5 font-light">
+                Whether it's your first tax return or your fifteenth, our friendly and professional team is here to help. We work around your schedule, speak your language, and process most returns within 48 hours.
+              </p>
+              <p className="text-gray-600 leading-relaxed mb-6 font-light">
+                Founded by Sam Patel, Pointers Consulting was built on the belief that Australians deserve proactive, personalised financial advice — not just reactive compliance. We're an Authorised Representative of JPATAX, Registered Tax Agent #26122730.
+              </p>
+              <ul className="space-y-3">
+                {[
+                  "Boutique advisory — you get direct access to senior advisers",
+                  "CPA Australia and SMSF Association members",
+                  "ASIC registered agent for corporate compliance",
+                  "Xero Certified Partners for accounting services",
+                  "Tax Agent #26122730 — Authorised Representative of JPATAX",
+                ].map((item) => (
+                  <li key={item} className="flex items-start gap-3">
+                    <CheckCircle size={16} className="text-[#459443] mt-0.5 shrink-0" />
+                    <span className="text-gray-700 text-sm font-light">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-[#1a2e1a] rounded-2xl p-10 text-white"
+            >
+              <h3 className="text-2xl font-bold mb-8 text-white">By the Numbers</h3>
+              <div className="grid grid-cols-2 gap-8">
+                {[
+                  { value: "600+", label: "SMSF Funds Managed" },
+                  { value: "$420M+", label: "Assets Under Management" },
+                  { value: "18+", label: "Years Experience" },
+                  { value: "98%", label: "Client Retention" },
+                ].map((stat) => (
+                  <div key={stat.label} className="text-center">
+                    <div className="text-4xl font-bold text-[#459443] mb-1">{stat.value}</div>
+                    <div className="text-white/60 text-sm">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+              <div className="border-t border-white/10 mt-8 pt-8">
+                <p className="text-white/70 text-sm font-light leading-relaxed">
+                  Serving Australian clients from our Melbourne office at Tower 4, Level 17, 727 Collins Street, Docklands VIC 3008.
                 </p>
               </div>
-            </AnimatedSection>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Values */}
-      <section className="py-20 lg:py-28 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-14">
-            <span className="text-[hsl(43,100%,45%)] font-semibold text-sm uppercase tracking-wider">
-              Our Values
-            </span>
-            <h2 className="font-serif text-3xl lg:text-4xl font-bold text-[hsl(222,47%,11%)] mt-3">
-              What We Stand For
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <span className="text-[#459443] font-semibold text-sm uppercase tracking-wider">Our Values</span>
+            <h2 className="text-3xl lg:text-4xl font-bold text-[#1a2e1a] mt-3">
+              What Guides Everything We Do
             </h2>
-          </AnimatedSection>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <motion.div
+            variants={stagger}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
             {values.map((value) => (
-              <AnimatedSection key={value.title}>
-                <div className="bg-white p-7 rounded-xl border border-gray-100 h-full">
-                  <div className="w-11 h-11 bg-[hsl(222,47%,11%)] rounded-lg flex items-center justify-center mb-5">
-                    <value.icon size={20} className="text-[hsl(43,100%,50%)]" />
-                  </div>
-                  <h3 className="font-serif font-bold text-xl text-[hsl(222,47%,11%)] mb-3">
-                    {value.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">{value.description}</p>
+              <motion.div
+                key={value.title}
+                variants={fadeUp}
+                className="p-7 border border-gray-100 rounded-xl hover:border-[#459443]/30 hover:shadow-md transition-all text-center"
+              >
+                <div className="w-12 h-12 bg-[#459443] rounded-full flex items-center justify-center mx-auto mb-5">
+                  <value.icon size={22} className="text-white" />
                 </div>
-              </AnimatedSection>
+                <h3 className="font-bold text-[#1a2e1a] text-lg mb-3">{value.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed font-light">{value.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Team */}
+      <section className="py-20 bg-[#1a2e1a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-14"
+          >
+            <span className="text-[#459443] font-semibold text-sm uppercase tracking-wider">Our Team</span>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mt-3">
+              The People Behind Your Advice
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {team.map((member) => (
+              <motion.div
+                key={member.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="bg-white/5 border border-white/10 rounded-xl p-8"
+              >
+                <div className="w-16 h-16 bg-[#459443] rounded-full flex items-center justify-center mb-5">
+                  <Users size={28} className="text-white" />
+                </div>
+                <h3 className="font-bold text-white text-xl mb-1">{member.name}</h3>
+                <p className="text-[#459443] text-sm font-semibold mb-4">{member.role}</p>
+                <p className="text-white/70 text-sm leading-relaxed font-light mb-5">{member.bio}</p>
+                <div className="flex flex-wrap gap-2">
+                  {member.quals.map((q) => (
+                    <span key={q} className="bg-[#459443]/15 text-[#459443] text-xs px-3 py-1 rounded-full">
+                      {q}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Team */}
-      <section className="py-20 lg:py-28 bg-white">
+      {/* Partners */}
+      <section className="py-16 bg-[#fafffa] border-b border-[#459443]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-14">
-            <span className="text-[hsl(43,100%,45%)] font-semibold text-sm uppercase tracking-wider">
-              Our People
-            </span>
-            <h2 className="font-serif text-3xl lg:text-4xl font-bold text-[hsl(222,47%,11%)] mt-3">
-              Meet the Team
-            </h2>
-            <p className="text-gray-600 text-lg max-w-xl mx-auto mt-4">
-              Our team of licensed specialists brings decades of experience in Australian superannuation, taxation, and business advisory.
-            </p>
-          </AnimatedSection>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {team.map((member) => (
-              <AnimatedSection key={member.name}>
-                <div className="border border-gray-100 rounded-xl overflow-hidden hover:shadow-md transition-shadow">
-                  <div className="bg-[hsl(222,47%,11%)] p-6 flex items-center gap-4">
-                    <div className="w-14 h-14 rounded-full bg-[hsl(43,100%,50%)] flex items-center justify-center shrink-0">
-                      <span className="font-serif font-bold text-xl text-[hsl(222,47%,11%)]">
-                        {member.name.charAt(0)}
-                      </span>
-                    </div>
-                    <div>
-                      <h3 className="font-serif font-bold text-white text-lg">{member.name}</h3>
-                      <p className="text-[hsl(43,100%,50%)] text-sm">{member.role}</p>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4">{member.bio}</p>
-                    <div className="text-xs text-[hsl(222,47%,11%)] font-semibold bg-gray-50 rounded px-3 py-2">
-                      {member.credentials}
-                    </div>
-                  </div>
-                </div>
-              </AnimatedSection>
+          <h2 className="text-center text-sm font-semibold text-gray-500 uppercase tracking-wider mb-10">
+            Our Finance Partners
+          </h2>
+          <div className="flex flex-wrap justify-center items-center gap-8 opacity-70">
+            {["CPA Australia", "ASIC Registered Agent", "SMSF Association", "Xero Partner", "JPATAX", "Tax Practitioners Board"].map((partner) => (
+              <div key={partner} className="text-gray-500 text-sm font-semibold border border-gray-200 rounded px-4 py-2 bg-white">
+                {partner}
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="bg-[hsl(43,100%,50%)] py-16">
+      <section className="bg-[#459443] py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <AnimatedSection>
-            <h2 className="font-serif text-3xl font-bold text-[hsl(222,47%,11%)] mb-4">
-              Ready to Work with Our Team?
-            </h2>
-            <p className="text-[hsl(222,47%,11%)/80%] text-lg mb-8">
-              Book a free consultation to meet one of our advisers and discuss your needs.
-            </p>
+          <h2 className="text-3xl font-bold text-white mb-4">
+            Let's Work Together
+          </h2>
+          <p className="text-white/80 text-lg mb-8 font-light">
+            Experience the Pointers difference. Book a free consultation with our team today.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">
-              <button className="bg-[hsl(222,47%,11%)] text-white px-7 py-3.5 rounded font-semibold hover:bg-[hsl(222,47%,16%)] transition-colors inline-flex items-center gap-2">
-                Book a Free Consultation
-                <ArrowRight size={16} />
+              <button className="bg-white text-[#459443] px-7 py-3.5 rounded font-semibold hover:bg-gray-50 transition-colors inline-flex items-center gap-2">
+                Contact Us <ArrowRight size={16} />
               </button>
             </Link>
-          </AnimatedSection>
+            <a href="tel:+61426784982">
+              <button className="border-2 border-white text-white px-7 py-3.5 rounded font-semibold hover:bg-white/10 transition-colors inline-flex items-center gap-2">
+                <Phone size={16} /> +61 426 784 982
+              </button>
+            </a>
+          </div>
         </div>
       </section>
     </div>

@@ -3,37 +3,42 @@ import { Phone, Mail, MapPin, Linkedin, Facebook } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[hsl(222,47%,8%)] text-white">
+    <footer className="bg-[#1a2e1a] text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-5">
-              <div className="w-9 h-9 bg-[hsl(43,100%,50%)] rounded-sm flex items-center justify-center">
-                <span className="text-[hsl(222,47%,11%)] font-bold text-lg font-serif leading-none">P</span>
-              </div>
-              <div>
-                <div className="text-white font-semibold text-base leading-tight">
-                  Pointers Consulting
-                </div>
-                <div className="text-[hsl(43,100%,50%)] text-[10px] uppercase tracking-widest leading-tight">
-                  SMSF & Business Advisory
-                </div>
-              </div>
+            <div className="mb-5">
+              <img
+                src="https://pointersconsulting.com.au/wp-content/uploads/2026/01/banner-logo-Scoreapp-1769407742.png"
+                alt="Pointers Consulting"
+                className="h-12 w-auto object-contain"
+                onError={(e) => {
+                  const t = e.currentTarget;
+                  t.style.display = "none";
+                  const fallback = document.createElement("div");
+                  fallback.innerHTML = `<div class="text-white font-bold text-xl">Pointers Consulting</div><div class="text-[#459443] text-xs uppercase tracking-widest mt-0.5">SMSF & Business Advisory</div>`;
+                  t.parentNode?.appendChild(fallback);
+                }}
+              />
             </div>
+            <p className="text-white/60 text-sm leading-relaxed mb-3">
+              Authorised Representative of JPATAX
+            </p>
+            <p className="text-white/50 text-xs mb-5">Tax Agent # 26122730</p>
             <p className="text-white/60 text-sm leading-relaxed mb-5">
-              Specialist SMSF and business advisory services for Australians building lasting financial security. Expert guidance, trusted results.
+              A boutique advisory firm specialising in SMSF, tax and business advisory, backed by an AI powered support hub.
             </p>
             <div className="flex gap-3">
               <a
                 href="#"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[hsl(43,100%,50%)] hover:text-[hsl(222,47%,11%)] text-white/60 flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#459443] text-white/60 hover:text-white flex items-center justify-center transition-colors"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={16} />
               </a>
               <a
                 href="#"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[hsl(43,100%,50%)] hover:text-[hsl(222,47%,11%)] text-white/60 flex items-center justify-center transition-colors"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#459443] text-white/60 hover:text-white flex items-center justify-center transition-colors"
                 aria-label="Facebook"
               >
                 <Facebook size={16} />
@@ -47,16 +52,16 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5">
               {[
-                "SMSF Setup & Administration",
-                "SMSF Compliance & Audit",
-                "SMSF Investment Strategy",
-                "Business Tax Planning",
+                "Self-Managed Superfund",
+                "Taxation & Accounting",
                 "Business Advisory",
-                "Financial Planning",
+                "Assurance & Risk",
+                "Legal Setups & Registrations",
+                "AI Business Support Hub",
               ].map((service) => (
                 <li key={service}>
                   <Link href="/services">
-                    <span className="text-white/60 hover:text-[hsl(43,100%,50%)] text-sm transition-colors cursor-pointer">
+                    <span className="text-white/60 hover:text-[#459443] text-sm transition-colors cursor-pointer">
                       {service}
                     </span>
                   </Link>
@@ -67,18 +72,19 @@ export default function Footer() {
 
           <div>
             <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
-              Company
+              Links
             </h3>
             <ul className="space-y-2.5">
               {[
-                { label: "Home", href: "/" },
                 { label: "About Us", href: "/about" },
+                { label: "Services", href: "/services" },
                 { label: "Blog", href: "/blog" },
-                { label: "Contact", href: "/contact" },
+                { label: "Contact Us", href: "/contact" },
+                { label: "Book Appointment", href: "/contact" },
               ].map((link) => (
-                <li key={link.href}>
+                <li key={link.href + link.label}>
                   <Link href={link.href}>
-                    <span className="text-white/60 hover:text-[hsl(43,100%,50%)] text-sm transition-colors cursor-pointer">
+                    <span className="text-white/60 hover:text-[#459443] text-sm transition-colors cursor-pointer">
                       {link.label}
                     </span>
                   </Link>
@@ -89,34 +95,37 @@ export default function Footer() {
 
           <div>
             <h3 className="text-white font-semibold text-sm uppercase tracking-wider mb-4">
-              Contact
+              Contacts
             </h3>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <MapPin size={15} className="text-[hsl(43,100%,50%)] mt-0.5 shrink-0" />
+                <MapPin size={15} className="text-[#459443] mt-0.5 shrink-0" />
                 <span className="text-white/60 text-sm">
-                  Suite 4, Level 2<br />
-                  123 Collins Street<br />
-                  Melbourne VIC 3000
+                  Tower 4, Level 17<br />
+                  727 Collins Street<br />
+                  Docklands VIC 3008
                 </span>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={15} className="text-[hsl(43,100%,50%)] shrink-0" />
+                <Phone size={15} className="text-[#459443] shrink-0" />
                 <a
-                  href="tel:+61398001234"
+                  href="tel:+61426784982"
                   className="text-white/60 hover:text-white text-sm transition-colors"
                 >
-                  (03) 9800 1234
+                  +61 426 784 982
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Mail size={15} className="text-[hsl(43,100%,50%)] shrink-0" />
+                <Mail size={15} className="text-[#459443] shrink-0" />
                 <a
-                  href="mailto:info@pointersconsulting.com.au"
+                  href="mailto:sam@pointersconsulting.com.au"
                   className="text-white/60 hover:text-white text-sm transition-colors"
                 >
-                  info@pointersconsulting.com.au
+                  sam@pointersconsulting.com.au
                 </a>
+              </li>
+              <li className="text-white/50 text-xs">
+                Mon to Fri 9:00am to 5:00pm
               </li>
             </ul>
           </div>
@@ -124,12 +133,11 @@ export default function Footer() {
 
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-            <div className="text-white/40 text-xs">
-              <p>&copy; {new Date().getFullYear()} Pointers Consulting Pty Ltd. All rights reserved.</p>
-              <p className="mt-1">ABN: 12 345 678 901 | AFSL: 123456 | Registered Tax Agent: 12345678</p>
-            </div>
-            <p className="text-white/30 text-xs max-w-sm text-right">
-              General information only. This website does not constitute financial advice. Please consult a qualified adviser before acting on any information.
+            <p className="text-white/40 text-xs">
+              &copy; {new Date().getFullYear()} Pointers Consulting — SMSF & Taxation Specialists. All rights reserved.
+            </p>
+            <p className="text-white/30 text-xs">
+              General information only. Not financial advice. Seek professional guidance before acting.
             </p>
           </div>
         </div>

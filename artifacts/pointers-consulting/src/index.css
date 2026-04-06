@@ -56,75 +56,43 @@
   --elevate-1: rgba(0,0,0, .03);
   --elevate-2: rgba(0,0,0, .08);
 
-  /* Clean Warm White Background */
+  /* Pointers Consulting — Green Theme */
   --background: 0 0% 100%;
-  --foreground: 222 47% 11%;
-  --border: 214 32% 91%;
-  
+  --foreground: 0 0% 7%;
+  --border: 120 10% 88%;
+
   --card: 0 0% 100%;
-  --card-foreground: 222 47% 11%;
-  --card-border: 214 32% 91%;
+  --card-foreground: 0 0% 7%;
+  --card-border: 120 10% 88%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 222 47% 11%;
-  --popover-border: 214 32% 91%;
+  --popover-foreground: 0 0% 7%;
+  --popover-border: 120 10% 88%;
 
-  /* Deep Navy */
-  --primary: 222 47% 11%;
-  --primary-foreground: 210 40% 98%;
-  
-  /* Gold / Amber Accent */
-  --secondary: 43 100% 50%;
-  --secondary-foreground: 222 47% 11%;
+  /* Green primary */
+  --primary: 121 37% 42%;
+  --primary-foreground: 0 0% 100%;
 
-  --muted: 210 40% 96.1%;
-  --muted-foreground: 215.4 16.3% 46.9%;
+  /* Dark green secondary */
+  --secondary: 121 37% 30%;
+  --secondary-foreground: 0 0% 100%;
 
-  --accent: 43 100% 50%;
-  --accent-foreground: 222 47% 11%;
+  --muted: 120 10% 96%;
+  --muted-foreground: 0 0% 45%;
+
+  --accent: 121 37% 42%;
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 84.2% 60.2%;
-  --destructive-foreground: 210 40% 98%;
+  --destructive-foreground: 0 0% 100%;
 
-  --input: 214.3 31.8% 91.4%;
-  --ring: 222 47% 11%;
+  --input: 120 10% 88%;
+  --ring: 121 37% 42%;
 
-  --app-font-sans: 'Inter', sans-serif;
-  --app-font-serif: 'Playfair Display', serif;
+  --app-font-sans: 'Poppins', sans-serif;
+  --app-font-serif: 'Poppins', sans-serif;
   --app-font-mono: monospace;
-  --radius: 0.25rem;
-}
-
-.dark {
-  --background: 222 47% 11%;
-  --foreground: 210 40% 98%;
-  --border: 217.2 32.6% 17.5%;
-  
-  --card: 222 47% 11%;
-  --card-foreground: 210 40% 98%;
-  --card-border: 217.2 32.6% 17.5%;
-
-  --popover: 222 47% 11%;
-  --popover-foreground: 210 40% 98%;
-  --popover-border: 217.2 32.6% 17.5%;
-
-  --primary: 43 100% 50%;
-  --primary-foreground: 222 47% 11%;
-  
-  --secondary: 217.2 32.6% 17.5%;
-  --secondary-foreground: 210 40% 98%;
-
-  --muted: 217.2 32.6% 17.5%;
-  --muted-foreground: 215 20.2% 65.1%;
-
-  --accent: 43 100% 50%;
-  --accent-foreground: 222 47% 11%;
-
-  --destructive: 0 62.8% 30.6%;
-  --destructive-foreground: 210 40% 98%;
-
-  --input: 217.2 32.6% 17.5%;
-  --ring: 43 100% 50%;
+  --radius: 0.375rem;
 }
 
 @layer base {
@@ -133,8 +101,17 @@
   }
   body {
     @apply font-sans antialiased bg-background text-foreground;
+    font-weight: 300;
   }
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-tight;
+    @apply font-sans tracking-tight;
+    font-weight: 600;
   }
 }
+
+/* Pointers brand color utilities */
+.pc-green { color: #459443; }
+.pc-green-dark { color: #3a7f38; }
+.pc-teal { color: #0ba7a9; }
+.bg-pc-green { background-color: #459443; }
+.bg-pc-dark { background-color: #1a2e1a; }
