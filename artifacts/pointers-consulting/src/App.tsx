@@ -14,6 +14,7 @@ import Contact from "@/pages/contact";
 import ServiceDetail from "@/pages/service-detail";
 import SmsfPage from "@/pages/smsf-page";
 import SmsfSubPage from "@/pages/smsf-subpage";
+import MessageFromDirector from "@/pages/message-from-director";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ function Router() {
       <Route path="/services/smsf/:subslug" component={SmsfSubPage} />
       <Route path="/services/:slug" component={ServiceDetail} />
       <Route path="/about" component={About} />
+      <Route path="/about/message-from-director" component={MessageFromDirector} />
       <Route path="/blog" component={BlogList} />
       <Route path="/blog/:slug" component={BlogPost} />
       <Route path="/contact" component={Contact} />

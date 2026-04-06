@@ -1,12 +1,17 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "wouter";
-import { Menu, X, ChevronRight, Phone, Mail } from "lucide-react";
+import { Menu, X, ChevronDown, ChevronRight, Phone, Mail } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+
+const aboutDropdown = [
+  { href: "/about", label: "Who We Are" },
+  { href: "/about/message-from-director", label: "Message from Director" },
+];
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About Us", dropdown: aboutDropdown },
   { href: "/services", label: "Services" },
-  { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
@@ -14,7 +19,9 @@ const navLinks = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [location] = useLocation();
+  const dropdownTimeout = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -24,7 +31,19 @@ export default function Navbar() {
 
   useEffect(() => {
     setIsOpen(false);
+    setActiveDropdown(null);
   }, [location]);
+
+  const handleMouseEnter = (label: string) => {
+    if (dropdownTimeout.current) clearTimeout(dropdownTimeout.current);
+    setActiveDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    dropdownTimeout.current = setTimeout(() => setActiveDropdown(null), 150);
+  };
+
+  const isAboutActive = location === "/about" || location.startsWith("/about/");
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -43,11 +62,7 @@ export default function Navbar() {
       </div>
 
       {/* Main nav */}
-      <nav
-        className={`bg-white transition-all duration-300 ${
-          scrolled ? "shadow-md" : "shadow-sm"
-        }`}
-      >
+      <nav className={`bg-white transition-all duration-300 ${scrolled ? "shadow-md" : "shadow-sm"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <Link href="/">
@@ -68,20 +83,66 @@ export default function Navbar() {
               </div>
             </Link>
 
-            <div className="hidden lg:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                  <span
-                    className={`text-sm font-medium transition-colors cursor-pointer ${
-                      location === link.href
-                        ? "text-[#459443]"
-                        : "text-gray-700 hover:text-[#459443]"
-                    }`}
+            <div className="hidden lg:flex items-center gap-7">
+              {navLinks.map((link) =>
+                link.dropdown ? (
+                  <div
+                    key={link.href}
+                    className="relative"
+                    onMouseEnter={() => handleMouseEnter(link.label)}
+                    onMouseLeave={handleMouseLeave}
                   >
-                    {link.label}
-                  </span>
-                </Link>
-              ))}
+                    <Link href={link.href}>
+                      <span
+                        className={`flex items-center gap-1 text-sm font-medium transition-colors cursor-pointer ${
+                          isAboutActive ? "text-[#459443]" : "text-gray-700 hover:text-[#459443]"
+                        }`}
+                      >
+                        {link.label}
+                        <ChevronDown size={13} className={`transition-transform ${activeDropdown === link.label ? "rotate-180" : ""}`} />
+                      </span>
+                    </Link>
+
+                    <AnimatePresence>
+                      {activeDropdown === link.label && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 6 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 6 }}
+                          transition={{ duration: 0.15 }}
+                          className="absolute top-full left-0 mt-1 w-52 bg-white border border-gray-100 rounded-lg shadow-lg overflow-hidden z-50"
+                          onMouseEnter={() => handleMouseEnter(link.label)}
+                          onMouseLeave={handleMouseLeave}
+                        >
+                          {link.dropdown.map((item) => (
+                            <Link key={item.href} href={item.href}>
+                              <div
+                                className={`px-4 py-3 text-sm cursor-pointer transition-colors hover:bg-[#459443]/5 hover:text-[#459443] ${
+                                  location === item.href ? "text-[#459443] bg-[#459443]/5 font-semibold" : "text-gray-700"
+                                }`}
+                              >
+                                {item.label}
+                              </div>
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <Link key={link.href} href={link.href}>
+                    <span
+                      className={`text-sm font-medium transition-colors cursor-pointer ${
+                        location === link.href
+                          ? "text-[#459443]"
+                          : "text-gray-700 hover:text-[#459443]"
+                      }`}
+                    >
+                      {link.label}
+                    </span>
+                  </Link>
+                )
+              )}
               <Link href="/contact">
                 <button className="bg-[#459443] text-white px-5 py-2 rounded text-sm font-semibold hover:bg-[#3a7f38] transition-colors">
                   Book Appointment
@@ -100,6 +161,7 @@ export default function Navbar() {
         </div>
       </nav>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -111,18 +173,33 @@ export default function Navbar() {
           >
             <div className="px-4 py-4 space-y-1">
               {navLinks.map((link) => (
-                <Link key={link.href} href={link.href}>
-                  <div
-                    className={`flex items-center justify-between py-3 px-3 rounded-md cursor-pointer transition-colors ${
-                      location === link.href
-                        ? "bg-[#459443]/10 text-[#459443]"
-                        : "text-gray-700 hover:text-[#459443] hover:bg-gray-50"
-                    }`}
-                  >
-                    <span className="font-medium">{link.label}</span>
-                    <ChevronRight size={16} />
-                  </div>
-                </Link>
+                <div key={link.href}>
+                  <Link href={link.href}>
+                    <div
+                      className={`flex items-center justify-between py-3 px-3 rounded-md cursor-pointer transition-colors ${
+                        location === link.href || (link.dropdown && isAboutActive)
+                          ? "bg-[#459443]/10 text-[#459443]"
+                          : "text-gray-700 hover:text-[#459443] hover:bg-gray-50"
+                      }`}
+                    >
+                      <span className="font-medium">{link.label}</span>
+                      <ChevronRight size={16} />
+                    </div>
+                  </Link>
+                  {link.dropdown && (
+                    <div className="ml-4 space-y-1">
+                      {link.dropdown.map((sub) => (
+                        <Link key={sub.href} href={sub.href}>
+                          <div className={`py-2 px-3 rounded-md text-sm cursor-pointer transition-colors ${
+                            location === sub.href ? "text-[#459443] font-semibold" : "text-gray-600 hover:text-[#459443]"
+                          }`}>
+                            {sub.label}
+                          </div>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
               ))}
               <div className="pt-3 space-y-2">
                 <a href="tel:+61426784982" className="flex items-center gap-2 py-2 px-3 text-gray-600 text-sm">
