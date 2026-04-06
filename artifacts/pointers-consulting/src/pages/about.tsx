@@ -39,7 +39,7 @@ const values = [
 
 const team = [
   {
-    name: "Sam Patel",
+    name: "Sam Sharma",
     role: "Founder & Principal Adviser",
     bio: "With over 18 years of experience in Australian tax and SMSF, Sam founded Pointers Consulting with a mission to make high-quality financial advice accessible to all Australians. Registered Tax Agent #26122730.",
     quals: ["CPA Australia", "Registered SMSF Auditor", "Tax Agent #26122730"],
@@ -139,7 +139,7 @@ export default function About() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a2e1a]/60 to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4">
                   <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4">
-                    <p className="text-white font-semibold text-sm">Sam Patel, CPA</p>
+                    <p className="text-white font-semibold text-sm">Sam Sharma, CPA</p>
                     <p className="text-white/70 text-xs">Founder & Principal Adviser | Tax Agent #26122730</p>
                   </div>
                 </div>
