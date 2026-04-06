@@ -165,7 +165,25 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero Slider */}
-      <section className="relative w-full overflow-hidden" style={{ height: "calc(100vh - 0px)", minHeight: 560, maxHeight: 780, background: "linear-gradient(135deg, #0d1f0d 0%, #1a3a1a 40%, #1e4020 70%, #162e16 100%)" }}>
+      <section className="relative w-full overflow-hidden" style={{ height: "calc(100vh - 0px)", minHeight: 560, maxHeight: 780 }}>
+        {/* Background images per slide */}
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={current + "-bg"}
+            className="absolute inset-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+            style={{
+              backgroundImage: `url(${slides[current].image})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center 108px",
+            }}
+          />
+        </AnimatePresence>
+        {/* Dark overlay for text legibility */}
+        <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.45)" }} />
         {/* Decorative background elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Large circle top-right */}
