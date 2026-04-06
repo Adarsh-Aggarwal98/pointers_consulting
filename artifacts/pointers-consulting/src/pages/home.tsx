@@ -210,13 +210,6 @@ export default function Home() {
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.6 }}
                 >
-                  <span className="inline-flex items-center gap-2 bg-[#459443]/20 border border-[#459443]/50 rounded-full px-4 py-1.5 mb-6">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#459443]" />
-                    <span className="text-[#459443] text-xs font-medium uppercase tracking-wider">
-                      {slide.badge}
-                    </span>
-                  </span>
-
                   <h1 className="text-4xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-5">
                     {slide.title}
                   </h1>
