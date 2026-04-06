@@ -184,19 +184,6 @@ export default function Home() {
         </AnimatePresence>
         {/* Dark overlay for text legibility */}
         <div className="absolute inset-0" style={{ background: "rgba(0,0,0,0.45)" }} />
-        {/* Decorative background elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {/* Large circle top-right */}
-          <div className="absolute -top-24 -right-24 w-[480px] h-[480px] rounded-full opacity-10" style={{ background: "radial-gradient(circle, #459443 0%, transparent 70%)" }} />
-          {/* Mid circle bottom-left */}
-          <div className="absolute -bottom-32 -left-20 w-[380px] h-[380px] rounded-full opacity-8" style={{ background: "radial-gradient(circle, #459443 0%, transparent 70%)" }} />
-          {/* Right side decorative panel */}
-          <div className="absolute right-0 top-0 bottom-0 w-2/5 opacity-20" style={{ background: "linear-gradient(to left, #459443 0%, transparent 100%)" }} />
-          {/* Diagonal accent line */}
-          <svg className="absolute right-[38%] top-0 bottom-0 h-full opacity-15" width="2" viewBox="0 0 2 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="1" y1="0" x2="1" y2="100" stroke="#459443" strokeWidth="2" />
-          </svg>
-        </div>
 
         {/* Content */}
         <div className="relative z-10 flex flex-col h-full pt-36 pb-16">
