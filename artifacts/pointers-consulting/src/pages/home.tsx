@@ -179,10 +179,8 @@ export default function Home() {
             <img
               src={slide.image}
               alt="Hero"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-top"
             />
-            {/* Semi-transparent overlay only behind text area */}
-            <div className="absolute inset-0 bg-[#1a2e1a]/30" />
           </motion.div>
         </AnimatePresence>
 
@@ -197,7 +195,6 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
                   transition={{ duration: 0.6 }}
-                  className="bg-black/25 backdrop-blur-sm rounded-2xl p-8"
                 >
                   <span className="inline-flex items-center gap-2 bg-[#459443]/20 border border-[#459443]/50 rounded-full px-4 py-1.5 mb-6">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#459443]" />
@@ -206,11 +203,11 @@ export default function Home() {
                     </span>
                   </span>
 
-                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5">
+                  <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5" style={{ textShadow: '0 2px 8px rgba(0,0,0,0.45)' }}>
                     {slide.title}
                   </h1>
 
-                  <p className="text-white/75 text-lg leading-relaxed mb-8 font-light max-w-xl">
+                  <p className="text-white/90 text-lg leading-relaxed mb-8 font-light max-w-xl" style={{ textShadow: '0 1px 4px rgba(0,0,0,0.5)' }}>
                     {slide.subtitle}
                   </p>
 
