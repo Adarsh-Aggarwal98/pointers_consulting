@@ -210,7 +210,7 @@ export default function Home() {
 
         {/* Content */}
         <div className="relative z-10 flex flex-col h-full pt-36 pb-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 flex-1 flex items-center">
+          <div className="w-full px-4 sm:px-6 lg:px-8 flex-1 flex items-center">
             <div className="max-w-xl">
               <AnimatePresence mode="wait">
                 <motion.div
@@ -255,7 +255,7 @@ export default function Home() {
           </div>
 
           {/* Slider Controls */}
-          <div className="max-w-7xl mx-auto px-4 sm:px-4 lg:px-6 w-full flex items-center justify-between">
+          <div className="w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             {/* Dots */}
             <div className="flex gap-2">
               {slides.map((_, i) => (
