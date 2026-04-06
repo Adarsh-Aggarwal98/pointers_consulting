@@ -11,6 +11,7 @@ import About from "@/pages/about";
 import BlogList from "@/pages/blog-list";
 import BlogPost from "@/pages/blog-post";
 import Contact from "@/pages/contact";
+import ServiceDetail from "@/pages/service-detail";
 
 const queryClient = new QueryClient();
 
@@ -19,6 +20,7 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/services" component={Services} />
+      <Route path="/services/:slug" component={ServiceDetail} />
       <Route path="/about" component={About} />
       <Route path="/blog" component={BlogList} />
       <Route path="/blog/:slug" component={BlogPost} />

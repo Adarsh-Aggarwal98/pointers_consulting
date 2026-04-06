@@ -20,42 +20,42 @@ const services = [
     description:
       "Your SMSF, expertly managed — compliant, strategic and future-focused. One-stop shop for SMSF administration, audit defence and planning by specialists who simplify complexity, so you focus on growth.",
     image: `${BASE}/2021/10/smsf-400x239.jpg`,
-    href: "/contact",
+    href: "/services/smsf",
   },
   {
     title: "Taxation & Accounting",
     description:
       "Tax and accounting that optimises, not just complies. Precision returns, bookkeeping and advisory to minimise liability, maximise deductions and keep your numbers clear and current.",
     image: `${BASE}/2021/10/legaldoc-400x239.jpg`,
-    href: "/contact",
+    href: "/services/taxation-accounting",
   },
   {
     title: "Business Advisory",
     description:
       "Strategic guidance that turns numbers into growth. Clear planning, structuring and governance advice for business owners, startups and global clients — helping you balance risk, opportunity and execution with confidence.",
     image: `${BASE}/2026/01/57-400x239.jpg`,
-    href: "/contact",
+    href: "/services/business-advisory",
   },
   {
     title: "Assurance & Risk",
     description:
       "Strengthen your controls with independent, practical assurance. Value & Risk Based Internal audits, risk reviews and compliance checks that protect value, uncover blind spots and build confidence for growth.",
     image: `${BASE}/2021/10/audit-400x239.jpg`,
-    href: "/contact",
+    href: "/services/assurance-risk",
   },
   {
     title: "Legal — Setups, Registrations & Compliance",
     description:
       "Fast, compliant setups and registrations without the hassle. Whether it's company formation, ABN/TFN, ASIC lodgements and ongoing governance — delivered by experts who handle the details onshore.",
     image: `${BASE}/2022/07/company-taxreturn-400x239.jpg`,
-    href: "/contact",
+    href: "/services/legal-compliance",
   },
   {
     title: "AI-Powered Business Support Hub",
     description:
       "Extra capacity and smarter systems, without the headcount. Virtual CFO support, specialist staffing or custom AI automation — freeing accountants and businesses to focus on clients and growth with seamless, secure delivery.",
     image: `${BASE}/2026/01/673-400x239.jpg`,
-    href: "/contact",
+    href: "/services/ai-business-hub",
   },
 ];
 
