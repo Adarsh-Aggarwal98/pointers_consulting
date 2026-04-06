@@ -12,13 +12,9 @@ import {
   Calendar,
   FileText,
   Building2,
-  PiggyBank,
   BarChart3,
 } from "lucide-react";
 import { blogPosts } from "@/data/blog";
-
-const GREEN = "#459443";
-const DARK = "#1a2e1a";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -39,37 +35,60 @@ function AnimatedSection({ children, className = "" }: { children: React.ReactNo
   );
 }
 
+const BASE = "https://pointersconsulting.com.au/wp-content/uploads";
+
 const services = [
   {
     icon: Shield,
-    title: "SMSF Administration",
-    description: "End-to-end SMSF setup, administration, and compliance management. We handle the complexity so you can focus on growing your wealth.",
+    title: "Self-Managed Superfund",
+    description: "Your SMSF, expertly managed — compliant, strategic and future-focused. One-stop shop for administration, audit defence and planning.",
+    image: `${BASE}/2021/10/smsf-400x239.jpg`,
+    href: "/services",
   },
   {
     icon: FileText,
-    title: "SMSF Compliance & Audit",
-    description: "Annual compliance reviews and independent audits carried out by registered SMSF auditors, ensuring your fund meets all ATO requirements.",
-  },
-  {
-    icon: TrendingUp,
-    title: "SMSF Investment Strategy",
-    description: "Tailored investment strategies that align with your retirement goals, risk tolerance, and current superannuation legislation.",
-  },
-  {
-    icon: BarChart3,
-    title: "Business Tax Planning",
-    description: "Proactive tax strategies that legally minimise your business tax obligations while keeping you fully compliant with the ATO.",
+    title: "Taxation & Accounting",
+    description: "Tax and accounting that optimises, not just complies. Precision returns, bookkeeping and advisory to minimise liability.",
+    image: `${BASE}/2021/10/legaldoc-400x239.jpg`,
+    href: "/services",
   },
   {
     icon: Building2,
     title: "Business Advisory",
-    description: "Strategic business advice from experienced consultants who understand the Australian business environment inside and out.",
+    description: "Strategic guidance that turns numbers into growth. Clear planning, structuring and governance advice for business owners.",
+    image: `${BASE}/2026/01/57-400x239.jpg`,
+    href: "/services",
   },
   {
-    icon: PiggyBank,
-    title: "Financial Planning",
-    description: "Comprehensive financial planning that integrates super, investments, insurance, and estate planning into a cohesive strategy.",
+    icon: BarChart3,
+    title: "Assurance & Risk",
+    description: "Strengthen your controls with independent, practical assurance. Value & Risk Based Internal audits and risk reviews.",
+    image: `${BASE}/2021/10/audit-400x239.jpg`,
+    href: "/services",
   },
+  {
+    icon: FileText,
+    title: "Legal — Setups & Registrations",
+    description: "Fast, compliant setups and registrations without the hassle. Company formation, ABN/TFN, ASIC lodgements and ongoing governance.",
+    image: `${BASE}/2022/07/company-taxreturn-400x239.jpg`,
+    href: "/services",
+  },
+  {
+    icon: TrendingUp,
+    title: "AI Business Support Hub",
+    description: "Extra capacity and smarter systems, without the headcount. Virtual CFO support, specialist staffing or custom AI automation.",
+    image: `${BASE}/2026/01/673-400x239.jpg`,
+    href: "/services",
+  },
+];
+
+const partnerLogos = [
+  { name: "CPA Australia", src: `${BASE}/2026/01/cpa-2025-logo.jpg` },
+  { name: "ASIC Registered Agent", src: `${BASE}/2026/01/asic-registerd-agent-logo-20205.jpg` },
+  { name: "SMSF Association", src: `${BASE}/2026/01/sms-assocation.jpg` },
+  { name: "Xero Partner", src: `${BASE}/2026/01/xero-logo-20205.jpg` },
+  { name: "JPATAX", src: `${BASE}/2026/01/jpatax-logo-2025.jpg` },
+  { name: "Tax Practitioners Board", src: `${BASE}/2026/01/tax-board-2025-logo.jpg` },
 ];
 
 const stats = [
@@ -116,10 +135,16 @@ export default function Home() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero */}
-      <section className="relative bg-[#1a2e1a] pt-36 pb-20 lg:pt-44 lg:pb-28 overflow-hidden">
+      <section className="relative bg-[#1a2e1a] pt-36 pb-0 overflow-hidden min-h-[580px]">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-[#459443]/10 blur-3xl" />
-          <div className="absolute -bottom-20 -left-20 w-80 h-80 rounded-full bg-[#459443]/5 blur-3xl" />
+          <div className="absolute -top-40 right-0 w-[55%] h-full opacity-20 hidden lg:block">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1a2e1a] to-transparent z-10" />
+            <img
+              src={`${BASE}/2024/06/business-accountant.webp`}
+              alt="Business Accountant"
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
           <div
             className="absolute inset-0 opacity-[0.03]"
             style={{
@@ -129,8 +154,8 @@ export default function Home() {
           />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+          <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -158,9 +183,9 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-white/70 text-lg lg:text-xl leading-relaxed mb-10 max-w-2xl font-light"
+              className="text-white/70 text-lg lg:text-xl leading-relaxed mb-10 font-light"
             >
-              We provide expert advice, seamless service, and total confidence in every step of your SMSF and business advisory journey.
+              We are on a mission to make SMSFs & Tax matters simple, fast, and stress-free. Our friendly and professional team is here to help — we speak your language and process most returns within 48 hours.
             </motion.p>
 
             <motion.div
@@ -175,11 +200,12 @@ export default function Home() {
                   <ArrowRight size={17} />
                 </button>
               </Link>
-              <Link href="/about">
-                <button className="border border-white/20 text-white px-7 py-3.5 rounded font-semibold text-base hover:border-white/40 hover:bg-white/5 transition-colors">
-                  Take a Tour
+              <a href="tel:+61426784982">
+                <button className="border border-white/20 text-white px-7 py-3.5 rounded font-semibold text-base hover:border-white/40 hover:bg-white/5 transition-colors inline-flex items-center gap-2">
+                  <Phone size={16} />
+                  +61 426 784 982
                 </button>
-              </Link>
+              </a>
             </motion.div>
           </div>
 
@@ -235,7 +261,7 @@ export default function Home() {
               Services For All
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto font-light">
-              Individuals & Business — Small, Medium or Large. From SMSF administration to business advisory, we cover everything you need.
+              Individuals & Business — Small, Medium or Large. From SMSF administration to AI-powered support, we cover everything you need.
             </p>
           </AnimatedSection>
 
@@ -250,19 +276,32 @@ export default function Home() {
               <motion.div
                 key={service.title}
                 variants={fadeUp}
-                className="group p-7 border border-gray-100 rounded-xl hover:border-[#459443]/40 hover:shadow-lg transition-all duration-300"
               >
-                <div className="w-11 h-11 bg-[#459443] rounded-lg flex items-center justify-center mb-5">
-                  <service.icon size={20} className="text-white" />
-                </div>
-                <h3 className="font-bold text-lg text-[#1a2e1a] mb-3">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 text-sm leading-relaxed font-light">{service.description}</p>
-                <Link href="/services">
-                  <div className="mt-5 flex items-center gap-1.5 text-[#459443] font-semibold text-sm group-hover:gap-3 transition-all cursor-pointer">
-                    Learn more
-                    <ArrowRight size={14} />
+                <Link href={service.href}>
+                  <div className="group border border-gray-100 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer h-full flex flex-col">
+                    <div className="overflow-hidden h-44 relative">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-[#1a2e1a]/40 group-hover:bg-[#1a2e1a]/20 transition-colors" />
+                      <div className="absolute top-4 left-4">
+                        <div className="w-9 h-9 bg-[#459443] rounded-lg flex items-center justify-center">
+                          <service.icon size={17} className="text-white" />
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-6 flex flex-col flex-1">
+                      <h3 className="font-bold text-lg text-[#1a2e1a] mb-2 group-hover:text-[#459443] transition-colors">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm leading-relaxed font-light flex-1">{service.description}</p>
+                      <div className="mt-4 flex items-center gap-1.5 text-[#459443] font-semibold text-sm group-hover:gap-3 transition-all">
+                        Learn More
+                        <ArrowRight size={14} />
+                      </div>
+                    </div>
                   </div>
                 </Link>
               </motion.div>
@@ -305,49 +344,54 @@ export default function Home() {
               <div className="mt-10 flex gap-4">
                 <Link href="/contact">
                   <button className="bg-[#459443] text-white px-6 py-3 rounded font-semibold hover:bg-[#3a7f38] transition-colors inline-flex items-center gap-2">
-                    Contact Us
-                    <ArrowRight size={15} />
+                    Contact Us <ArrowRight size={15} />
                   </button>
                 </Link>
                 <a href="tel:+61426784982">
                   <button className="border border-[#459443]/40 text-[#459443] px-6 py-3 rounded font-semibold hover:bg-[#459443]/10 transition-colors inline-flex items-center gap-2">
-                    <Phone size={14} />
-                    +61 426 784 982
+                    <Phone size={14} /> +61 426 784 982
                   </button>
                 </a>
               </div>
             </AnimatedSection>
 
             <AnimatedSection>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { icon: Shield, label: "ATO Registered", sub: "SMSF Auditors" },
-                  { icon: Users, label: "600+ Funds", sub: "Under Management" },
-                  { icon: TrendingUp, label: "18+ Years", sub: "Industry Experience" },
-                  { icon: Star, label: "5-Star Reviews", sub: "From Our Clients" },
-                ].map((item) => (
-                  <div key={item.label} className="bg-white/5 border border-white/10 rounded-xl p-6 text-center hover:bg-white/8 transition-colors">
-                    <item.icon size={28} className="text-[#459443] mx-auto mb-3" />
-                    <div className="text-white font-bold text-lg">{item.label}</div>
-                    <div className="text-white/50 text-xs mt-1">{item.sub}</div>
+              {/* Business accountant photo */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+                <img
+                  src={`${BASE}/2024/06/business-accountant.webp`}
+                  alt="Professional Business Accountant"
+                  className="w-full h-80 lg:h-96 object-cover"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1a2e1a] to-transparent p-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-10 h-10 bg-[#459443] rounded-full flex items-center justify-center">
+                      <Users size={18} className="text-white" />
+                    </div>
+                    <div>
+                      <p className="text-white font-semibold text-sm">Free Initial Consultation</p>
+                      <p className="text-white/60 text-xs">Speak to a specialist today</p>
+                    </div>
+                    <Link href="/contact">
+                      <button className="ml-auto bg-[#459443] text-white text-xs px-4 py-2 rounded font-semibold hover:bg-[#3a7f38] transition-colors">
+                        Book Now
+                      </button>
+                    </Link>
                   </div>
-                ))}
+                </div>
               </div>
 
-              <div className="mt-4 bg-[#459443]/10 border border-[#459443]/20 rounded-xl p-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <Calendar size={20} className="text-[#459443]" />
-                  <span className="text-white font-semibold">Free Initial Consultation</span>
-                </div>
-                <p className="text-white/70 text-sm mb-4 font-light">
-                  Talk to a specialist at no cost. We'll assess your situation and let you know exactly how we can help.
-                </p>
-                <Link href="/contact">
-                  <button className="bg-[#459443] text-white px-5 py-2.5 rounded font-semibold text-sm w-full hover:bg-[#3a7f38] transition-colors flex items-center justify-center gap-2">
-                    <Phone size={14} />
-                    Book Your Appointment
-                  </button>
-                </Link>
+              <div className="grid grid-cols-2 gap-4 mt-4">
+                {[
+                  { icon: Shield, label: "ATO Registered", sub: "SMSF Auditors" },
+                  { icon: Star, label: "5-Star Reviews", sub: "From Our Clients" },
+                ].map((item) => (
+                  <div key={item.label} className="bg-white/5 border border-white/10 rounded-xl p-5 text-center hover:bg-white/8 transition-colors">
+                    <item.icon size={24} className="text-[#459443] mx-auto mb-2" />
+                    <div className="text-white font-bold">{item.label}</div>
+                    <div className="text-white/50 text-xs mt-0.5">{item.sub}</div>
+                  </div>
+                ))}
               </div>
             </AnimatedSection>
           </div>
@@ -368,15 +412,16 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { num: "01", title: "Book Appointment", desc: "Select the service you need and schedule your free appointment at your preferred time." },
-              { num: "02", title: "Consult With Expert", desc: "Our professional connects with you, reviews details, and plans the best solution." },
-              { num: "03", title: "Relax & Get Results", desc: "Sit back while we complete the work and deliver results quickly and securely." },
+              { num: "01", icon: "📅", title: "Book Appointment", desc: "Select the service you need and schedule your free appointment at your preferred time." },
+              { num: "02", icon: "📞", title: "Consult With Expert", desc: "Our professional connects with you, reviews details, and plans the best solution." },
+              { num: "03", icon: "✅", title: "Relax & Get Results", desc: "Sit back while we complete the work and deliver results quickly and securely." },
             ].map((step) => (
               <AnimatedSection key={step.num}>
                 <div className="bg-white rounded-xl p-8 border border-[#459443]/20 hover:shadow-lg transition-shadow text-center h-full">
                   <div className="w-14 h-14 bg-[#459443] rounded-full flex items-center justify-center mx-auto mb-5">
                     <span className="text-white font-bold text-lg">{step.num}</span>
                   </div>
+                  <div className="text-3xl mb-3">{step.icon}</div>
                   <h3 className="font-bold text-xl text-[#1a2e1a] mb-3">{step.title}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed font-light">{step.desc}</p>
                 </div>
@@ -421,8 +466,30 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Finance Partners */}
+      <section className="py-14 bg-[#fafffa] border-y border-[#459443]/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <AnimatedSection className="text-center mb-10">
+            <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-wider">
+              Our Finance Partners
+            </h2>
+          </AnimatedSection>
+          <div className="flex flex-wrap justify-center items-center gap-8">
+            {partnerLogos.map((partner) => (
+              <div key={partner.name} className="flex items-center justify-center">
+                <img
+                  src={partner.src}
+                  alt={partner.name}
+                  className="h-12 max-w-[140px] object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-70 hover:opacity-100"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Blog Preview */}
-      <section className="py-20 lg:py-28 bg-[#fafffa]">
+      <section className="py-20 lg:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-12">
             <AnimatedSection>
@@ -436,8 +503,7 @@ export default function Home() {
             <AnimatedSection>
               <Link href="/blog">
                 <button className="hidden md:flex items-center gap-2 text-[#459443] font-semibold hover:text-[#3a7f38] transition-colors">
-                  All Articles
-                  <ArrowRight size={15} />
+                  All Articles <ArrowRight size={15} />
                 </button>
               </Link>
             </AnimatedSection>
@@ -447,7 +513,7 @@ export default function Home() {
             {recentPosts.map((post) => (
               <AnimatedSection key={post.slug}>
                 <Link href={`/blog/${post.slug}`}>
-                  <div className="group border border-gray-100 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer h-full flex flex-col bg-white">
+                  <div className="group border border-gray-100 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 cursor-pointer h-full flex flex-col">
                     <div className="bg-[#1a2e1a] p-7 flex-1">
                       <span className="inline-block bg-[#459443]/15 text-[#459443] text-xs font-semibold px-3 py-1 rounded-full mb-4">
                         {post.category}
@@ -486,14 +552,12 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">
                 <button className="bg-white text-[#459443] px-7 py-3.5 rounded font-semibold hover:bg-gray-50 transition-colors inline-flex items-center gap-2">
-                  Book Appointment
-                  <ArrowRight size={16} />
+                  Book Appointment <ArrowRight size={16} />
                 </button>
               </Link>
               <a href="tel:+61426784982">
                 <button className="border-2 border-white text-white px-7 py-3.5 rounded font-semibold hover:bg-white/10 transition-colors inline-flex items-center gap-2">
-                  <Phone size={16} />
-                  +61 426 784 982
+                  <Phone size={16} /> +61 426 784 982
                 </button>
               </a>
             </div>

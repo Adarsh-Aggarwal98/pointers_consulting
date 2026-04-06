@@ -12,6 +12,8 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.1 } },
 };
 
+const BASE = "https://pointersconsulting.com.au/wp-content/uploads";
+
 const values = [
   {
     icon: Target,
@@ -21,7 +23,7 @@ const values = [
   {
     icon: Award,
     title: "Professional Excellence",
-    desc: "We hold ourselves to the highest professional standards, maintaining current knowledge of ever-evolving Australian tax and super laws.",
+    desc: "We hold ourselves to the highest professional standards, maintaining current knowledge of Australian tax and super laws.",
   },
   {
     icon: Users,
@@ -50,6 +52,15 @@ const team = [
   },
 ];
 
+const partnerLogos = [
+  { name: "CPA Australia", src: `${BASE}/2026/01/cpa-2025-logo.jpg` },
+  { name: "ASIC Registered Agent", src: `${BASE}/2026/01/asic-registerd-agent-logo-20205.jpg` },
+  { name: "SMSF Association", src: `${BASE}/2026/01/sms-assocation.jpg` },
+  { name: "Xero Partner", src: `${BASE}/2026/01/xero-logo-20205.jpg` },
+  { name: "JPATAX", src: `${BASE}/2026/01/jpatax-logo-2025.jpg` },
+  { name: "Tax Practitioners Board", src: `${BASE}/2026/01/tax-board-2025-logo.jpg` },
+];
+
 export default function About() {
   useEffect(() => {
     document.title = "About Us | Pointers Consulting";
@@ -58,14 +69,24 @@ export default function About() {
   return (
     <div className="overflow-x-hidden">
       {/* Hero */}
-      <section className="bg-[#1a2e1a] pt-36 pb-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-[#1a2e1a] pt-36 pb-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden hidden lg:block">
+          <div className="absolute right-0 top-0 w-[45%] h-full opacity-25">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1a2e1a] to-transparent z-10" />
+            <img
+              src={`${BASE}/2024/06/business-accountant.webp`}
+              alt="Professional Team"
+              className="w-full h-full object-cover object-top"
+            />
+          </div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="text-[#459443] font-semibold text-sm uppercase tracking-wider">About Us</span>
             <h1 className="text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">
               Who We Are
             </h1>
-            <p className="text-white/70 text-xl max-w-2xl font-light">
+            <p className="text-white/70 text-xl max-w-xl font-light">
               A boutique advisory firm specialising in SMSF, tax and business advisory — backed by an AI powered support hub delivering smarter, faster service to Australians.
             </p>
           </motion.div>
@@ -85,11 +106,11 @@ export default function About() {
                 Whether it's your first tax return or your fifteenth, our friendly and professional team is here to help. We work around your schedule, speak your language, and process most returns within 48 hours.
               </p>
               <p className="text-gray-600 leading-relaxed mb-6 font-light">
-                Founded by Sam Patel, Pointers Consulting was built on the belief that Australians deserve proactive, personalised financial advice — not just reactive compliance. We're an Authorised Representative of JPATAX, Registered Tax Agent #26122730.
+                Founded with the belief that Australians deserve proactive, personalised financial advice — not just reactive compliance. We're an Authorised Representative of JPATAX, Registered Tax Agent #26122730.
               </p>
               <ul className="space-y-3">
                 {[
-                  "Boutique advisory — you get direct access to senior advisers",
+                  "Boutique advisory — direct access to senior advisers",
                   "CPA Australia and SMSF Association members",
                   "ASIC registered agent for corporate compliance",
                   "Xero Certified Partners for accounting services",
@@ -108,26 +129,37 @@ export default function About() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="bg-[#1a2e1a] rounded-2xl p-10 text-white"
             >
-              <h3 className="text-2xl font-bold mb-8 text-white">By the Numbers</h3>
-              <div className="grid grid-cols-2 gap-8">
-                {[
-                  { value: "600+", label: "SMSF Funds Managed" },
-                  { value: "$420M+", label: "Assets Under Management" },
-                  { value: "18+", label: "Years Experience" },
-                  { value: "98%", label: "Client Retention" },
-                ].map((stat) => (
-                  <div key={stat.label} className="text-center">
-                    <div className="text-4xl font-bold text-[#459443] mb-1">{stat.value}</div>
-                    <div className="text-white/60 text-sm">{stat.label}</div>
+              <div className="relative rounded-2xl overflow-hidden shadow-xl mb-5">
+                <img
+                  src={`${BASE}/2024/06/business-accountant.webp`}
+                  alt="Professional Business Accountant"
+                  className="w-full h-72 object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1a2e1a]/60 to-transparent" />
+                <div className="absolute bottom-4 left-4 right-4">
+                  <div className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg p-4">
+                    <p className="text-white font-semibold text-sm">Sam Patel, CPA</p>
+                    <p className="text-white/70 text-xs">Founder & Principal Adviser | Tax Agent #26122730</p>
                   </div>
-                ))}
+                </div>
               </div>
-              <div className="border-t border-white/10 mt-8 pt-8">
-                <p className="text-white/70 text-sm font-light leading-relaxed">
-                  Serving Australian clients from our Melbourne office at Tower 4, Level 17, 727 Collins Street, Docklands VIC 3008.
-                </p>
+
+              <div className="bg-[#1a2e1a] rounded-xl p-7 text-white">
+                <h3 className="text-xl font-bold mb-6">By the Numbers</h3>
+                <div className="grid grid-cols-2 gap-6">
+                  {[
+                    { value: "600+", label: "SMSF Funds Managed" },
+                    { value: "$420M+", label: "Assets Under Management" },
+                    { value: "18+", label: "Years Experience" },
+                    { value: "98%", label: "Client Retention" },
+                  ].map((stat) => (
+                    <div key={stat.label} className="text-center">
+                      <div className="text-3xl font-bold text-[#459443] mb-1">{stat.value}</div>
+                      <div className="text-white/60 text-xs">{stat.label}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </div>
@@ -216,16 +248,20 @@ export default function About() {
         </div>
       </section>
 
-      {/* Partners */}
+      {/* Finance Partners — actual logos */}
       <section className="py-16 bg-[#fafffa] border-b border-[#459443]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-sm font-semibold text-gray-500 uppercase tracking-wider mb-10">
             Our Finance Partners
           </h2>
-          <div className="flex flex-wrap justify-center items-center gap-8 opacity-70">
-            {["CPA Australia", "ASIC Registered Agent", "SMSF Association", "Xero Partner", "JPATAX", "Tax Practitioners Board"].map((partner) => (
-              <div key={partner} className="text-gray-500 text-sm font-semibold border border-gray-200 rounded px-4 py-2 bg-white">
-                {partner}
+          <div className="flex flex-wrap justify-center items-center gap-10">
+            {partnerLogos.map((partner) => (
+              <div key={partner.name} className="flex items-center justify-center">
+                <img
+                  src={partner.src}
+                  alt={partner.name}
+                  className="h-14 max-w-[150px] object-contain grayscale hover:grayscale-0 opacity-60 hover:opacity-100 transition-all duration-300"
+                />
               </div>
             ))}
           </div>
@@ -235,9 +271,7 @@ export default function About() {
       {/* CTA */}
       <section className="bg-[#459443] py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
-            Let's Work Together
-          </h2>
+          <h2 className="text-3xl font-bold text-white mb-4">Let's Work Together</h2>
           <p className="text-white/80 text-lg mb-8 font-light">
             Experience the Pointers difference. Book a free consultation with our team today.
           </p>

@@ -23,6 +23,8 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.08 } },
 };
 
+const BASE = "https://pointersconsulting.com.au/wp-content/uploads";
+
 const services = [
   {
     icon: Shield,
@@ -30,6 +32,7 @@ const services = [
     shortDesc: "Your SMSF, expertly managed — compliant, strategic and future-focused.",
     description:
       "One-stop shop for SMSF administration, audit defence and planning by specialists who simplify complexity, so you focus on growth.",
+    image: `${BASE}/2021/10/smsf-400x239.jpg`,
     features: [
       "SMSF establishment and trust deed preparation",
       "Annual accounts and member statements",
@@ -48,6 +51,7 @@ const services = [
     shortDesc: "Tax and accounting that optimises, not just complies.",
     description:
       "Precision returns, bookkeeping and advisory to minimise liability, maximise deductions and keep your numbers clear and current.",
+    image: `${BASE}/2021/10/legaldoc-400x239.jpg`,
     features: [
       "Individual and business income tax returns",
       "BAS and GST preparation",
@@ -66,6 +70,7 @@ const services = [
     shortDesc: "Strategic guidance that turns numbers into growth.",
     description:
       "Clear planning, structuring and governance advice for business owners, startups and global clients — helping you balance risk, opportunity and execution.",
+    image: `${BASE}/2026/01/57-400x239.jpg`,
     features: [
       "Business structure and entity setup",
       "Strategic business planning",
@@ -84,6 +89,7 @@ const services = [
     shortDesc: "Strengthen your controls with independent, practical assurance.",
     description:
       "Value & Risk Based Internal audits, risk reviews and compliance checks that protect value, uncover blind spots and build confidence for growth.",
+    image: `${BASE}/2021/10/audit-400x239.jpg`,
     features: [
       "Internal audit engagements",
       "Risk assessment and management frameworks",
@@ -102,6 +108,7 @@ const services = [
     shortDesc: "Fast, compliant setups and registrations without the hassle.",
     description:
       "Whether it's company formation, ABN/TFN, ASIC lodgements and ongoing governance — delivered by experts who handle the details onshore.",
+    image: `${BASE}/2022/07/company-taxreturn-400x239.jpg`,
     features: [
       "Company and trust establishment",
       "ABN, TFN and GST registration",
@@ -120,6 +127,7 @@ const services = [
     shortDesc: "Extra capacity and smarter systems, without the headcount.",
     description:
       "Virtual CFO support, specialist staffing or custom AI automation — freeing accountants and businesses to focus on clients and growth with seamless, secure delivery.",
+    image: `${BASE}/2026/01/673-400x239.jpg`,
     features: [
       "Virtual CFO and bookkeeping support",
       "AI-powered workflow automation",
@@ -163,22 +171,32 @@ export default function Services() {
                 className="border border-gray-100 rounded-xl overflow-hidden hover:shadow-md transition-shadow"
               >
                 <div className="grid lg:grid-cols-5">
-                  <div
-                    className="p-8 lg:p-10 flex flex-col justify-between lg:col-span-2"
-                    style={{ backgroundColor: service.accent }}
-                  >
-                    <div>
-                      <service.icon size={36} className="text-white mb-5 opacity-90" />
-                      <h2 className="text-2xl font-bold text-white mb-3">{service.title}</h2>
-                      <p className="text-white/85 text-base font-light mb-3">{service.shortDesc}</p>
-                      <p className="text-white/70 text-sm leading-relaxed font-light">{service.description}</p>
-                    </div>
-                    <Link href="/contact">
-                      <div className="mt-6 inline-flex items-center gap-2 text-white font-semibold text-sm bg-white/15 hover:bg-white/25 px-4 py-2.5 rounded transition-colors cursor-pointer">
-                        Get Started <ArrowRight size={14} />
+                  {/* Left: image + info */}
+                  <div className="lg:col-span-2 flex flex-col">
+                    <div className="h-48 overflow-hidden relative">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0" style={{ backgroundColor: service.accent + "cc" }} />
+                      <div className="absolute inset-0 flex flex-col justify-end p-6">
+                        <service.icon size={28} className="text-white mb-3 opacity-90" />
+                        <h2 className="text-xl font-bold text-white leading-snug">{service.title}</h2>
                       </div>
-                    </Link>
+                    </div>
+                    <div className="p-7 flex-1 flex flex-col" style={{ backgroundColor: service.accent }}>
+                      <p className="text-white/90 text-sm font-medium mb-2">{service.shortDesc}</p>
+                      <p className="text-white/70 text-sm leading-relaxed font-light flex-1">{service.description}</p>
+                      <Link href="/contact">
+                        <div className="mt-5 inline-flex items-center gap-2 text-white font-semibold text-sm bg-white/15 hover:bg-white/25 px-4 py-2.5 rounded transition-colors cursor-pointer w-fit">
+                          Get Started <ArrowRight size={14} />
+                        </div>
+                      </Link>
+                    </div>
                   </div>
+
+                  {/* Right: features */}
                   <div className="p-8 lg:p-10 bg-white lg:col-span-3">
                     <h3 className="font-bold text-[#1a2e1a] mb-5 text-lg">What's Included</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
