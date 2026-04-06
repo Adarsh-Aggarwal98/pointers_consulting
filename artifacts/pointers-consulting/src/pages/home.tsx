@@ -196,25 +196,6 @@ export default function Home() {
           <svg className="absolute right-[38%] top-0 bottom-0 h-full opacity-15" width="2" viewBox="0 0 2 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
             <line x1="1" y1="0" x2="1" y2="100" stroke="#459443" strokeWidth="2" />
           </svg>
-          {/* Floating stat badges on right */}
-          <div className="absolute right-[5%] top-[28%] hidden lg:flex flex-col gap-5">
-            <div className="bg-white/8 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-4 text-white w-44">
-              <div className="text-2xl font-bold text-[#459443]">600+</div>
-              <div className="text-xs text-white/60 mt-0.5">SMSF Funds Managed</div>
-            </div>
-            <div className="bg-white/8 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-4 text-white w-44">
-              <div className="text-2xl font-bold text-[#459443]">$420M+</div>
-              <div className="text-xs text-white/60 mt-0.5">Assets Under Management</div>
-            </div>
-            <div className="bg-white/8 backdrop-blur-sm border border-white/10 rounded-xl px-5 py-4 text-white w-44">
-              <div className="text-2xl font-bold text-[#459443]">18+</div>
-              <div className="text-xs text-white/60 mt-0.5">Years of Experience</div>
-            </div>
-          </div>
-          {/* Small decorative dots */}
-          <div className="absolute top-[20%] right-[42%] w-2 h-2 rounded-full bg-[#459443] opacity-60" />
-          <div className="absolute top-[55%] right-[44%] w-1.5 h-1.5 rounded-full bg-[#459443] opacity-40" />
-          <div className="absolute top-[35%] right-[40%] w-1 h-1 rounded-full bg-white opacity-30" />
         </div>
 
         {/* Content */}
