@@ -32,7 +32,7 @@ RUN pnpm --filter @workspace/api-server run build
 # pnpm deploy creates a standalone node_modules with all prod deps resolved
 FROM deps AS deploy-deps
 COPY . .
-RUN pnpm --filter @workspace/api-server deploy --prod /deploy
+RUN pnpm --filter @workspace/api-server deploy --prod --legacy /deploy
 
 # ---- runner ----
 FROM node:24-alpine AS runner
