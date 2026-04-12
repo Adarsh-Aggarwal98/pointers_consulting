@@ -11,6 +11,8 @@
   "private": true,
   "devDependencies": {
     "@rollup/rollup-linux-x64-musl": "*",
+    "@tailwindcss/oxide-linux-x64-musl": "*",
+    "lightningcss-linux-x64-musl": "*",
     "prettier": "^3.8.1",
     "typescript": "~5.9.2"
   },

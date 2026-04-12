@@ -14,7 +14,7 @@ COPY lib/api-spec/package.json lib/api-spec/
 COPY artifacts/api-server/package.json artifacts/api-server/
 COPY artifacts/pointers-consulting/package.json artifacts/pointers-consulting/
 
-RUN rm -f pnpm-lock.yaml && pnpm install --no-frozen-lockfile
+RUN pnpm install --frozen-lockfile
 
 # ---- build-frontend ----
 FROM deps AS build-frontend
