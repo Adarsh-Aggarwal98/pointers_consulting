@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Search, ArrowRight, Clock, Calendar } from "lucide-react";
-import { blogPosts } from "@/data/blog";
+import type { BlogSummary } from "@/data/blog-types";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
@@ -13,15 +13,21 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.07 } },
 };
 
-const categories = ["All", ...Array.from(new Set(blogPosts.map((p) => p.category)))];
-
 export default function BlogList() {
+  const [blogPosts, setBlogPosts] = useState<BlogSummary[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
     document.title = "Blog | Pointers Consulting";
+    fetch("/api/blogs")
+      .then((r) => r.json())
+      .then((data: BlogSummary[]) => setBlogPosts(data))
+      .finally(() => setIsLoading(false));
   }, []);
+
+  const categories = ["All", ...Array.from(new Set(blogPosts.map((p) => p.category)))];
 
   const filtered = blogPosts.filter((post) => {
     const matchesSearch =
@@ -33,6 +39,14 @@ export default function BlogList() {
 
   const featured = filtered[0];
   const rest = filtered.slice(1);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center pt-20">
+        <div className="text-gray-500 text-sm">Loading articles...</div>
+      </div>
+    );
+  }
 
   return (
     <div className="overflow-x-hidden">

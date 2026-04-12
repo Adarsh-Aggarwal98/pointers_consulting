@@ -1,13 +1,34 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock, Calendar, Tag, ArrowRight } from "lucide-react";
-import { blogPosts, getBlogPost } from "@/data/blog";
+import type { BlogPost, BlogSummary } from "@/data/blog-types";
 
-export default function BlogPost() {
+export default function BlogPostPage() {
   const { slug } = useParams<{ slug: string }>();
-  const post = slug ? getBlogPost(slug) : null;
-  const related = blogPosts.filter((p) => p.slug !== slug && p.category === post?.category).slice(0, 3);
+  const [post, setPost] = useState<BlogPost | null>(null);
+  const [allPosts, setAllPosts] = useState<BlogSummary[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [notFound, setNotFound] = useState(false);
+
+  useEffect(() => {
+    if (!slug) return;
+    setIsLoading(true);
+    setNotFound(false);
+
+    Promise.all([
+      fetch(`/api/blogs/${slug}`).then((r) => {
+        if (r.status === 404) { setNotFound(true); return null; }
+        return r.json() as Promise<BlogPost>;
+      }),
+      fetch("/api/blogs").then((r) => r.json() as Promise<BlogSummary[]>),
+    ])
+      .then(([postData, allData]) => {
+        setPost(postData);
+        setAllPosts(allData ?? []);
+      })
+      .finally(() => setIsLoading(false));
+  }, [slug]);
 
   useEffect(() => {
     if (post) {
@@ -16,7 +37,19 @@ export default function BlogPost() {
     window.scrollTo(0, 0);
   }, [slug, post]);
 
-  if (!post) {
+  const related = allPosts
+    .filter((p) => p.slug !== slug && p.category === post?.category)
+    .slice(0, 3);
+
+  if (isLoading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center pt-20">
+        <div className="text-gray-500 text-sm">Loading...</div>
+      </div>
+    );
+  }
+
+  if (notFound || !post) {
     return (
       <div className="min-h-screen flex items-center justify-center pt-20">
         <div className="text-center">
@@ -175,7 +208,7 @@ export default function BlogPost() {
             </Link>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {blogPosts.filter((p) => p.slug !== slug).slice(0, 3).map((p) => (
+            {allPosts.filter((p) => p.slug !== slug).slice(0, 3).map((p) => (
               <Link key={p.slug} href={`/blog/${p.slug}`}>
                 <div className="group border border-gray-100 rounded-xl overflow-hidden hover:shadow-md transition-all cursor-pointer bg-white">
                   <div className="bg-[#1a2e1a] p-6">

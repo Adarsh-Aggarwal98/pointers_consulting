@@ -1,0 +1,14 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - blog-data:/data
+    environment:
+      PORT: "3000"
+      DATABASE_PATH: /data/blog.db
+      NODE_ENV: production
+
+volumes:
+  blog-data:
