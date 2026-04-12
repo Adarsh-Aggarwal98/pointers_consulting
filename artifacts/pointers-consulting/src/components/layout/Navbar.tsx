@@ -8,10 +8,19 @@ const aboutDropdown = [
   { href: "/about/message-from-director", label: "Message from Director" },
 ];
 
+const servicesDropdown = [
+  { href: "/services/smsf", label: "Self-Managed Superfund (SMSF)", specialist: true },
+  { href: "/services/taxation-accounting", label: "Taxation & Accounting" },
+  { href: "/services/business-advisory", label: "Business Advisory" },
+  { href: "/services/assurance-risk", label: "Assurance & Risk" },
+  { href: "/services/legal-compliance", label: "Legal — Setups & Registrations" },
+  { href: "/services/ai-business-hub", label: "AI Business Support Hub" },
+];
+
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us", dropdown: aboutDropdown },
-  { href: "/services", label: "Services" },
+  { href: "/services", label: "Services", dropdown: servicesDropdown },
   { href: "/blog", label: "Blog" },
   { href: "/contact", label: "Contact" },
 ];
@@ -44,6 +53,7 @@ export default function Navbar() {
   };
 
   const isAboutActive = location === "/about" || location.startsWith("/about/");
+  const isServicesActive = location === "/services" || location.startsWith("/services/");
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -95,7 +105,9 @@ export default function Navbar() {
                     <Link href={link.href}>
                       <span
                         className={`flex items-center gap-1 text-sm font-medium transition-colors cursor-pointer ${
-                          isAboutActive ? "text-[#459443]" : "text-gray-700 hover:text-[#459443]"
+                          (link.label === "About Us" && isAboutActive) || (link.label === "Services" && isServicesActive)
+                            ? "text-[#459443]"
+                            : "text-gray-700 hover:text-[#459443]"
                         }`}
                       >
                         {link.label}
@@ -110,18 +122,23 @@ export default function Navbar() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 6 }}
                           transition={{ duration: 0.15 }}
-                          className="absolute top-full left-0 mt-1 w-52 bg-white border border-gray-100 rounded-lg shadow-lg overflow-hidden z-50"
+                          className={`absolute top-full left-0 mt-1 bg-white border border-gray-100 rounded-lg shadow-lg overflow-hidden z-50 ${link.label === "Services" ? "w-72" : "w-52"}`}
                           onMouseEnter={() => handleMouseEnter(link.label)}
                           onMouseLeave={handleMouseLeave}
                         >
                           {link.dropdown.map((item) => (
                             <Link key={item.href} href={item.href}>
                               <div
-                                className={`px-4 py-3 text-sm cursor-pointer transition-colors hover:bg-[#459443]/5 hover:text-[#459443] ${
+                                className={`px-4 py-3 text-sm cursor-pointer transition-colors hover:bg-[#459443]/5 hover:text-[#459443] flex items-center justify-between gap-2 ${
                                   location === item.href ? "text-[#459443] bg-[#459443]/5 font-semibold" : "text-gray-700"
-                                }`}
+                                } ${"specialist" in item && (item as { specialist?: boolean }).specialist ? "border-b border-gray-100 font-medium" : ""}`}
                               >
-                                {item.label}
+                                <span>{item.label}</span>
+                                {"specialist" in item && (item as { specialist?: boolean }).specialist && (
+                                  <span className="text-[10px] font-bold bg-[#459443] text-white px-1.5 py-0.5 rounded uppercase tracking-wide shrink-0">
+                                    Specialist
+                                  </span>
+                                )}
                               </div>
                             </Link>
                           ))}

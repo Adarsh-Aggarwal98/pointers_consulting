@@ -318,13 +318,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-14">
             <span className="text-[#459443] font-semibold text-sm uppercase tracking-wider">
-              Services For All
+              SMSF Specialists & Financial Services
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-[#1a2e1a] mt-3 mb-4">
               Individuals & Business (Small, Medium Or Large)
             </h2>
             <p className="text-gray-600 text-lg max-w-2xl mx-auto font-light">
-              From SMSF administration to AI-powered business support — all the financial services you need, under one roof.
+              SMSF is what we do best. We also cover tax, business advisory, legal and AI-powered support — all under one roof.
             </p>
           </AnimatedSection>
 

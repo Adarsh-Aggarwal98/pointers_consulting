@@ -70,7 +70,7 @@ const partners = [
 
 export default function Services() {
   useEffect(() => {
-    document.title = "Services | Pointers Consulting";
+    document.title = "SMSF & Financial Services | Pointers Consulting — SMSF Specialists";
   }, []);
 
   return (
@@ -78,12 +78,18 @@ export default function Services() {
       {/* Page Header */}
       <section
         className="relative pt-36 pb-16 bg-cover bg-center"
-        style={{ backgroundImage: `url(${BASE}/2021/10/legaldoc-400x239.jpg)` }}
+        style={{ backgroundImage: `url(${BASE}/2021/10/smsf-400x239.jpg)` }}
       >
         <div className="absolute inset-0 bg-[#1a2e1a]/80" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+            <span className="inline-block bg-[#459443] text-white text-xs font-bold px-3 py-1 rounded uppercase tracking-widest mb-4">
+              Australia's SMSF Specialists
+            </span>
             <h1 className="text-4xl lg:text-5xl font-bold text-white mb-3">Our Services</h1>
+            <p className="text-white/70 text-base mb-3 max-w-xl font-light">
+              SMSF administration and compliance is our core speciality. We also provide tax, business advisory, legal and AI-powered support — all under one roof.
+            </p>
             <p className="text-white/60 text-sm">
               <Link href="/">
                 <span className="hover:text-white transition-colors cursor-pointer">Home</span>
@@ -98,8 +104,11 @@ export default function Services() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-[#1a2e1a] mb-2">Services For All</h2>
-            <p className="text-gray-500 text-sm">Individuals &amp; Business (Small, Medium Or Large)</p>
+            <span className="text-[#459443] font-semibold text-sm uppercase tracking-wider">SMSF Specialists & More</span>
+            <h2 className="text-3xl font-bold text-[#1a2e1a] mt-2 mb-2">Services For Individuals & Business</h2>
+            <p className="text-gray-500 text-sm max-w-2xl mx-auto">
+              We are Australia's trusted SMSF specialists. Beyond super, we cover tax, business advisory, legal, assurance and AI-powered support — everything you need, from one expert team.
+            </p>
           </div>
 
           <motion.div
