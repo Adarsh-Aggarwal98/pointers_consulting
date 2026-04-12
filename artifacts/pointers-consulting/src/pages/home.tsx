@@ -521,7 +521,7 @@ export default function Home() {
                 <img
                   src={partner.src}
                   alt={partner.name}
-                  className="h-12 max-w-[140px] object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-65 hover:opacity-100"
+                  className="h-16 max-w-[180px] object-contain"
                 />
               </div>
             ))}
