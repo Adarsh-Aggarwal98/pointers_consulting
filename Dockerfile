@@ -28,6 +28,12 @@ FROM deps AS build-api
 COPY . .
 RUN pnpm --filter @workspace/api-server run build
 
+# ---- deploy-deps ----
+# pnpm deploy creates a standalone node_modules with all prod deps resolved
+FROM deps AS deploy-deps
+COPY . .
+RUN pnpm --filter @workspace/api-server deploy --prod /deploy
+
 # ---- runner ----
 FROM node:24-alpine AS runner
 WORKDIR /app
@@ -38,8 +44,8 @@ COPY --from=build-api /app/artifacts/api-server/dist ./dist
 # React static files (served by sirv)
 COPY --from=build-frontend /app/artifacts/pointers-consulting/dist/public ./public
 
-# better-sqlite3 is externalized by esbuild — copy from pnpm virtual store
-COPY --from=deps /app/node_modules/.pnpm/better-sqlite3@11.10.0/node_modules/better-sqlite3 ./node_modules/better-sqlite3
+# Production node_modules (only what api-server needs at runtime)
+COPY --from=deploy-deps /deploy/node_modules ./node_modules
 
 RUN mkdir -p /data
 
