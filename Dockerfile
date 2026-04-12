@@ -38,12 +38,8 @@ COPY --from=build-api /app/artifacts/api-server/dist ./dist
 # React static files (served by sirv)
 COPY --from=build-frontend /app/artifacts/pointers-consulting/dist/public ./public
 
-# Native modules (externalized by esbuild, must be present at runtime)
-COPY --from=deps /app/node_modules/better-sqlite3 ./node_modules/better-sqlite3
-COPY --from=deps /app/node_modules/pino ./node_modules/pino
-COPY --from=deps /app/node_modules/pino-pretty ./node_modules/pino-pretty
-COPY --from=deps /app/node_modules/thread-stream ./node_modules/thread-stream
-COPY --from=deps /app/node_modules/sirv ./node_modules/sirv
+# better-sqlite3 is externalized by esbuild — copy from pnpm virtual store
+COPY --from=deps /app/node_modules/.pnpm/better-sqlite3@11.10.0/node_modules/better-sqlite3 ./node_modules/better-sqlite3
 
 RUN mkdir -p /data
 
