@@ -77,13 +77,13 @@ const otherServices = [
   },
 ];
 
-const LOGO_BASE = "https://pointersconsulting.com.au/wp-content/uploads";
 const partners = [
-  { src: `${LOGO_BASE}/2025/12/jpatax-logo.png`, alt: "JPATAX", label: "Authorised Representative of" },
-  { src: `${LOGO_BASE}/2025/12/tax-board.png`, alt: "Tax Practitioners Board", label: "Registered Tax Agent: 26122730" },
-  { src: `${LOGO_BASE}/2025/12/cpa-australia.png`, alt: "CPA Australia", label: "" },
-  { src: `${LOGO_BASE}/2025/12/asic.png`, alt: "ASIC", label: "Registered ASIC Agent" },
-  { src: `${LOGO_BASE}/2025/12/smsf-association.png`, alt: "SMSF Association", label: "" },
+  { name: "CPA Australia", src: `${BASE}/2026/01/cpa-2025-logo.jpg` },
+  { name: "ASIC Registered Agent", src: `${BASE}/2026/01/asic-registerd-agent-logo-20205.jpg` },
+  { name: "SMSF Association", src: `${BASE}/2026/01/sms-assocation.jpg` },
+  { name: "Xero Partner", src: `${BASE}/2026/01/xero-logo-20205.jpg` },
+  { name: "JPATAX", src: `${BASE}/2026/01/jpatax-logo-2025.jpg` },
+  { name: "Tax Practitioners Board", src: `${BASE}/2026/01/tax-board-2025-logo.jpg` },
 ];
 
 export default function Services() {
@@ -262,24 +262,22 @@ export default function Services() {
       <section className="py-14 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-widest text-center mb-10">Our Finance Partners</h2>
-          <div className="flex flex-wrap justify-center items-center gap-10">
+          <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
             {partners.map((p, i) => (
               <motion.div
-                key={p.alt}
+                key={p.name}
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.07 }}
                 whileHover={{ scale: 1.08 }}
-                className="flex flex-col items-center gap-2"
+                className="flex items-center justify-center"
               >
                 <img
                   src={p.src}
-                  alt={p.alt}
+                  alt={p.name}
                   className="h-20 max-w-[200px] object-contain transition-all duration-300"
-                  style={{ filter: "none" }}
                 />
-                {p.label && <p className="text-xs text-gray-500 text-center uppercase tracking-wide">{p.label}</p>}
               </motion.div>
             ))}
           </div>
