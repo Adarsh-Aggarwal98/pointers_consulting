@@ -9,12 +9,11 @@ const aboutDropdown = [
 ];
 
 const servicesDropdown = [
-  { href: "/services/smsf", label: "Self-Managed Superfund (SMSF)", specialist: true },
+  { href: "/services/smsf", label: "Self-Managed Super Fund (SMSF)", specialist: true },
+  { href: "/services/business-advisory", label: "Business Advisory & Taxation" },
   { href: "/services/taxation-accounting", label: "Taxation & Accounting" },
-  { href: "/services/business-advisory", label: "Business Advisory" },
-  { href: "/services/assurance-risk", label: "Assurance & Risk" },
   { href: "/services/legal-compliance", label: "Legal — Setups & Registrations" },
-  { href: "/services/ai-business-hub", label: "AI Business Support Hub" },
+  { href: "/services/assurance-risk", label: "Audit & Risk Assurance" },
 ];
 
 const navLinks = [
@@ -57,8 +56,15 @@ export default function Navbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Marquee ticker bar */}
+      <div className="bg-[#459443] overflow-hidden py-1.5">
+        <div className="animate-marquee whitespace-nowrap text-white text-xs font-semibold tracking-wide">
+          Think Big - Act Smart - Stay Compliant &nbsp;&nbsp;|&nbsp;&nbsp; Try our Free SMSF FitForMe Tool &nbsp;&nbsp;|&nbsp;&nbsp; Think Big - Act Smart - Stay Compliant &nbsp;&nbsp;|&nbsp;&nbsp; Try our Free SMSF FitForMe Tool &nbsp;&nbsp;|&nbsp;&nbsp; Think Big - Act Smart - Stay Compliant &nbsp;&nbsp;|&nbsp;&nbsp; Try our Free SMSF FitForMe Tool &nbsp;&nbsp;|&nbsp;&nbsp;
+        </div>
+      </div>
+
       {/* Top info bar */}
-      <div className="bg-[#459443] text-white text-xs hidden lg:block">
+      <div className="bg-[#1a2e1a] text-white text-xs hidden lg:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 flex items-center justify-end gap-6">
           <a href="tel:+61426784982" className="flex items-center gap-1.5 hover:text-white/80 transition-colors">
             <Phone size={11} />
@@ -74,13 +80,13 @@ export default function Navbar() {
       {/* Main nav */}
       <nav className={`bg-white transition-all duration-300 ${scrolled ? "shadow-md" : "shadow-sm"}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-20">
+          <div className="flex items-center justify-between h-18 lg:h-22">
             <Link href="/">
               <div className="flex items-center cursor-pointer">
                 <img
                   src="https://pointersconsulting.com.au/wp-content/uploads/2026/01/Pointers-logo.png"
                   alt="Pointers Consulting"
-                  className="h-10 lg:h-12 w-auto object-contain"
+                  className="h-16 lg:h-20 w-auto object-contain"
                   onError={(e) => {
                     const t = e.currentTarget;
                     t.style.display = "none";
@@ -104,7 +110,7 @@ export default function Navbar() {
                   >
                     <Link href={link.href}>
                       <span
-                        className={`flex items-center gap-1 text-sm font-medium transition-colors cursor-pointer ${
+                        className={`flex items-center gap-1 text-base font-semibold transition-colors cursor-pointer ${
                           (link.label === "About Us" && isAboutActive) || (link.label === "Services" && isServicesActive)
                             ? "text-[#459443]"
                             : "text-gray-700 hover:text-[#459443]"
@@ -122,7 +128,7 @@ export default function Navbar() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 6 }}
                           transition={{ duration: 0.15 }}
-                          className={`absolute top-full left-0 mt-1 bg-white border border-gray-100 rounded-lg shadow-lg overflow-hidden z-50 ${link.label === "Services" ? "w-72" : "w-52"}`}
+                          className={`absolute top-full left-0 mt-1 bg-white border border-gray-100 rounded-lg shadow-lg overflow-hidden z-50 ${link.label === "Services" ? "w-80" : "w-56"}`}
                           onMouseEnter={() => handleMouseEnter(link.label)}
                           onMouseLeave={handleMouseLeave}
                         >
@@ -149,7 +155,7 @@ export default function Navbar() {
                 ) : (
                   <Link key={link.href} href={link.href}>
                     <span
-                      className={`text-sm font-medium transition-colors cursor-pointer ${
+                      className={`text-base font-semibold transition-colors cursor-pointer ${
                         location === link.href
                           ? "text-[#459443]"
                           : "text-gray-700 hover:text-[#459443]"

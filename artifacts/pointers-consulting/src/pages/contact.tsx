@@ -9,11 +9,10 @@ const fadeUp = {
 
 const services = [
   "Self-Managed Superfund (SMSF)",
+  "Business Advisory & Taxation",
   "Taxation & Accounting",
-  "Business Advisory",
-  "Assurance & Risk",
-  "Legal Setups & Registrations",
-  "AI Business Support Hub",
+  "Legal Aid – Setups & Registrations",
+  "Audit & Risk Assurance",
   "Other / General Enquiry",
 ];
 
@@ -43,7 +42,7 @@ export default function Contact() {
   return (
     <div className="overflow-x-hidden">
       {/* Header */}
-      <section className="bg-[#1a2e1a] pt-36 pb-16">
+      <section className="bg-[#1a2e1a] pt-44 pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="text-[#459443] font-semibold text-sm uppercase tracking-wider">Get in Touch</span>

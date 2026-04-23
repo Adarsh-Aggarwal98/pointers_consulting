@@ -28,8 +28,8 @@ const whyUs = [
   },
   {
     icon: Globe,
-    title: "Melbourne locals + global reach",
-    desc: "Local knowledge for Australian clients, your seamless service for expats in UAE and beyond.",
+    title: "Melbourne locals + Australia-wide reach",
+    desc: "Local Melbourne knowledge with Australia-wide service capability via video calls, e-signatures and secure digital workflows.",
   },
   {
     icon: GraduationCap,
@@ -110,7 +110,7 @@ export default function About() {
     <div className="overflow-x-hidden">
       {/* Hero Banner */}
       <section
-        className="relative pt-36 pb-14 bg-cover bg-center"
+        className="relative pt-44 pb-14 bg-cover bg-top"
         style={{ backgroundImage: `url(${BASE}/2024/06/business-accountant.webp)` }}
       >
         <div className="absolute inset-0 bg-[#1a2e1a]/75" />

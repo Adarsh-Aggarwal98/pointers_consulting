@@ -30,7 +30,7 @@ export default function MessageFromDirector() {
     <div className="overflow-x-hidden">
       {/* Hero Banner */}
       <section
-        className="relative pt-36 pb-14 bg-cover bg-center"
+        className="relative pt-44 pb-10 bg-cover bg-center"
         style={{ backgroundImage: `url(${BASE}/2026/01/sliders3.jpg)` }}
       >
         <div className="absolute inset-0 bg-[#1a2e1a]/80" />

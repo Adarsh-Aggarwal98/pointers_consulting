@@ -5,12 +5,11 @@ import { CheckCircle, Phone, Mail, ArrowRight } from "lucide-react";
 const BASE = "https://pointersconsulting.com.au/wp-content/uploads";
 
 const allServices = [
-  { slug: "smsf", title: "Self-Managed Superfund" },
+  { slug: "smsf", title: "Self-Managed Superfund (SMSF)" },
+  { slug: "business-advisory", title: "Business Advisory & Taxation" },
   { slug: "taxation-accounting", title: "Taxation & Accounting" },
-  { slug: "business-advisory", title: "Business Advisory" },
-  { slug: "assurance-risk", title: "Assurance & Risk" },
-  { slug: "legal-compliance", title: "Legal — Setups, Registrations & Compliance" },
-  { slug: "ai-business-hub", title: "AI-Powered Business Support Hub" },
+  { slug: "legal-compliance", title: "Legal Aid – Setups, Registrations & Compliance" },
+  { slug: "assurance-risk", title: "Audit & Risk Assurance" },
 ];
 
 const serviceData: Record<string, {
@@ -65,51 +64,77 @@ const serviceData: Record<string, {
     title: "Taxation & Accounting",
     image: `${BASE}/2021/10/legaldoc-400x239.jpg`,
     intro:
-      "Tax and accounting that optimises, not just complies. We provide precision returns, bookkeeping and advisory to minimise liability, maximise deductions and keep your numbers clear and current.",
+      "Forget generic tax preparation — get the big picture of your structure and finances. We dig into your complete financial picture and endeavour to bring you a competitive edge for long-term growth. We transform complex tax laws and rules into clear strategies that protect your wealth and uncover legitimate opportunities. With deep tax & SMSF expertise, we approach every tax return as a planning opportunity — ensuring ATO compliance while maximising your after-tax income for investments, family security or business growth.",
     sections: [
       {
-        heading: "Some examples of our services include:",
+        heading: "Few examples of simple yet thought-provoking tips:",
         items: [
-          "Individual and business income tax returns",
+          "Is my business structure supporting my growth expectations and is it tax efficient?",
+          "Are all legitimate expenses and deductions being claimed?",
+          "Have lodgements been timely done and are accurate as per ATO expectations?",
+          "Is my property (or investment) portfolio working for me and for my retirement?",
+          "Are there any BAS errors creating cashflow killers?",
+          "Are my Trust distributions compliant or inviting ATO audits?",
+          "Is my business ready for implementing 'pay day super' requirements?",
+        ],
+      },
+      {
+        heading: "Services offered:",
+        items: [
+          "Tax returns – Preparation & Lodgement",
+          "Property & Investment Tax Planning",
+          "Business Model & Cash Flow Planning",
+          "Payroll Services",
+          "Bookkeeping & Accounting",
           "BAS and GST preparation and lodgement",
-          "Payroll and PAYG management",
-          "Negative gearing and investment property advice",
           "Capital gains tax planning",
-          "International tax and double tax agreements",
           "ATO audit support and representation",
-          "Bookkeeping and Xero/MYOB setup",
-          "Fringe benefits tax (FBT) compliance",
           "Tax minimisation strategies",
+          "International tax and double tax agreements",
+          "Fringe benefits tax (FBT) compliance",
         ],
       },
     ],
   },
   "business-advisory": {
-    title: "Business Advisory",
+    title: "Business Advisory & Taxation",
     image: `${BASE}/2026/01/57-400x239.jpg`,
     intro:
-      "Business decisions shouldn't be driven by guesswork or last minute reactions. As such, we focus on giving business owners, founders and globally mobile individuals a clear view of where they are now, what is realistically possible next and how to move there in a measured, confident way. We blend technical depth in Strategy, Taxation, Accounting (and SMSF if need be) along with our practical commercial experience so advice stays grounded, actionable and aligned with your longer term goals, not just the next deadline.",
+      "Business is quite a broad term, and Tax is just a sub-set of this broader framework. For most businesses and enterprises (irrespective of size), success depends on far more than lodging tax returns on time. They need clear strategy, the right structure, strong governance, operational clarity and the financial breathing space to grow. Our business advisory work is about bringing these elements together in a simple, actionable way for business owners and high net-worth individuals, along with tax compliance.",
     sections: [
       {
-        heading: "Some examples of our services include:",
+        heading: "Business Advisory",
+        body: "Business decisions shouldn't be driven by guesswork or last-minute reactions. We focus on giving business owners, founders and self-employed individuals a clear view of where they are now, what is realistically possible next and how to move there in a measured, confident way.",
         items: [
-          "Strategic planning for business owners and start-ups, including business model validation, pricing, margin and cash-flow planning.",
-          "Choice of structure and re-structuring advice (company, trust, SMSF, JV) to balance asset protection, tax efficiency and future exit options.",
+          "Strategic planning, structuring and advisory for sole proprietors, business owners, self-employed individuals, entrepreneurs, investors and high net-worth individuals.",
+          "Choice of right business structure and restructuring advice (company, trust, SMSF, JV) to balance asset protection, tax efficiency and future exit options.",
+          "Business model validation, governance and structure planning, and high-level maturity assessment of operational and financial frameworks.",
           "Governance and board-style guidance for growing private businesses, including risk oversight, reporting frameworks and decision disciplines.",
           "Succession, sale-readiness and transition planning for founders and family businesses, from readiness reviews to roadmap design.",
-          "Cross-border structuring and advisory for high-wealth individuals and UAE-based entrepreneurs with Australian interests, covering residency, investment and business ownership considerations at a high level.",
-          "Management reporting frameworks, KPI dashboards and board packs.",
-          "CFO services for SMEs — part-time or project-based.",
-          "Growth strategy and capital raising support.",
+        ],
+      },
+      {
+        heading: "Taxation",
+        body: "Forget generic tax preparation — get the big picture of your structure and finances. We dig into your complete financial picture and endeavour to bring you a competitive edge for long term growth. We transform complex tax laws and rules into clear strategies that protect your wealth and uncover legitimate opportunities.",
+        items: [
+          "Tax returns – Preparation & Lodgement",
+          "Property & Investment Tax Planning",
+          "Business Model & Cash Flow Planning",
+          "Payroll Services",
+          "Bookkeeping & Accounting",
+          "BAS and GST preparation and lodgement",
+          "Capital gains tax planning",
+          "ATO audit support and representation",
+          "Tax minimisation strategies",
         ],
       },
     ],
   },
   "assurance-risk": {
-    title: "Assurance & Risk",
+    title: "Audit & Risk Assurance",
     image: `${BASE}/2021/10/audit-400x239.jpg`,
     intro:
-      "Pointers Consulting delivers strategic risk and assurance through our proven E-R-S philosophy (Engage → Reassess → Solve). We help Australian and UAE businesses strengthen controls, mitigate threats and build stakeholder confidence — turning risk management from cost centre to competitive advantage.",
+      "We deliver strategic risk and assurance solutions through our proven E-R-S philosophy (Engage → Reassess → Solve). We help Australian businesses strengthen internal controls, mitigate threats and build stakeholder confidence — turning risk management from cost centre to competitive advantage.",
     sections: [
       {
         heading: "E-R-S in Action:",
@@ -123,62 +148,27 @@ const serviceData: Record<string, {
         heading: "Specialist services delivered through E-R-S:",
         items: [
           "Corporate Governance Advisory — ASX principles, director duties, board committee effectiveness — compliant and practical.",
-          "Internal Audit Advisory — Risk based audit planning and advisory targeting financial reporting, IT security, strategic, operational and/or process gaps. Issues found early, fixed efficiently.",
-          "Risk Management Frameworks — Enterprise risk heat maps and mitigation strategies aligned to Australian governance and UAE business realities.",
+          "Internal Audit & Advisory — Risk based audit planning and advisory targeting financial reporting, IT security, strategic, operational and/or process gaps. Issues found early, fixed efficiently.",
+          "Risk Management Frameworks — Enterprise risk heat maps and mitigation strategies aligned to Australian governance standards.",
           "Internal Control Optimisation — Revenue, inventory, expense controls tested and strengthened per global standards.",
-          "Compliance Health Checks — Pre-emptive ATO/ASIC/UAE free zone reviews fixing gaps before audits strike.",
-          "Risk Assurance experience that works. Every engagement follows Engage → Reassess → Solve for certainty, not just compliance. Book your E-R-S risk management discovery session today.",
+          "Compliance Health Checks — Pre-emptive ATO/ASIC reviews fixing gaps before audits strike.",
         ],
       },
     ],
   },
   "legal-compliance": {
-    title: "Legal — Setups, Registrations & Compliance",
+    title: "Legal Aid – Setups, Registrations & Compliance",
     image: `${BASE}/2022/07/company-taxreturn-400x239.jpg`,
     intro:
-      "Pointers Consulting provides fast-track legal aid for Australian business registrations, entity formation and ongoing compliance — plus specialist guidance for international businesses establishing Australian presence. From sole traders to multinationals, we handle the paperwork so you launch confidently and stay compliant.",
+      "We provide fast-track legal aid for Australian business registrations, entity formation and ongoing compliance — plus specialist guidance for international businesses establishing Australian presence. From sole traders to multinationals, we handle the paperwork, so you launch confidently and stay compliant.",
     sections: [
       {
-        heading: "Domestic Australian Services:",
+        heading: "Services include:",
         items: [
           "Business Structure Setup — Sole trader, company, trust formation with tax optimisation",
-          "ABN/TFN Registrations — Instant applications across all entity types",
-          "ASIC Company Lodgements — Pty Ltd formation, director appointments, annual reviews",
-          "GST & BAS Registration — Seamless tax system integration from day one",
-          "Business name registrations and IP considerations",
-          "Partnership and JV agreements",
-          "Discretionary and unit trust deeds",
-          "Ongoing governance and minutes",
-        ],
-      },
-      {
-        heading: "International Business Entry:",
-        items: [
-          "Australian Subsidiary Formation — UAE/India companies establishing Pty Ltd entities",
-          "Cross-Border Tax Structuring — Transfer pricing, permanent establishment planning",
-          "Market Entry Compliance — TFN withholding, FBT setup, local director requirements",
-          "Corporate secretarial services for overseas-owned entities",
-        ],
-      },
-    ],
-  },
-  "ai-business-hub": {
-    title: "AI-Powered Business Support Hub",
-    image: `${BASE}/2026/01/673-400x239.jpg`,
-    intro:
-      "Whether you are an Accountant or any business owner, your time should be spent on strategy and judgment, not juggling staff gaps or clunky systems. We've created the AI-Powered Business Support Hub specifically for firms and businesses that want extra capacity or smarter processes without adding permanent headcount.",
-    sections: [
-      {
-        heading: "What you gain from this service:",
-        items: [
-          "Extra qualified capacity without hiring: virtual CFO and back-office support that plugs straight into your existing systems.",
-          "Custom AI solutions that streamline all required tasks, cut error risk and make you free to focus on your core expertise and client relationships.",
-          "Implementation support from a team that 'speaks accounting' as well as tech, so changes are realistic and adopted, not shelved.",
-          "Assurance that your data is handled securely on secured infrastructure, even when you're servicing clients anywhere in the world.",
-          "AI-powered workflow automation and custom tool development.",
-          "Offshore staffing solutions and process documentation.",
-          "Data analytics, reporting and technology stack optimisation.",
-          "Ongoing managed support packages.",
+          "ABN/TFN/GST Registrations — Instant applications across all entity types",
+          "ASIC Company Lodgements — Pty Ltd formation, director appointments, annual reviews etc.",
+          "Legal Documentation — Business sale & purchase Agreements, Partnership Agreements, Joint Venture Agreements and much more.",
         ],
       },
     ],
@@ -214,7 +204,7 @@ export default function ServiceDetail() {
     <div className="overflow-x-hidden">
       {/* Hero Banner */}
       <section
-        className="relative pt-36 pb-14 bg-cover bg-center"
+        className="relative pt-44 pb-14 bg-cover bg-center"
         style={{ backgroundImage: `url(${data.image})` }}
       >
         <div className="absolute inset-0 bg-[#1a2e1a]/80" />

@@ -12,9 +12,8 @@ const sidebarServices = [
   ]},
   { slug: "/services/taxation-accounting", title: "Taxation & Accounting" },
   { slug: "/services/business-advisory", title: "Business Advisory" },
-  { slug: "/services/assurance-risk", title: "Assurance & Risk" },
-  { slug: "/services/legal-compliance", title: "Legal — Setups, Registrations & Compliance" },
-  { slug: "/services/ai-business-hub", title: "AI-Powered Business Support Hub" },
+  { slug: "/services/assurance-risk", title: "Audit & Risk Assurance" },
+  { slug: "/services/legal-compliance", title: "Legal Aid – Setups, Registrations & Compliance" },
 ];
 
 const subPageData: Record<string, {
@@ -26,80 +25,53 @@ const subPageData: Record<string, {
   closing?: string;
 }> = {
   "for-accountants": {
-    title: "For Accountants/ finance professionals",
-    heroTitle: "For Accountants/ finance professionals",
+    title: "B2B Model – For Accountants",
+    heroTitle: "B2B Model – For Accountants",
     image: `${BASE}/2021/10/legaldoc-400x239.jpg`,
     intro:
-      "Elevate your SMSF offering without carrying all the risk.\n\nWe are the experts in partnering with Australian accounting practices to deliver specialist SMSF services under your brand. White label SMSF administration, compliance reviews and technical support let you serve SMSF clients confidently while focusing on core advisory relationships.",
+      "Elevate your SMSF offering without the risk.\n\nWe are experts in partnering with Australian Accountants to deliver specialist SMSF services. Enjoy white-label administration, compliance reviews and technical support and serve your SMSF clients confidently while focusing on your core advisory relationships.",
     sections: [
       {
-        heading: "Why Us:",
+        heading: "Why Work with Us?",
         items: [
-          "Revenue protection model: Retain your advisory fees and client relationships. We handle execution while you maintain the strategic oversight clients expect from their trusted accountant.",
-          "Future-proof your practice: Stay ahead of ATO's SMSF audit program expansion: enhanced data matching, automated pre-lodgement risk scoring, climate risk investment disclosures. Our specialists track regulatory changes so you don't have to.",
-          "ATO audit defence specialists: Our team handles ATO rectification requests, investment strategy reconstructions and SIS compliance matters — the deep technical issues where general practices struggle. When ATO questions arise, specialist responses protect your client relationships.",
-          "Advanced compliance coverage: Issues like Section 84 exemptions, Part 31B product replacements, crypto collectables situations, in-specie/member market substitution — we manage sophisticated issues your team may not encounter regularly, ensuring bulletproof documentation.",
-          "Scalable administration: Full-cycle SMSF accounting, annual returns, ECPI calculations and trustee coordination delivered through secure platforms. Your practice adds capacity during peak season without hiring additional specialist staff.",
-          "Technical support on demand: Complex SMSF queries answered within 24 hours. Death benefit dependency determinations, transition to retirement segregation rules, trustee declaration updates — get specialist input without the full-time overhead.",
-          "Consistent quality control: Every SMSF engagement follows our proven E-R-S framework (Engage — Reassess — Solve), delivering standardised excellence across your client base. No quality variation between team members.",
-          "Grow SMSF services without growing headaches: Pointers Consulting becomes your virtual SMSF division, letting you confidently say 'yes' to every SMSF opportunity.",
-        ],
-      },
-      {
-        heading: "Key Questions to Consider:",
-        items: [
-          "ATO's 2025 SMSF audit program targeting your clients' investment strategy documentation?",
-          "Are your SMSF clients' related party loans passing ATO arm's length tests?",
-          "Client SMSFs at risk of ATO non-arm's-length income (NALI) reclassification?",
-          "All SMSF minutes properly documented for contributions and pensions?",
-          "Client SMSF bank accounts truly segregated per ATO audit standards?",
-          "ECPI calculations compliant with ATO's proportionate method rules?",
-          "SMSF annual returns lodged within ATO's 45-day audit cycle deadlines?....and much more.",
+          "Grow your SMSF services without growing headache: We become your virtual SMSF division so you confidently say yes to every potential opportunity.",
+          "Revenue protection model: Retain your clients (and fees) while we handle end to end SMSF admin & compliance on a fixed fee model.",
+          "Technical support on-demand: Get complex SMSF queries answered within 24 hours without full-time specialist overhead.",
+          "Future-proof your practice: Stay ahead of ATO SMSF audit expansions as our specialists track all regulatory changes.",
         ],
       },
     ],
-    closing: "Reach out to discuss white-label partnership options for your practice today.",
+    closing: "Reach out to discuss white-label service options for your practice today.",
   },
   "for-individuals": {
-    title: "For Individuals",
-    heroTitle: "For Individuals",
+    title: "B2C Model – For Individual Trustees",
+    heroTitle: "B2C Model – For Individual Trustees",
     image: `${BASE}/2021/10/smsf-400x239.jpg`,
     intro:
-      "Is SMSF right for you? Get expert clarity before committing.\n\nPointers Consulting specialises in guiding Australian professionals, business owners and families through every stage of Self Managed Super Fund — from initial suitability assessment to setup, administration and ongoing ATO compliance. Unlike generic recommendation that treats SMSF as just another product, we start with your complete financial picture: current super balance, income streams, investment experience, family goals and risk tolerance.",
+      "Is SMSF right for me? Get expert clarity before committing.\n\nSMSF is quite different to Taxation owing to many reasons — a financial product, highly regulated and hence complex. And that's exactly where we come in! Pointers Consulting specialises in SMSF space and guides individuals, professionals and families through every stage of Self-Managed Super Fund — from initial suitability assessment to setup, administration and ongoing ATO compliance.",
     sections: [
       {
         heading: "Why Us:",
         items: [
-          "Risk-free decision making: Our SMSF FitForMe Checkup delivers instant clarity on whether self-managed super suits your situation, saving you from costly mistakes before you start. No obligation, just personalised insights. And it's free.",
+          "The \"Pointers\" Difference: Our expertise can be judged simply by using our SMSF FitForMe Checkup tool that delivers instant clarity on whether SMSF suits your situation or not, saving you from costly mistakes before you start. No obligation, no financial advice — just personalised insights for you. And it's free!",
           "Technical expertise you can trust: Years of handling complex SMSF matters means we spot compliance traps others miss — from investment strategy documentation to related-party transactions. Your fund stays ATO-ready from day one.",
-          "Investment freedom with guardrails: Receive tailored guidance that balances your growth aspirations with strict sole purpose test requirements. Property, shares, crypto — we ensure every holding complies while maximising other tax returns.",
-          "Ongoing peace of mind: Regular compliance health checks, contribution strategy reviews and exit planning ensure your SMSF evolves with your life stage. When ATO letters arrive, specialist representation minimises stress and penalties.",
-          "The Pointers difference: SMSF managed by senior specialists, not juniors. Direct access to the principal for complex decisions with simple explanations of complex rules. Transparent value-based pricing that aligns with outcomes delivered.",
-          "Secure your retirement control confidently: With Pointers Consulting, SMSF becomes a powerful wealth driver, not compliance nightmare. Book your SMSF strategy session today.",
+          "Investment freedom with guardrails: Receive tailored guidance that balances your growth aspirations with strict sole purpose test requirements. Property, shares, crypto — we ensure every holding complies while maximising after-tax returns.",
+          "Ongoing peace of mind: Regular compliance health checks, contribution strategy reviews and exit planning ensure your SMSF evolves with your life stage.",
+          "Value based Fee: No hidden costs, no surprises! Transparent value-based pricing (fixed fee model) that aligns with outcomes delivered.",
         ],
       },
       {
-        heading: "Questions to Ask Yourself:",
+        heading: "Key Questions to Ask Yourself:",
         items: [
           "Wondering if SMSF is right for you and delivers real value for your retirement goals?",
-          "Is your SMSF truly 'audit-ready' before ATO penalties hit in 2025?",
-          "Could better SMSF strategies unlock more investment growth?",
+          "Is your SMSF truly audit-ready before ATO penalties hit in 2026?",
+          "Could better SMSF compliance strategies unlock more investment growth?",
           "Facing potential ATO non-compliance — can your fund survive scrutiny?",
-          "Ready for SMSF that builds financial freedom, not just compliance?",
-        ],
-      },
-      {
-        heading: "Individuals Questions:",
-        items: [
-          "ATO data-matching catching your unreported rental income this year?",
-          "Claiming every tax offset your investment properties qualify for?",
-          "Work-from-home deductions passing ATO record-keeping audits?",
-          "Super contribution caps triggering unexpected ATO excess tax?",
-          "Family tax benefits aligned with your 2025 circumstances?",
+          "Ready for SMSF that builds financial freedom, and not just compliance?",
         ],
       },
     ],
-    closing: "Need Consultation? Please call us now to find out more about our service or contact us to book an appointment.",
+    closing: "You are welcome to contact anytime or book an appointment to find out more about our SMSF services!",
   },
   fitforme: {
     title: "SMSF FitForMe Checkup",
@@ -163,7 +135,7 @@ export default function SmsfSubPage() {
     <div className="overflow-x-hidden">
       {/* Hero Banner */}
       <section
-        className="relative pt-36 pb-14 bg-cover bg-center"
+        className="relative pt-44 pb-14 bg-cover bg-center"
         style={{ backgroundImage: `url(${data.image})` }}
       >
         <div className="absolute inset-0 bg-[#1a2e1a]/80" />

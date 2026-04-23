@@ -52,12 +52,11 @@ export default function Footer() {
             </h3>
             <ul className="space-y-2.5">
               {[
-                "Self-Managed Superfund",
+                "Self-Managed Superfund (SMSF)",
+                "Business Advisory & Taxation",
                 "Taxation & Accounting",
-                "Business Advisory",
-                "Assurance & Risk",
-                "Legal Setups & Registrations",
-                "AI Business Support Hub",
+                "Legal Aid – Setups & Registrations",
+                "Audit & Risk Assurance",
               ].map((service) => (
                 <li key={service}>
                   <Link href="/services">

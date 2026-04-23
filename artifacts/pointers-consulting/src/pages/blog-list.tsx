@@ -4,6 +4,69 @@ import { motion } from "framer-motion";
 import { Search, ArrowRight, Clock, Calendar } from "lucide-react";
 import type { BlogSummary } from "@/data/blog-types";
 
+const staticBlogs: BlogSummary[] = [
+  {
+    id: 1,
+    slug: "is-smsf-right-for-you",
+    title: "Is an SMSF Right for You? Key Questions to Ask Before You Start",
+    excerpt: "Self-Managed Super Funds offer control and flexibility, but they're not for everyone. Here's what you need to consider before taking the plunge.",
+    category: "SMSF",
+    date: "April 2026",
+    readTime: "5 min read",
+    author: "Sam Pointers",
+  },
+  {
+    id: 2,
+    slug: "ato-smsf-audit-2026",
+    title: "ATO's 2026 SMSF Audit Program: What Trustees Need to Know",
+    excerpt: "The ATO is ramping up SMSF compliance checks in 2026. Find out what they're targeting and how to ensure your fund is audit-ready.",
+    category: "SMSF",
+    date: "March 2026",
+    readTime: "6 min read",
+    author: "Sam Pointers",
+  },
+  {
+    id: 3,
+    slug: "business-structure-tax-efficiency",
+    title: "Choosing the Right Business Structure for Tax Efficiency",
+    excerpt: "Company, trust or sole trader? The structure you choose today has major tax implications for tomorrow. We break down the options.",
+    category: "Business Advisory",
+    date: "March 2026",
+    readTime: "7 min read",
+    author: "Sam Pointers",
+  },
+  {
+    id: 4,
+    slug: "payday-super-what-employers-need-to-know",
+    title: "Payday Super: What Employers Need to Know in 2026",
+    excerpt: "From July 2026, super must be paid on payday. Here's what this means for your payroll processes and cash flow planning.",
+    category: "Taxation",
+    date: "February 2026",
+    readTime: "4 min read",
+    author: "Sam Pointers",
+  },
+  {
+    id: 5,
+    slug: "trust-distributions-ato-compliance",
+    title: "Trust Distributions: Are You Compliant with ATO's Rules?",
+    excerpt: "Incorrect trust distributions can trigger ATO audits and significant penalties. Learn how to structure distributions correctly.",
+    category: "Taxation",
+    date: "February 2026",
+    readTime: "5 min read",
+    author: "Sam Pointers",
+  },
+  {
+    id: 6,
+    slug: "smsf-investment-strategy-guide",
+    title: "SMSF Investment Strategy: A Complete Guide for Trustees",
+    excerpt: "Your SMSF must have a documented investment strategy that meets strict ATO requirements. Here's everything you need to include.",
+    category: "SMSF",
+    date: "January 2026",
+    readTime: "8 min read",
+    author: "Sam Pointers",
+  },
+];
+
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -14,17 +77,13 @@ const stagger = {
 };
 
 export default function BlogList() {
-  const [blogPosts, setBlogPosts] = useState<BlogSummary[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [blogPosts] = useState<BlogSummary[]>(staticBlogs);
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
     document.title = "Blog | Pointers Consulting";
-    fetch("/api/blogs")
-      .then((r) => r.json())
-      .then((data: BlogSummary[]) => setBlogPosts(data))
-      .finally(() => setIsLoading(false));
+    window.scrollTo(0, 0);
   }, []);
 
   const categories = ["All", ...Array.from(new Set(blogPosts.map((p) => p.category)))];
@@ -40,18 +99,10 @@ export default function BlogList() {
   const featured = filtered[0];
   const rest = filtered.slice(1);
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center pt-20">
-        <div className="text-gray-500 text-sm">Loading articles...</div>
-      </div>
-    );
-  }
-
   return (
     <div className="overflow-x-hidden">
       {/* Header */}
-      <section className="bg-[#1a2e1a] pt-36 pb-16">
+      <section className="bg-[#1a2e1a] pt-44 pb-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="text-[#459443] font-semibold text-sm uppercase tracking-wider">Insights & News</span>
