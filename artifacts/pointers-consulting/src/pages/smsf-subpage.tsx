@@ -10,7 +10,6 @@ const sidebarServices = [
     { slug: "/services/smsf/for-individuals", title: "For Individuals" },
     { slug: "/services/smsf/fitforme", title: "SMSF FitForMe Checkup" },
   ]},
-  { slug: "/services/taxation-accounting", title: "Taxation & Accounting" },
   { slug: "/services/business-advisory", title: "Business Advisory" },
   { slug: "/services/assurance-risk", title: "Audit & Risk Assurance" },
   { slug: "/services/legal-compliance", title: "Legal Aid – Setups, Registrations & Compliance" },
@@ -141,7 +140,7 @@ export default function SmsfSubPage() {
         <div className="absolute inset-0 bg-[#1a2e1a]/80" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2">{data.heroTitle}</h1>
-          <p className="text-white/60 text-sm">
+          <p className="text-white text-sm">
             <Link href="/"><span className="hover:text-white cursor-pointer transition-colors">Home</span></Link>
             {" > "}{data.heroTitle}
           </p>
@@ -157,13 +156,13 @@ export default function SmsfSubPage() {
             <aside className="lg:col-span-1 space-y-6">
               <div className="border border-gray-200 rounded-lg overflow-hidden">
                 <div className="bg-[#459443] px-5 py-3">
-                  <h3 className="text-white font-bold text-base">Services</h3>
+                  <h3 className="text-white font-bold text-sm">Services</h3>
                 </div>
                 <ul className="divide-y divide-gray-100">
                   {sidebarServices.map((s) => (
                     <li key={s.slug}>
                       <Link href={s.slug}>
-                        <div className="flex items-center gap-3 px-5 py-3 cursor-pointer hover:bg-gray-50 transition-colors text-gray-700">
+                        <div className="flex items-center gap-3 px-5 py-3 cursor-pointer hover:bg-gray-50 transition-colors text-[#0a0a0a]">
                           <CheckCircle size={15} className="text-gray-300 shrink-0" />
                           <span className="text-sm font-medium">{s.title}</span>
                         </div>
@@ -174,7 +173,7 @@ export default function SmsfSubPage() {
                             <li key={child.slug}>
                               <Link href={child.slug}>
                                 <div className={`flex items-center gap-3 pl-10 pr-5 py-2.5 cursor-pointer hover:bg-gray-50 transition-colors ${
-                                  currentPath === child.slug ? "text-[#459443] font-semibold" : "text-gray-600"
+                                  currentPath === child.slug ? "text-[#459443] font-semibold" : "text-[#0a0a0a]"
                                 }`}>
                                   <CheckCircle
                                     size={13}
@@ -195,7 +194,7 @@ export default function SmsfSubPage() {
               {/* Book Appointment */}
               <div className="border border-gray-200 rounded-lg p-6">
                 <h3 className="text-[#459443] font-bold text-lg mb-2">Book an Appointment</h3>
-                <p className="text-gray-600 text-sm mb-5 font-light">
+                <p className="text-[#0a0a0a] text-sm mb-5 font-normal">
                   Schedule a free 30 minutes consultation call with our professional
                 </p>
                 <Link href="/contact">
@@ -204,11 +203,11 @@ export default function SmsfSubPage() {
                   </button>
                 </Link>
                 <div className="mt-5 pt-5 border-t border-gray-100 space-y-3">
-                  <a href="tel:+61426784982" className="flex items-center gap-3 text-sm text-gray-600 hover:text-[#459443] transition-colors">
+                  <a href="tel:+61426784982" className="flex items-center gap-3 text-sm text-[#0a0a0a] hover:text-[#459443] transition-colors">
                     <Phone size={15} className="text-[#459443]" />
                     +61 426 784 982
                   </a>
-                  <a href="mailto:sam@pointersconsulting.com.au" className="flex items-center gap-3 text-sm text-gray-600 hover:text-[#459443] transition-colors">
+                  <a href="mailto:sam@pointersconsulting.com.au" className="flex items-center gap-3 text-sm text-[#0a0a0a] hover:text-[#459443] transition-colors">
                     <Mail size={15} className="text-[#459443]" />
                     sam@pointersconsulting.com.au
                   </a>
@@ -227,17 +226,17 @@ export default function SmsfSubPage() {
               <h2 className="text-2xl font-bold text-[#1a2e1a] mb-4">{data.title}</h2>
 
               {data.intro.split("\n\n").map((para, i) => (
-                <p key={i} className="text-gray-700 text-sm leading-relaxed mb-4 font-light">{para}</p>
+                <p key={i} className="text-[#0a0a0a] text-sm leading-relaxed mb-4 font-normal">{para}</p>
               ))}
 
               {data.sections.map((section, i) => (
                 <div key={i} className="mb-7">
-                  <h3 className="text-base font-bold text-[#1a2e1a] mb-4">{section.heading}</h3>
+                  <h3 className="text-sm font-bold text-[#1a2e1a] mb-4">{section.heading}</h3>
                   <ul className="space-y-2.5">
                     {section.items.map((item, j) => (
                       <li key={j} className="flex items-start gap-3">
                         <CheckCircle size={15} className="text-[#459443] mt-0.5 shrink-0" />
-                        <span className="text-gray-700 text-sm font-light">{item}</span>
+                        <span className="text-[#0a0a0a] text-sm font-normal">{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -272,7 +271,7 @@ export default function SmsfSubPage() {
               "Fitness service providers","Beauty Saloons","Travel Agencies","Security Service","Hospitality"].map((t) => (
               <div key={t} className="flex items-center gap-2">
                 <CheckCircle size={13} className="text-[#459443] shrink-0" />
-                <span className="text-gray-700 text-xs font-light">{t}</span>
+                <span className="text-[#0a0a0a] text-xs font-normal">{t}</span>
               </div>
             ))}
           </div>

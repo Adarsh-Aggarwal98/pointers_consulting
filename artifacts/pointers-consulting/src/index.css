@@ -101,12 +101,20 @@
   }
   body {
     @apply font-sans antialiased bg-background;
+    font-size: 14px;
     font-weight: 600;
     color: #0a0a0a;
   }
+  p, li, span, label, td, th, input, textarea, select {
+    font-size: 14px;
+    color: #0a0a0a;
+  }
+  a {
+    font-size: 14px;
+  }
   h1, h2, h3, h4, h5, h6 {
     @apply font-sans tracking-tight;
-    font-weight: 600;
+    font-weight: 700;
     color: #0a0a0a;
   }
 }

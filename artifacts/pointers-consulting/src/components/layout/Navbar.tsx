@@ -11,7 +11,6 @@ const aboutDropdown = [
 const servicesDropdown = [
   { href: "/services/smsf", label: "Self-Managed Super Fund (SMSF)", specialist: true },
   { href: "/services/business-advisory", label: "Business Advisory & Taxation" },
-  { href: "/services/taxation-accounting", label: "Taxation & Accounting" },
   { href: "/services/legal-compliance", label: "Legal — Setups & Registrations" },
   { href: "/services/assurance-risk", label: "Audit & Risk Assurance" },
 ];
@@ -66,11 +65,11 @@ export default function Navbar() {
       {/* Top info bar */}
       <div className="bg-[#1a2e1a] text-white text-xs hidden lg:block">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 flex items-center justify-end gap-6">
-          <a href="tel:+61426784982" className="flex items-center gap-1.5 hover:text-white/80 transition-colors">
+          <a href="tel:+61426784982" className="flex items-center gap-1.5 text-white hover:text-white/80 transition-colors">
             <Phone size={11} />
             +61 426 784 982
           </a>
-          <a href="mailto:sam@pointersconsulting.com.au" className="flex items-center gap-1.5 hover:text-white/80 transition-colors">
+          <a href="mailto:sam@pointersconsulting.com.au" className="flex items-center gap-1.5 text-white hover:text-white/80 transition-colors">
             <Mail size={11} />
             sam@pointersconsulting.com.au
           </a>
@@ -110,10 +109,10 @@ export default function Navbar() {
                   >
                     <Link href={link.href}>
                       <span
-                        className={`flex items-center gap-1 text-base font-semibold transition-colors cursor-pointer ${
+                        className={`flex items-center gap-1 text-sm font-semibold transition-colors cursor-pointer ${
                           (link.label === "About Us" && isAboutActive) || (link.label === "Services" && isServicesActive)
                             ? "text-[#459443]"
-                            : "text-gray-700 hover:text-[#459443]"
+                            : "text-[#0a0a0a] hover:text-[#459443]"
                         }`}
                       >
                         {link.label}
@@ -136,7 +135,7 @@ export default function Navbar() {
                             <Link key={item.href} href={item.href}>
                               <div
                                 className={`px-4 py-3 text-sm cursor-pointer transition-colors hover:bg-[#459443]/5 hover:text-[#459443] flex items-center justify-between gap-2 ${
-                                  location === item.href ? "text-[#459443] bg-[#459443]/5 font-semibold" : "text-gray-700"
+                                  location === item.href ? "text-[#459443] bg-[#459443]/5 font-semibold" : "text-[#0a0a0a]"
                                 } ${"specialist" in item && (item as { specialist?: boolean }).specialist ? "border-b border-gray-100 font-medium" : ""}`}
                               >
                                 <span>{item.label}</span>
@@ -155,10 +154,10 @@ export default function Navbar() {
                 ) : (
                   <Link key={link.href} href={link.href}>
                     <span
-                      className={`text-base font-semibold transition-colors cursor-pointer ${
+                      className={`text-sm font-semibold transition-colors cursor-pointer ${
                         location === link.href
                           ? "text-[#459443]"
-                          : "text-gray-700 hover:text-[#459443]"
+                          : "text-[#0a0a0a] hover:text-[#459443]"
                       }`}
                     >
                       {link.label}
@@ -174,7 +173,7 @@ export default function Navbar() {
             </div>
 
             <button
-              className="lg:hidden text-gray-700 p-2"
+              className="lg:hidden text-[#0a0a0a] p-2"
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
@@ -202,7 +201,7 @@ export default function Navbar() {
                       className={`flex items-center justify-between py-3 px-3 rounded-md cursor-pointer transition-colors ${
                         location === link.href || (link.dropdown && isAboutActive)
                           ? "bg-[#459443]/10 text-[#459443]"
-                          : "text-gray-700 hover:text-[#459443] hover:bg-gray-50"
+                          : "text-[#0a0a0a] hover:text-[#459443] hover:bg-gray-50"
                       }`}
                     >
                       <span className="font-medium">{link.label}</span>
@@ -214,7 +213,7 @@ export default function Navbar() {
                       {link.dropdown.map((sub) => (
                         <Link key={sub.href} href={sub.href}>
                           <div className={`py-2 px-3 rounded-md text-sm cursor-pointer transition-colors ${
-                            location === sub.href ? "text-[#459443] font-semibold" : "text-gray-600 hover:text-[#459443]"
+                            location === sub.href ? "text-[#459443] font-semibold" : "text-[#0a0a0a] hover:text-[#459443]"
                           }`}>
                             {sub.label}
                           </div>
@@ -225,7 +224,7 @@ export default function Navbar() {
                 </div>
               ))}
               <div className="pt-3 space-y-2">
-                <a href="tel:+61426784982" className="flex items-center gap-2 py-2 px-3 text-gray-600 text-sm">
+                <a href="tel:+61426784982" className="flex items-center gap-2 py-2 px-3 text-[#0a0a0a] text-sm">
                   <Phone size={14} className="text-[#459443]" />
                   +61 426 784 982
                 </a>

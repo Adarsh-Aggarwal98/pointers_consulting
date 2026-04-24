@@ -10,7 +10,6 @@ const fadeUp = {
 const services = [
   "Self-Managed Superfund (SMSF)",
   "Business Advisory & Taxation",
-  "Taxation & Accounting",
   "Legal Aid – Setups & Registrations",
   "Audit & Risk Assurance",
   "Other / General Enquiry",
@@ -47,7 +46,7 @@ export default function Contact() {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="text-[#459443] font-semibold text-sm uppercase tracking-wider">Get in Touch</span>
             <h1 className="text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">Contact Us</h1>
-            <p className="text-white/70 text-xl max-w-2xl font-light">
+            <p className="text-white text-sm max-w-2xl font-normal">
               Book an appointment or send us a message. Our team will be in touch within one business day.
             </p>
           </motion.div>
@@ -73,8 +72,8 @@ export default function Contact() {
                       <MapPin size={16} className="text-[#459443]" />
                     </div>
                     <div>
-                      <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Office</p>
-                      <p className="text-white text-sm font-light leading-relaxed">
+                      <p className="text-white text-xs uppercase tracking-wider mb-1">Office</p>
+                      <p className="text-white text-sm font-normal leading-relaxed">
                         Tower 4, Level 17<br />
                         727 Collins Street<br />
                         Docklands, VIC 3008
@@ -86,7 +85,7 @@ export default function Contact() {
                       <Phone size={16} className="text-[#459443]" />
                     </div>
                     <div>
-                      <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Phone</p>
+                      <p className="text-white text-xs uppercase tracking-wider mb-1">Phone</p>
                       <a href="tel:+61426784982" className="text-white text-sm hover:text-[#459443] transition-colors">
                         +61 426 784 982
                       </a>
@@ -97,7 +96,7 @@ export default function Contact() {
                       <Mail size={16} className="text-[#459443]" />
                     </div>
                     <div>
-                      <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Email</p>
+                      <p className="text-white text-xs uppercase tracking-wider mb-1">Email</p>
                       <a href="mailto:sam@pointersconsulting.com.au" className="text-white text-sm hover:text-[#459443] transition-colors break-all">
                         sam@pointersconsulting.com.au
                       </a>
@@ -108,8 +107,8 @@ export default function Contact() {
                       <Clock size={16} className="text-[#459443]" />
                     </div>
                     <div>
-                      <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Hours</p>
-                      <p className="text-white text-sm font-light">Mon to Fri: 9:00am – 5:00pm</p>
+                      <p className="text-white text-xs uppercase tracking-wider mb-1">Hours</p>
+                      <p className="text-white text-sm font-normal">Mon to Fri: 9:00am – 5:00pm</p>
                     </div>
                   </div>
                 </div>
@@ -128,7 +127,7 @@ export default function Contact() {
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-3">
                       <CheckCircle size={15} className="text-[#459443] shrink-0" />
-                      <span className="text-gray-700 text-sm font-light">{item}</span>
+                      <span className="text-[#0a0a0a] text-sm font-normal">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -148,8 +147,8 @@ export default function Contact() {
                     <CheckCircle size={30} className="text-white" />
                   </div>
                   <h2 className="text-2xl font-bold text-[#1a2e1a] mb-3">Message Sent!</h2>
-                  <p className="text-gray-600 mb-2 font-light">Thank you for contacting Pointers Consulting.</p>
-                  <p className="text-gray-500 text-sm font-light">
+                  <p className="text-[#0a0a0a] mb-2 font-normal">Thank you for contacting Pointers Consulting.</p>
+                  <p className="text-[#0a0a0a] text-sm font-normal">
                     We'll be in touch within one business day. If urgent, call us at{" "}
                     <a href="tel:+61426784982" className="text-[#459443] font-semibold">+61 426 784 982</a>.
                   </p>
@@ -163,13 +162,13 @@ export default function Contact() {
               ) : (
                 <div className="bg-white rounded-xl border border-gray-100 p-8 shadow-sm">
                   <h2 className="font-bold text-[#1a2e1a] text-2xl mb-2">Send Us a Message</h2>
-                  <p className="text-gray-500 text-sm mb-8 font-light">
+                  <p className="text-[#0a0a0a] text-sm mb-8 font-normal">
                     Fill in the form below and we'll get back to you as soon as possible.
                   </p>
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                        <label className="block text-sm font-medium text-[#0a0a0a] mb-1.5">
                           Full Name <span className="text-[#459443]">*</span>
                         </label>
                         <input
@@ -183,7 +182,7 @@ export default function Contact() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                        <label className="block text-sm font-medium text-[#0a0a0a] mb-1.5">
                           Email Address <span className="text-[#459443]">*</span>
                         </label>
                         <input
@@ -200,7 +199,7 @@ export default function Contact() {
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1.5">Phone</label>
+                        <label className="block text-sm font-medium text-[#0a0a0a] mb-1.5">Phone</label>
                         <input
                           type="tel"
                           name="phone"
@@ -211,12 +210,12 @@ export default function Contact() {
                         />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1.5">Service Required</label>
+                        <label className="block text-sm font-medium text-[#0a0a0a] mb-1.5">Service Required</label>
                         <select
                           name="service"
                           value={form.service}
                           onChange={handleChange}
-                          className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#459443] focus:ring-1 focus:ring-[#459443]/20 transition-colors bg-white text-gray-700"
+                          className="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:border-[#459443] focus:ring-1 focus:ring-[#459443]/20 transition-colors bg-white text-[#0a0a0a]"
                         >
                           <option value="">Select a service…</option>
                           {services.map((s) => (
@@ -227,7 +226,7 @@ export default function Contact() {
                     </div>
 
                     <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                      <label className="block text-sm font-medium text-[#0a0a0a] mb-1.5">
                         Message <span className="text-[#459443]">*</span>
                       </label>
                       <textarea
@@ -241,7 +240,7 @@ export default function Contact() {
                       />
                     </div>
 
-                    <p className="text-gray-400 text-xs font-light">
+                    <p className="text-[#0a0a0a] text-xs font-normal">
                       By submitting this form, you agree to be contacted by our team. We will never share your personal information.
                     </p>
 

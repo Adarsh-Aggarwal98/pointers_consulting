@@ -45,17 +45,6 @@ const specialistServices = [
     ],
     highlight: false,
   },
-  {
-    icon: Calculator,
-    title: "Taxation & Accounting",
-    description:
-      "Forget generic tax preparation — get the big picture of your structure and finances. We dig into your complete financial picture and endeavour to bring you a competitive edge for long-term growth. We transform complex tax laws and rules into clear strategies that protect your wealth and uncover legitimate opportunities.",
-    image: `${BASE}/2021/10/legaldoc-400x239.jpg`,
-    href: "/services/taxation-accounting",
-    tags: [],
-    subList: [],
-    highlight: false,
-  },
 ];
 
 const otherServices = [
@@ -105,10 +94,10 @@ export default function Services() {
               Australia's SMSF Specialists
             </span>
             <h1 className="text-4xl lg:text-5xl font-bold text-white mb-3 leading-tight">Our Services</h1>
-            <p className="text-white/70 text-base mb-3 max-w-xl font-light leading-relaxed">
+            <p className="text-white text-sm mb-3 max-w-xl font-normal leading-relaxed">
               SMSF administration and compliance is our core speciality. We also provide tax, business advisory, legal and assurance — all under one roof.
             </p>
-            <p className="text-white/60 text-sm">
+            <p className="text-white text-sm">
               <Link href="/">
                 <span className="hover:text-white transition-colors cursor-pointer">Home</span>
               </Link>
@@ -124,7 +113,7 @@ export default function Services() {
           <div className="text-center mb-12">
             <span className="text-[#459443] font-semibold text-sm uppercase tracking-wider">SMSF Specialists & More</span>
             <h2 className="text-3xl font-bold text-[#1a2e1a] mt-2 mb-2">Services For Individuals & Business</h2>
-            <p className="text-gray-500 text-sm max-w-2xl mx-auto leading-relaxed">
+            <p className="text-[#0a0a0a] text-sm max-w-2xl mx-auto leading-relaxed">
               We are Australia's trusted SMSF specialists. Beyond super, we cover tax, business advisory, legal and assurance — everything you need, from one expert team.
             </p>
           </div>
@@ -139,67 +128,55 @@ export default function Services() {
             variants={stagger}
             initial="hidden"
             animate="visible"
-            className="space-y-4 mb-12"
+            className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12"
           >
             {specialistServices.map((service) => (
               <motion.div
                 key={service.title}
                 variants={springCard}
-                className="group border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:border-[#459443]/25 transition-all duration-300"
+                className="group border border-gray-100 rounded-2xl overflow-hidden hover:shadow-lg hover:border-[#459443]/25 transition-all duration-300 flex flex-col"
               >
-                <Link href={service.href}>
-                  <div className="flex flex-col sm:flex-row items-stretch cursor-pointer">
-                    {/* Image strip */}
-                    <div className="relative sm:w-52 h-36 sm:h-auto shrink-0 overflow-hidden">
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <div className="absolute inset-0 bg-[#1a2e1a]/35 group-hover:bg-[#1a2e1a]/15 transition-colors" />
-                      <div className="absolute top-3 left-3">
-                        <div className="w-9 h-9 bg-[#459443] rounded-xl flex items-center justify-center shadow-lg shadow-[#459443]/30">
-                          <service.icon size={17} className="text-white" />
-                        </div>
+                <Link href={service.href} className="flex flex-col h-full">
+                  {/* Image */}
+                  <div className="relative h-44 shrink-0 overflow-hidden">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-[#1a2e1a]/35 group-hover:bg-[#1a2e1a]/15 transition-colors" />
+                    <div className="absolute top-3 left-3">
+                      <div className="w-9 h-9 bg-[#459443] rounded-xl flex items-center justify-center shadow-lg shadow-[#459443]/30">
+                        <service.icon size={17} className="text-white" />
                       </div>
-                      {service.highlight && (
-                        <div className="absolute bottom-3 left-3">
-                          <span className="bg-[#459443] text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
-                            Specialist
-                          </span>
-                        </div>
-                      )}
                     </div>
-                    {/* Content */}
-                    <div className="flex-1 px-6 py-5 flex flex-col justify-center">
-                      <div className="flex flex-wrap items-center gap-2 mb-2">
-                        <h3 className="text-[17px] font-bold text-[#1a2e1a] group-hover:text-[#459443] transition-colors leading-snug">
-                          {service.title}
-                        </h3>
-                        {service.tags.map((tag) => (
-                          <span key={tag} className="text-[10px] font-semibold bg-[#459443]/10 text-[#459443] px-2 py-0.5 rounded-full whitespace-nowrap">
-                            {tag}
-                          </span>
+                    {service.highlight && (
+                      <div className="absolute bottom-3 left-3">
+                        <span className="bg-[#459443] text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wide">
+                          Specialist
+                        </span>
+                      </div>
+                    )}
+                  </div>
+                  {/* Content */}
+                  <div className="flex-1 px-6 py-5 flex flex-col">
+                    <h3 className="text-[17px] font-bold text-[#1a2e1a] group-hover:text-[#459443] transition-colors leading-snug mb-2">
+                      {service.title}
+                    </h3>
+                    <p className="text-[#0a0a0a] text-sm leading-relaxed font-normal flex-1">{service.description}</p>
+                    {"subList" in service && service.subList && service.subList.length > 0 && (
+                      <ul className="mt-2.5 space-y-1">
+                        {service.subList.map((item) => (
+                          <li key={item} className="flex items-center gap-2">
+                            <CheckCircle size={12} className="text-[#459443] shrink-0" />
+                            <span className="text-[#0a0a0a] text-xs font-normal">{item}</span>
+                          </li>
                         ))}
-                      </div>
-                      <p className="text-gray-600 text-sm leading-relaxed font-light">{service.description}</p>
-                      {"subList" in service && service.subList && service.subList.length > 0 && (
-                        <ul className="mt-2.5 space-y-1">
-                          {service.subList.map((item) => (
-                            <li key={item} className="flex items-center gap-2">
-                              <CheckCircle size={12} className="text-[#459443] shrink-0" />
-                              <span className="text-gray-500 text-xs font-light">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                    {/* CTA */}
-                    <div className="px-6 py-5 flex items-center justify-end sm:justify-center shrink-0">
-                      <span className="inline-flex items-center gap-1.5 text-[#459443] font-semibold text-sm whitespace-nowrap group-hover:gap-3 transition-all">
-                        Learn More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                      </span>
-                    </div>
+                      </ul>
+                    )}
+                    <span className="inline-flex items-center gap-1.5 text-[#459443] font-semibold text-sm mt-4 group-hover:gap-3 transition-all">
+                      Learn More <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </span>
                   </div>
                 </Link>
               </motion.div>
@@ -243,7 +220,7 @@ export default function Services() {
                       <h3 className="text-[17px] font-bold text-[#1a2e1a] mb-2 group-hover:text-[#459443] transition-colors leading-snug">
                         {service.title}
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed font-light line-clamp-3">{service.description}</p>
+                      <p className="text-[#0a0a0a] text-sm leading-relaxed font-normal line-clamp-3">{service.description}</p>
                     </div>
                     <div className="px-6 py-5 flex items-center justify-end sm:justify-center shrink-0">
                       <span className="inline-flex items-center gap-1.5 text-[#459443] font-semibold text-sm whitespace-nowrap group-hover:gap-3 transition-all">
@@ -261,7 +238,7 @@ export default function Services() {
       {/* Finance Partners */}
       <section className="py-14 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-sm font-semibold text-gray-500 uppercase tracking-widest text-center mb-10">Our Finance Partners</h2>
+          <h2 className="text-sm font-semibold text-[#0a0a0a] uppercase tracking-widest text-center mb-10">Our Finance Partners</h2>
           <div className="flex flex-wrap justify-center items-center gap-8 lg:gap-12">
             {partners.map((p, i) => (
               <motion.div
@@ -287,9 +264,9 @@ export default function Services() {
       {/* CTA */}
       <section className="bg-[#459443] py-14">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Users size={36} className="text-white/80 mx-auto mb-4" />
+          <Users size={36} className="text-white mx-auto mb-4" />
           <h2 className="text-3xl font-bold text-white mb-3">Not sure which service you need?</h2>
-          <p className="text-white/80 text-lg mb-7 font-light">
+          <p className="text-white text-lg mb-7 font-normal">
             Talk to our team for free and we'll help determine the best approach for your situation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

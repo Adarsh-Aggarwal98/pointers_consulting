@@ -116,7 +116,7 @@ export default function About() {
         <div className="absolute inset-0 bg-[#1a2e1a]/75" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2">Who We Are</h1>
-          <p className="text-white/60 text-sm">
+          <p className="text-white text-sm">
             <Link href="/"><span className="hover:text-white cursor-pointer transition-colors">Home</span></Link>
             {" > "}SMSF &amp; Taxation – Your Trusted Partner
           </p>
@@ -128,14 +128,14 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="text-gray-500 text-sm mb-1">Who We Are</p>
+              <p className="text-[#0a0a0a] text-sm mb-1">Who We Are</p>
               <h2 className="text-2xl lg:text-3xl font-bold text-[#459443] mb-5 leading-snug">
                 SMSF &amp; Taxation – Your Trusted Partner
               </h2>
-              <p className="text-gray-700 text-sm leading-relaxed mb-4 font-light">
+              <p className="text-[#0a0a0a] text-sm leading-relaxed mb-4 font-normal">
                 Clean, practical guidance for those who want more control over super, smarter tax outcomes, and a trusted accountant to reach out. Pointers Consulting is a Melbourne based specialist in SMSF and tax accounting, empowering professionals, business owners and families with clear decisions on super, investments and compliance. As a forward-thinking, technology-driven firm, we leverage AI tools and automation to streamline routine admin tasks, from data processing and compliance checks to report generation, freeing you to focus on strategic growth and confident decision making.
               </p>
-              <p className="text-gray-700 text-sm leading-relaxed font-light">
+              <p className="text-[#0a0a0a] text-sm leading-relaxed font-normal">
                 With years of top and business experience across Australia and overseas, complex situations receive deep technical analysis delivered in straightforward, jargon-free language.
               </p>
             </div>
@@ -155,7 +155,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-2xl font-bold text-[#1a2e1a] mb-2">Why work with us ?</h2>
-            <p className="text-gray-600 text-sm font-light">
+            <p className="text-[#0a0a0a] text-sm font-normal">
               We stands out through client-centric practices that prioritise transparency, efficiency and empowerment.
             </p>
           </div>
@@ -175,8 +175,8 @@ export default function About() {
                 <div className="w-10 h-10 bg-[#459443]/10 rounded-full flex items-center justify-center mb-4">
                   <item.icon size={18} className="text-[#459443]" />
                 </div>
-                <h3 className="font-bold text-[#1a2e1a] text-base mb-2">{item.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed font-light">{item.desc}</p>
+                <h3 className="font-bold text-[#1a2e1a] text-sm mb-2">{item.title}</h3>
+                <p className="text-[#0a0a0a] text-sm leading-relaxed font-normal">{item.desc}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -194,8 +194,8 @@ export default function About() {
                   <val.icon size={22} className="text-white" />
                 </div>
                 <h3 className="font-bold text-white text-lg mb-1">{val.title}</h3>
-                <p className="text-white/80 text-sm font-semibold mb-4">{val.subtitle}</p>
-                <p className="text-white/70 text-sm leading-relaxed font-light">{val.desc}</p>
+                <p className="text-white text-sm font-semibold mb-4">{val.subtitle}</p>
+                <p className="text-white text-sm leading-relaxed font-normal">{val.desc}</p>
               </div>
             ))}
           </div>
@@ -207,7 +207,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-bold text-[#459443] mb-2">Discover Our E-R-S Approach</h2>
-            <p className="text-gray-600 text-sm max-w-2xl mx-auto font-light">
+            <p className="text-[#0a0a0a] text-sm max-w-2xl mx-auto font-normal">
               Pointers Consulting uses the E-R-S framework to deliver client results-driven SMSF, Tax and Business Advisory solutions. Engage &gt; Reassess &gt; Solve approach ensures your financial and compliance challenges are handled efficiently and effectively.
             </p>
           </div>
@@ -217,7 +217,7 @@ export default function About() {
             {ersSteps.map((step, i) => (
               <div key={step.letter} className="border border-gray-200 rounded-lg overflow-hidden">
                 <div className="flex items-center justify-between px-5 py-3 bg-gray-50 border-b border-gray-200">
-                  <span className="font-bold text-[#1a2e1a] text-base">{step.title}</span>
+                  <span className="font-bold text-[#1a2e1a] text-sm">{step.title}</span>
                   <div className="w-7 h-7 bg-[#459443] rounded-full flex items-center justify-center">
                     <span className="text-white text-xs font-bold">+</span>
                   </div>
@@ -226,7 +226,7 @@ export default function About() {
                   {step.items.map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <CheckCircle size={14} className="text-[#459443] mt-0.5 shrink-0" />
-                      <span className="text-gray-700 text-sm font-light">{item}</span>
+                      <span className="text-[#0a0a0a] text-sm font-normal">{item}</span>
                     </li>
                   ))}
                 </ul>
@@ -235,14 +235,14 @@ export default function About() {
           </div>
 
           {/* Lessons learnt callout */}
-          <div className="border border-dashed border-gray-300 rounded-lg p-5 text-center text-gray-600 text-sm font-light mb-8">
+          <div className="border border-dashed border-gray-300 rounded-lg p-5 text-center text-[#0a0a0a] text-sm font-normal mb-8">
             Lessons learnt from the solution delivery serve as a feedback mechanism for further improvisation.
           </div>
 
           {/* Why E-R-S works */}
           <div className="bg-[#1a2e1a] rounded-xl p-8 text-center">
             <h3 className="text-lg font-bold text-white mb-3">Why E-R-S works for you</h3>
-            <p className="text-white/70 text-sm font-light mb-6 max-w-lg mx-auto">
+            <p className="text-white text-sm font-normal mb-6 max-w-lg mx-auto">
               Proactive steps turn complexity into confidence — take back control over your SMSF, optimise tax and stay ATO ready, always.
             </p>
             <Link href="/contact">
@@ -266,7 +266,7 @@ export default function About() {
                   alt={partner.name}
                   className="h-14 max-w-[130px] object-contain opacity-80 hover:opacity-100 transition-opacity"
                 />
-                {partner.sub && <p className="text-gray-500 text-[10px] text-center">{partner.sub}</p>}
+                {partner.sub && <p className="text-[#0a0a0a] text-[10px] text-center">{partner.sub}</p>}
               </div>
             ))}
           </div>

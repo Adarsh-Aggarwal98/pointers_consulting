@@ -7,7 +7,6 @@ const BASE = "https://pointersconsulting.com.au/wp-content/uploads";
 const allServices = [
   { slug: "smsf", title: "Self-Managed Superfund (SMSF)" },
   { slug: "business-advisory", title: "Business Advisory & Taxation" },
-  { slug: "taxation-accounting", title: "Taxation & Accounting" },
   { slug: "legal-compliance", title: "Legal Aid – Setups, Registrations & Compliance" },
   { slug: "assurance-risk", title: "Audit & Risk Assurance" },
 ];
@@ -210,7 +209,7 @@ export default function ServiceDetail() {
         <div className="absolute inset-0 bg-[#1a2e1a]/80" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-3xl lg:text-4xl font-bold text-white mb-2">{data.title}</h1>
-          <p className="text-white/60 text-sm">
+          <p className="text-white text-sm">
             <Link href="/"><span className="hover:text-white cursor-pointer transition-colors">Home</span></Link>
             {" > "}
             <Link href="/services"><span className="hover:text-white cursor-pointer transition-colors">Services</span></Link>
@@ -229,14 +228,14 @@ export default function ServiceDetail() {
               {/* Services Nav */}
               <div className="border border-gray-200 rounded-lg overflow-hidden">
                 <div className="bg-[#459443] px-5 py-3">
-                  <h3 className="text-white font-bold text-base">Services</h3>
+                  <h3 className="text-white font-bold text-sm">Services</h3>
                 </div>
                 <ul className="divide-y divide-gray-100">
                   {allServices.map((s) => (
                     <li key={s.slug}>
                       <Link href={`/services/${s.slug}`}>
                         <div className={`flex items-center gap-3 px-5 py-3.5 cursor-pointer transition-colors hover:bg-gray-50 ${
-                          s.slug === slug ? "text-[#459443] font-semibold" : "text-gray-700"
+                          s.slug === slug ? "text-[#459443] font-semibold" : "text-[#0a0a0a]"
                         }`}>
                           <CheckCircle
                             size={16}
@@ -253,7 +252,7 @@ export default function ServiceDetail() {
               {/* Book Appointment Widget */}
               <div className="border border-gray-200 rounded-lg p-6">
                 <h3 className="text-[#459443] font-bold text-lg mb-2">Book an Appointment</h3>
-                <p className="text-gray-600 text-sm mb-5 font-light">
+                <p className="text-[#0a0a0a] text-sm mb-5 font-normal">
                   Schedule a free 30 minutes consultation call with our professional
                 </p>
                 <Link href="/contact">
@@ -262,11 +261,11 @@ export default function ServiceDetail() {
                   </button>
                 </Link>
                 <div className="mt-5 pt-5 border-t border-gray-100 space-y-3">
-                  <a href="tel:+61426784982" className="flex items-center gap-3 text-sm text-gray-600 hover:text-[#459443] transition-colors">
+                  <a href="tel:+61426784982" className="flex items-center gap-3 text-sm text-[#0a0a0a] hover:text-[#459443] transition-colors">
                     <Phone size={15} className="text-[#459443]" />
                     +61 426 784 982
                   </a>
-                  <a href="mailto:sam@pointersconsulting.com.au" className="flex items-center gap-3 text-sm text-gray-600 hover:text-[#459443] transition-colors">
+                  <a href="mailto:sam@pointersconsulting.com.au" className="flex items-center gap-3 text-sm text-[#0a0a0a] hover:text-[#459443] transition-colors">
                     <Mail size={15} className="text-[#459443]" />
                     sam@pointersconsulting.com.au
                   </a>
@@ -283,22 +282,22 @@ export default function ServiceDetail() {
               />
 
               <h2 className="text-2xl font-bold text-[#1a2e1a] mb-4">{data.title}</h2>
-              <p className="text-gray-700 text-sm leading-relaxed mb-8 font-light">{data.intro}</p>
+              <p className="text-[#0a0a0a] text-sm leading-relaxed mb-8 font-normal">{data.intro}</p>
 
               {data.sections.map((section, i) => (
                 <div key={i} className="mb-8">
                   {section.heading && (
-                    <h3 className="text-base font-bold text-[#1a2e1a] mb-4">{section.heading}</h3>
+                    <h3 className="text-sm font-bold text-[#1a2e1a] mb-4">{section.heading}</h3>
                   )}
                   {section.body && (
-                    <p className="text-gray-700 text-sm leading-relaxed mb-4 font-light">{section.body}</p>
+                    <p className="text-[#0a0a0a] text-sm leading-relaxed mb-4 font-normal">{section.body}</p>
                   )}
                   {section.items && (
                     <ul className="space-y-2.5">
                       {section.items.map((item, j) => (
                         <li key={j} className="flex items-start gap-3">
                           <CheckCircle size={16} className="text-[#459443] mt-0.5 shrink-0" />
-                          <span className="text-gray-700 text-sm font-light">{item}</span>
+                          <span className="text-[#0a0a0a] text-sm font-normal">{item}</span>
                         </li>
                       ))}
                     </ul>

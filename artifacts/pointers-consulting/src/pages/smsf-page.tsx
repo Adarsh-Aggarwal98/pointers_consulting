@@ -73,7 +73,7 @@ export default function SmsfPage() {
               <h2 className="text-3xl font-bold text-[#1a2e1a] mb-4 leading-snug">
                 Not sure if SMSF is right for you?
               </h2>
-              <p className="text-gray-600 text-sm leading-relaxed mb-6 font-light">
+              <p className="text-[#0a0a0a] text-sm leading-relaxed mb-6 font-normal">
                 Our specialization can be assessed by using our free online SMSF Self-assessment tool — the <strong className="text-[#1a2e1a]">SMSF FitForMe Checkup</strong> — which will precisely help on answering these key questions:
               </p>
               <div className="flex flex-col gap-3 mb-6">
@@ -86,7 +86,7 @@ export default function SmsfPage() {
                   </div>
                 ))}
               </div>
-              <p className="text-gray-400 text-xs leading-relaxed mb-8 border-l-2 border-[#459443]/30 pl-3">
+              <p className="text-[#0a0a0a] text-xs leading-relaxed mb-8 border-l-2 border-[#459443]/30 pl-3">
                 Note: Our tool neither gives any financial advice nor any recommendation to go for setting up your SMSF — it can simply serve as a great starting point to know what you should know about SMSF.
               </p>
               <Link href="/services/smsf/fitforme">
@@ -112,7 +112,7 @@ export default function SmsfPage() {
                     <Zap size={11} /> FREE TOOL
                   </div>
                   <h3 className="text-white text-xl font-bold mb-2">SMSF FitForMe Checkup</h3>
-                  <p className="text-white/60 text-sm font-light mb-7 leading-relaxed">
+                  <p className="text-white/60 text-sm font-normal mb-7 leading-relaxed">
                     Australia's first dual-assessment SMSF readiness tool — delivering honest, data-driven insights in minutes.
                   </p>
 
@@ -168,8 +168,8 @@ export default function SmsfPage() {
                   <img src={card.image} alt={card.title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                 </div>
                 <div className="p-6 flex flex-col">
-                  <h3 className="text-base font-bold text-[#1a2e1a] mb-2 leading-snug">{card.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-5 font-light flex-1">{card.description}</p>
+                  <h3 className="text-sm font-bold text-[#1a2e1a] mb-2 leading-snug">{card.title}</h3>
+                  <p className="text-[#0a0a0a] text-sm leading-relaxed mb-5 font-normal flex-1">{card.description}</p>
                   <Link href={`/services/smsf/${card.slug}`}>
                     <button className="w-full bg-[#1a2e1a] text-white py-2.5 rounded-lg font-semibold text-sm hover:bg-[#459443] transition-colors">
                       Learn More
@@ -190,7 +190,7 @@ export default function SmsfPage() {
             <h2 className="text-2xl font-bold text-[#1a2e1a]">Trusted by individuals and business in Australia</h2>
           </div>
           <div className="border border-gray-200 rounded-xl p-8">
-            <p className="text-gray-600 text-sm text-center leading-relaxed mb-8 font-light">
+            <p className="text-[#0a0a0a] text-sm text-center leading-relaxed mb-8 font-normal">
               We assist our clients with comprehensive business support, providing tailored advice and consultations to meet their unique needs.
               With extensive experience working with both individuals and businesses, we ensure that our clients receive personalized guidance
               and strategies that drive growth and success.
@@ -199,7 +199,7 @@ export default function SmsfPage() {
               {clientTypes.map((type) => (
                 <div key={type} className="flex items-center gap-2">
                   <CheckCircle size={14} className="text-[#459443] shrink-0" />
-                  <span className="text-gray-700 text-sm font-light">{type}</span>
+                  <span className="text-[#0a0a0a] text-sm font-normal">{type}</span>
                 </div>
               ))}
             </div>

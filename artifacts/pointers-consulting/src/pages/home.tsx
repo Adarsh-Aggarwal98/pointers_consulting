@@ -13,7 +13,6 @@ import {
   BarChart3,
   ChevronLeft,
   ChevronRight,
-  Briefcase,
   LineChart,
   UserCheck,
 } from "lucide-react";
@@ -114,16 +113,6 @@ const specialistServices = [
     highlight: false,
   },
   {
-    icon: Briefcase,
-    title: "Business",
-    description:
-      "Tailored advisory for SMEs, Corporates and Family Offices. We blend technical depth in Business Structure, Strategy & Taxation with practical commercial experience so advice stays grounded, actionable and aligned with your longer-term goals.",
-    image: `${BASE}/2026/01/57-400x239.jpg`,
-    href: "/services/business-advisory",
-    tags: ["SME", "Corporates", "Family Offices"],
-    highlight: false,
-  },
-  {
     icon: UserCheck,
     title: "Self-Employed Professionals",
     description:
@@ -174,10 +163,10 @@ const partnerLogos = [
 ];
 
 const stats = [
-  { value: 600, suffix: "+", label: "SMSF Funds Managed" },
-  { value: 420, prefix: "$", suffix: "M+", label: "Assets Under Management" },
-  { value: 18, suffix: "+", label: "Years of Experience" },
-  { value: 98, suffix: "%", label: "Client Retention Rate" },
+  { value: 45, suffix: "%", label: "Time Saved for Accountants", desc: "On SMSF compliance and admin by using our virtual SMSF support." },
+  { value: 95, suffix: "%", label: "New Work from Referrals", desc: "Trusted by accountants and business owners who recommend us to their networks." },
+  { value: null, display: "24–48 hr", label: "Response Time", desc: "Typical turnaround for complex SMSF technical queries." },
+  { value: 19, suffix: "+", label: "Years' Experience", desc: "Handling business advisory and SMSF compliance in Australia." },
 ];
 
 const testimonials = [
@@ -210,13 +199,14 @@ const whyUs = [
 function StatCounter({ stat }: { stat: typeof stats[0] }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true });
-  const count = useCounter(stat.value, inView);
+  const count = useCounter(stat.value ?? 0, inView);
   return (
-    <div ref={ref} className="text-center">
+    <div ref={ref} className="text-center px-4 py-2 border-r border-white/10 last:border-r-0">
       <div className="text-3xl lg:text-4xl font-bold mb-1 text-[#459443] tabular-nums">
-        {stat.prefix || ""}{count}{stat.suffix}
+        {stat.display ? stat.display : `${stat.value !== null ? count : ""}${stat.suffix ?? ""}`}
       </div>
-      <div className="text-white/50 text-sm">{stat.label}</div>
+      <div className="text-white font-semibold text-sm mb-1.5">{stat.label}</div>
+      <div className="text-white text-xs leading-relaxed max-w-[180px] mx-auto">{stat.desc}</div>
     </div>
   );
 }
@@ -283,9 +273,9 @@ export default function Home() {
                     initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1, duration: 0.4 }}
-                    className="inline-flex items-center gap-2 bg-[#459443]/25 backdrop-blur-sm border border-[#459443]/40 text-[#459443] text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-5"
+                    className="inline-flex items-center gap-2 bg-[#459443] border border-[#459443] text-white text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-5"
                   >
-                    <span className="w-1.5 h-1.5 bg-[#459443] rounded-full animate-pulse" />
+                    <span className="w-1.5 h-1.5 bg-white rounded-full animate-pulse" />
                     {slide.badge}
                   </motion.span>
 
@@ -293,7 +283,7 @@ export default function Home() {
                     {slide.title}
                   </h1>
 
-                  <p className="text-white/75 text-lg lg:text-xl leading-relaxed mb-9 font-light max-w-xl">
+                  <p className="text-white text-sm leading-relaxed mb-9 font-normal max-w-xl">
                     {slide.subtitle}
                   </p>
 
@@ -302,7 +292,7 @@ export default function Home() {
                       <motion.button
                         whileHover={{ scale: 1.03 }}
                         whileTap={{ scale: 0.97 }}
-                        className="bg-[#459443] text-white px-8 py-4 rounded-xl font-semibold text-base hover:bg-[#3a7f38] transition-colors flex items-center gap-2.5 justify-center shadow-lg shadow-[#459443]/30"
+                        className="bg-[#459443] text-white px-8 py-4 rounded-xl font-semibold text-sm hover:bg-[#3a7f38] transition-colors flex items-center gap-2.5 justify-center shadow-lg shadow-[#459443]/30"
                       >
                         {slide.cta}
                         <ArrowRight size={17} />
@@ -313,7 +303,7 @@ export default function Home() {
                         <motion.button
                           whileHover={{ scale: 1.03 }}
                           whileTap={{ scale: 0.97 }}
-                          className="border border-white/30 text-white px-7 py-4 rounded-xl font-semibold text-base hover:border-white/50 hover:bg-white/8 backdrop-blur-sm transition-all inline-flex items-center gap-2 justify-center"
+                          className="border border-white/30 text-white px-7 py-4 rounded-xl font-semibold text-sm hover:border-white/50 hover:bg-white/8 backdrop-blur-sm transition-all inline-flex items-center gap-2 justify-center"
                         >
                           <Phone size={16} />
                           {slide.ctaSecondary}
@@ -324,7 +314,7 @@ export default function Home() {
                         <motion.button
                           whileHover={{ scale: 1.03 }}
                           whileTap={{ scale: 0.97 }}
-                          className="border border-white/30 text-white px-7 py-4 rounded-xl font-semibold text-base hover:border-white/50 hover:bg-white/8 backdrop-blur-sm transition-all inline-flex items-center gap-2 justify-center"
+                          className="border border-white/30 text-white px-7 py-4 rounded-xl font-semibold text-sm hover:border-white/50 hover:bg-white/8 backdrop-blur-sm transition-all inline-flex items-center gap-2 justify-center"
                         >
                           {slide.ctaSecondary}
                         </motion.button>
@@ -372,7 +362,7 @@ export default function Home() {
       </section>
 
       {/* ── Stats Bar ── */}
-      <section className="bg-[#1a2e1a] py-9">
+      <section className="bg-[#1a2e1a] py-6">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {stats.map((stat) => (
@@ -418,8 +408,8 @@ export default function Home() {
                   onError={(e) => { e.currentTarget.style.display = "none"; }}
                 />
                 <div>
-                  <h3 className="font-bold text-[#1a2e1a] text-base mb-1">{item.title}</h3>
-                  <p className="text-gray-600 text-sm font-light leading-relaxed">{item.desc}</p>
+                  <h3 className="font-bold text-[#1a2e1a] text-sm mb-1">{item.title}</h3>
+                  <p className="text-[#0a0a0a] text-sm font-normal leading-relaxed">{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -428,16 +418,16 @@ export default function Home() {
       </section>
 
       {/* ── Services ── */}
-      <section className="py-20 lg:py-28 bg-white">
+      <section className="py-10 lg:py-14 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <AnimatedSection className="text-center mb-14">
+          <AnimatedSection className="text-center mb-8">
             <span className="text-[#459443] font-semibold text-sm uppercase tracking-wider">
               SMSF Specialists & Financial Services
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-[#1a2e1a] mt-3 mb-4">
               Individuals & Business (Small, Medium Or Large)
             </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto font-light">
+            <p className="text-[#0a0a0a] text-lg max-w-2xl mx-auto font-normal">
               SMSF is what we do best. We also cover tax, business advisory, legal and assurance — all under one roof.
             </p>
           </AnimatedSection>
@@ -455,7 +445,7 @@ export default function Home() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-12"
+            className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-12"
           >
             {specialistServices.map((service) => (
               <motion.div key={service.title} variants={springCard}>
@@ -494,7 +484,7 @@ export default function Home() {
                           ))}
                         </div>
                       )}
-                      <p className="text-gray-600 text-sm leading-relaxed font-light flex-1">{service.description}</p>
+                      <p className="text-[#0a0a0a] text-sm leading-relaxed font-normal flex-1">{service.description}</p>
                       <div className="mt-4 flex items-center gap-1.5 text-[#459443] font-semibold text-sm">
                         <span className="group-hover:mr-1 transition-all">Learn More</span>
                         <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -542,7 +532,7 @@ export default function Home() {
                       <h3 className="font-bold text-[17px] text-[#1a2e1a] mb-2 group-hover:text-[#459443] transition-colors leading-snug">
                         {service.title}
                       </h3>
-                      <p className="text-gray-600 text-sm leading-relaxed font-light flex-1">{service.description}</p>
+                      <p className="text-[#0a0a0a] text-sm leading-relaxed font-normal flex-1">{service.description}</p>
                       <div className="mt-4 flex items-center gap-1.5 text-[#459443] font-semibold text-sm">
                         <span className="group-hover:mr-1 transition-all">Learn More</span>
                         <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -600,7 +590,7 @@ export default function Home() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-white/55 text-lg text-center mb-16 max-w-2xl mx-auto font-light leading-relaxed"
+            className="text-white text-lg text-center mb-16 max-w-2xl mx-auto font-normal leading-relaxed"
           >
             Australia's first dual-assessment SMSF readiness tool. Know if SMSF is right for you — and if you're right for SMSF. No financial advice, no sign-up required.
           </motion.p>
@@ -624,7 +614,7 @@ export default function Home() {
                 className="bg-white/5 backdrop-blur-sm border border-white/8 rounded-2xl p-8 text-center hover:border-[#459443]/40 hover:bg-white/8 transition-all duration-300 group"
               >
                 <div className="text-5xl font-bold text-[#459443] mb-2 tracking-tight">{item.num}</div>
-                <div className="text-white font-semibold text-base mb-1">{item.label}</div>
+                <div className="text-white font-semibold text-sm mb-1">{item.label}</div>
                 <div className="text-white/45 text-sm leading-relaxed">{item.sub}</div>
               </motion.div>
             ))}
@@ -644,7 +634,7 @@ export default function Home() {
                   "No financial advice — just personalised insights",
                   "Completely free, no obligation, no sign-up",
                 ].map((item) => (
-                  <li key={item} className="flex items-start gap-3 text-white/80 text-[15px] leading-relaxed">
+                  <li key={item} className="flex items-start gap-3 text-white text-[15px] leading-relaxed">
                     <CheckCircle size={16} className="text-[#459443] shrink-0 mt-0.5" />
                     {item}
                   </li>
@@ -654,7 +644,7 @@ export default function Home() {
                 <motion.button
                   whileHover={{ scale: 1.03, boxShadow: "0 8px 32px rgba(69,148,67,0.35)" }}
                   whileTap={{ scale: 0.97 }}
-                  className="bg-[#459443] text-white px-9 py-4 rounded-xl font-semibold text-base hover:bg-[#3a7f38] transition-all inline-flex items-center gap-3 group shadow-lg shadow-[#459443]/25"
+                  className="bg-[#459443] text-white px-9 py-4 rounded-xl font-semibold text-sm hover:bg-[#3a7f38] transition-all inline-flex items-center gap-3 group shadow-lg shadow-[#459443]/25"
                 >
                   Start Free Checkup
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -670,10 +660,10 @@ export default function Home() {
                   </div>
                   <div>
                     <div className="text-white font-bold text-xl leading-tight">SMSF Readiness Score</div>
-                    <div className="text-white/50 text-sm mt-0.5">Australia's only dual-assessment tool</div>
+                    <div className="text-white text-sm mt-0.5">Australia's only dual-assessment tool</div>
                   </div>
                 </div>
-                <p className="text-white/55 text-sm leading-relaxed mb-6 font-light">
+                <p className="text-white text-sm leading-relaxed mb-6 font-normal">
                   By simply answering 25 Yes/No questions, this tool provides an instant tailored summary of your SMSF readiness — so you know exactly where you stand before making any commitment.
                 </p>
                 <div className="grid grid-cols-2 gap-2.5">
@@ -685,7 +675,7 @@ export default function Home() {
                     "No financial advice",
                     "100% private",
                   ].map((feat) => (
-                    <div key={feat} className="flex items-center gap-2 bg-white/5 rounded-lg px-3 py-2.5 text-white/70 text-sm border border-white/5">
+                    <div key={feat} className="flex items-center gap-2 bg-white/5 rounded-lg px-3 py-2.5 text-white text-sm border border-white/5">
                       <CheckCircle size={12} className="text-[#459443] shrink-0" />
                       {feat}
                     </div>
@@ -706,7 +696,7 @@ export default function Home() {
               <h2 className="text-3xl lg:text-4xl font-bold text-[#1a2e1a] mt-3 mb-6 leading-tight">
                 Our Expertise You Can Count On
               </h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8 font-light">
+              <p className="text-[#0a0a0a] text-lg leading-relaxed mb-8 font-normal">
                 We are on a mission to make SMSFs & Tax matters simple, fast, and stress-free. Our friendly and professional team speaks your language and works around your schedule.
               </p>
               <ul className="space-y-4">
@@ -720,7 +710,7 @@ export default function Home() {
                     className="flex items-start gap-3"
                   >
                     <CheckCircle size={17} className="text-[#459443] mt-0.5 shrink-0" />
-                    <span className="text-gray-700 text-sm leading-relaxed">{item}</span>
+                    <span className="text-[#0a0a0a] text-sm leading-relaxed">{item}</span>
                   </motion.li>
                 ))}
               </ul>
@@ -760,7 +750,7 @@ export default function Home() {
                     </div>
                     <div className="flex-1">
                       <p className="text-white font-semibold text-sm">Free Initial Consultation</p>
-                      <p className="text-white/60 text-xs">Speak to a specialist today — no obligation</p>
+                      <p className="text-white text-xs">Speak to a specialist today — no obligation</p>
                     </div>
                     <Link href="/contact">
                       <button className="bg-[#459443] text-white text-xs px-4 py-2 rounded-lg font-semibold hover:bg-[#3a7f38] transition-colors shrink-0">
@@ -778,7 +768,7 @@ export default function Home() {
                   <div key={item.label} className="bg-gray-50 border border-gray-200 rounded-xl p-5 text-center hover:border-[#459443]/30 transition-colors">
                     <item.icon size={24} className="text-[#459443] mx-auto mb-2" />
                     <div className="text-[#1a2e1a] font-bold">{item.label}</div>
-                    <div className="text-gray-500 text-xs mt-0.5">{item.sub}</div>
+                    <div className="text-[#0a0a0a] text-xs mt-0.5">{item.sub}</div>
                   </div>
                 ))}
               </div>
@@ -816,7 +806,7 @@ export default function Home() {
                 </div>
                 <div className="text-3xl mb-3">{step.emoji}</div>
                 <h3 className="font-bold text-xl text-[#1a2e1a] mb-3">{step.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed font-light">{step.desc}</p>
+                <p className="text-[#0a0a0a] text-sm leading-relaxed font-normal">{step.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -848,12 +838,12 @@ export default function Home() {
                     <Star key={i} size={14} className="fill-[#459443] text-[#459443]" />
                   ))}
                 </div>
-                <p className="text-gray-700 text-sm leading-relaxed flex-1 mb-5 italic font-light">
+                <p className="text-[#0a0a0a] text-sm leading-relaxed flex-1 mb-5 italic font-normal">
                   "{t.text}"
                 </p>
                 <div className="border-t border-gray-100 pt-4">
                   <div className="font-semibold text-[#1a2e1a] text-sm">{t.name}</div>
-                  <div className="text-gray-500 text-xs mt-0.5">{t.role}</div>
+                  <div className="text-[#0a0a0a] text-xs mt-0.5">{t.role}</div>
                 </div>
               </motion.div>
             ))}
@@ -865,7 +855,7 @@ export default function Home() {
       <section className="py-14 bg-[#fafffa] border-y border-[#459443]/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection>
-            <h2 className="text-center text-sm font-semibold text-gray-500 uppercase tracking-wider mb-10">
+            <h2 className="text-center text-sm font-semibold text-[#0a0a0a] uppercase tracking-wider mb-10">
               Our Finance Partners
             </h2>
           </AnimatedSection>
@@ -928,8 +918,8 @@ export default function Home() {
                       </h3>
                     </div>
                     <div className="p-5">
-                      <p className="text-gray-600 text-sm leading-relaxed line-clamp-2 mb-4 font-light">{post.excerpt}</p>
-                      <div className="flex items-center justify-between text-xs text-gray-400">
+                      <p className="text-[#0a0a0a] text-sm leading-relaxed line-clamp-2 mb-4 font-normal">{post.excerpt}</p>
+                      <div className="flex items-center justify-between text-xs text-[#0a0a0a]">
                         <span>{post.date}</span>
                         <span>{post.readTime}</span>
                       </div>
@@ -949,7 +939,7 @@ export default function Home() {
             <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">
               Ready to Take Control of Your Financial Future?
             </h2>
-            <p className="text-white/80 text-lg mb-8 font-light">
+            <p className="text-white text-sm mb-8 font-normal">
               Speak with one of our SMSF and business advisory specialists. Your first consultation is completely free.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -54,7 +54,6 @@ export default function Footer() {
               {[
                 "Self-Managed Superfund (SMSF)",
                 "Business Advisory & Taxation",
-                "Taxation & Accounting",
                 "Legal Aid – Setups & Registrations",
                 "Audit & Risk Assurance",
               ].map((service) => (
