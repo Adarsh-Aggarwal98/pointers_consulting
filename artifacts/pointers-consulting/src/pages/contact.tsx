@@ -118,12 +118,10 @@ export default function Contact() {
                 <h3 className="font-bold text-[#1a2e1a] mb-4">Why Choose Us</h3>
                 <ul className="space-y-3">
                   {[
-                    "Free initial consultation",
-                    "No obligation quote",
-                    "Respond within 1 business day",
-                    "Experienced SMSF & tax specialists",
-                    "Authorised Representative of JPATAX",
-                    "Tax Agent # 26122730",
+                    "Free, no-pressure first 15 min chat",
+                    "SMSF, Tax & business Experts – our exclusivity",
+                    "Transparent fixed fee pricing upfront, no hidden extras",
+                    "24–48 hour response time",
                   ].map((item) => (
                     <li key={item} className="flex items-center gap-3">
                       <CheckCircle size={15} className="text-[#459443] shrink-0" />

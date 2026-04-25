@@ -82,7 +82,7 @@ export default function BlogList() {
   const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
-    document.title = "Blog | Pointers Consulting";
+    document.title = "Growth Insights | Pointers Consulting";
     window.scrollTo(0, 0);
   }, []);
 
@@ -106,7 +106,7 @@ export default function BlogList() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
             <span className="text-[#459443] font-semibold text-sm uppercase tracking-wider">Insights & News</span>
-            <h1 className="text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">SMSF & Business Blog</h1>
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mt-3 mb-4">Growth Insights</h1>
             <p className="text-white/70 text-xl max-w-2xl font-light">
               Expert insights on SMSFs, Australian tax law, business strategy and financial planning. Stay informed with our team's latest thinking.
             </p>

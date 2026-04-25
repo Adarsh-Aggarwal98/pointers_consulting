@@ -68,13 +68,13 @@ export default function SmsfPage() {
             {/* Left: Text */}
             <motion.div initial={{ opacity: 0, x: -24 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }}>
               <span className="inline-block bg-[#459443]/10 text-[#459443] text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest mb-4">
-                Our Specialisation
+                OUR SPECIAL OFFERING
               </span>
               <h2 className="text-3xl font-bold text-[#1a2e1a] mb-4 leading-snug">
                 Not sure if SMSF is right for you?
               </h2>
               <p className="text-[#0a0a0a] text-sm leading-relaxed mb-6 font-normal">
-                Our specialization can be assessed by using our free online SMSF Self-assessment tool — the <strong className="text-[#1a2e1a]">SMSF FitForMe Checkup</strong> — which will precisely help on answering these key questions:
+                Our specialization is well demonstrated by our free online SMSF self-assessment tool – <strong className="text-[#1a2e1a]">SMSF FitForMe Checkup</strong> – which will precisely help you in answering following key questions:
               </p>
               <div className="flex flex-col gap-3 mb-6">
                 {["Is SMSF Right for me?", "Where do I start?"].map((q) => (
@@ -87,7 +87,7 @@ export default function SmsfPage() {
                 ))}
               </div>
               <p className="text-[#0a0a0a] text-xs leading-relaxed mb-8 border-l-2 border-[#459443]/30 pl-3">
-                Note: Our tool neither gives any financial advice nor any recommendation to go for setting up your SMSF — it can simply serve as a great starting point to know what you should know about SMSF.
+                Note: The SMSF FitForMe Checkup assessment provides general information only, not a personal financial advice or a recommendation to establish an SMSF.
               </p>
               <Link href="/services/smsf/fitforme">
                 <motion.button
@@ -133,7 +133,7 @@ export default function SmsfPage() {
                     {[
                       "Instant SMSF readiness score",
                       "Personalised recommendations",
-                      "No financial advice — just clarity",
+                      "No financial advice – just clarity with awareness",
                     ].map((item) => (
                       <div key={item} className="flex items-center gap-2.5">
                         <CheckCircle size={13} className="text-[#459443] shrink-0" />

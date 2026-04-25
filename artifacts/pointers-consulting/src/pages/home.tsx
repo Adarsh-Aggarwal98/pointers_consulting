@@ -70,9 +70,10 @@ const slides = [
   {
     image: `${BASE}/2025/12/banner1.jpg`,
     badge: "Australia's SMSF Specialists",
-    title: "Is SMSF Right for You + Are You Right for SMSF?",
+    title: "Is SMSF Right for Me?",
     subtitle:
-      "Take the Free SMSF FitForMe Checkup. Australia's first dual-assessment online tool. Get your instant SMSF readiness score in minutes.",
+      "Try our Free SMSF FitForMe Checkup — Australia's first dual assessment online SMSF Tool. Get your instant SMSF readiness score in minutes.",
+    prominentSubtitle: true,
     cta: "Start Free Checkup",
     ctaHref: "/services/smsf/fitforme",
     ctaSecondary: "Book Appointment",
@@ -81,9 +82,9 @@ const slides = [
   {
     image: `${BASE}/2026/01/sliders3.jpg`,
     badge: "SMSF & Tax Specialists",
-    title: "Client Service That Hits The Mark",
+    title: "Think Big, Act Smart, Stay Compliant",
     subtitle:
-      "We are on a mission to make SMSFs & Tax matters simple, fast, and stress-free. We speak your language and process most returns within 48 hours.",
+      "We are on a mission to make SMSFs & Tax Matters simple, effective and stress free. We hear you, understand what the real problem is and then act. Service that hits the mark.",
     cta: "Book Appointment",
     ctaHref: "/contact",
     ctaSecondary: "+61 426 784 982",
@@ -188,12 +189,12 @@ const testimonials = [
 ];
 
 const whyUs = [
-  "Licensed SMSF specialists with deep regulatory expertise",
+  "SMSF specialists with deep regulatory expertise",
   "Integrated approach covering super, tax, and business advisory",
   "Transparent fixed fees with no hidden costs",
   "Proactive communication — we contact you, not the other way around",
-  "Direct access to your dedicated adviser, not a call centre",
-  "Years of combined experience in Australian financial services",
+  "Direct access to your dedicated Specialist, not a call centre",
+  "Dedicated years of experience in Australian Financial Services & Consulting industry",
 ];
 
 function StatCounter({ stat }: { stat: typeof stats[0] }) {
@@ -283,7 +284,7 @@ export default function Home() {
                     {slide.title}
                   </h1>
 
-                  <p className="text-white text-sm leading-relaxed mb-9 font-normal max-w-xl">
+                  <p className={`text-white leading-relaxed mb-9 max-w-xl ${"prominentSubtitle" in slide && slide.prominentSubtitle ? "text-base font-semibold" : "text-sm font-normal"}`}>
                     {slide.subtitle}
                   </p>
 
@@ -385,12 +386,12 @@ export default function Home() {
               {
                 img: `${BASE}/2025/12/trust.svg`,
                 title: "Proven Track Record",
-                desc: "Years of delivering proactive SMSF, Taxation & Business Advisory Solutions to Australian & Overseas clients",
+                desc: "Years of delivering proactive SMSF, Taxation & Business Advisory Solutions to Australian Clients.",
               },
               {
                 img: `${BASE}/2025/12/service.svg`,
                 title: "Tailored Client Support",
-                desc: "Personalised advice and consultations aligned with your super, investment and business needs.",
+                desc: "Personalized consultations to ensure alignment with your own business, super, investment and financial needs.",
               },
             ].map((item, i) => (
               <motion.div
@@ -422,13 +423,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <AnimatedSection className="text-center mb-8">
             <span className="text-[#459443] font-semibold text-sm uppercase tracking-wider">
-              SMSF Specialists & Financial Services
+              SMSF SPECIALISTS & BUSINESS CATALYSTS
             </span>
             <h2 className="text-3xl lg:text-4xl font-bold text-[#1a2e1a] mt-3 mb-4">
-              Individuals & Business (Small, Medium Or Large)
+              Businesses (SMEs) & High Net-worth Individuals
             </h2>
             <p className="text-[#0a0a0a] text-lg max-w-2xl mx-auto font-normal">
-              SMSF is what we do best. We also cover tax, business advisory, legal and assurance — all under one roof.
+              SMSF & Business Consulting is what we do best. We also cover Taxation and Business Advisory – all under one roof.
             </p>
           </AnimatedSection>
 
@@ -887,7 +888,7 @@ export default function Home() {
           <div className="flex items-end justify-between mb-12">
             <AnimatedSection>
               <span className="text-[#459443] font-semibold text-sm uppercase tracking-wider">Insights & News</span>
-              <h2 className="text-3xl lg:text-4xl font-bold text-[#1a2e1a] mt-3">Latest from Our Blog</h2>
+              <h2 className="text-3xl lg:text-4xl font-bold text-[#1a2e1a] mt-3">Latest from Our Growth Insights</h2>
             </AnimatedSection>
             <AnimatedSection>
               <Link href="/blog">

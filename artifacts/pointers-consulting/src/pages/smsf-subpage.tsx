@@ -249,9 +249,9 @@ export default function SmsfSubPage() {
                 </p>
               )}
 
-              <Link href="/contact">
+              <Link href={subslug === "fitforme" ? "/services/smsf/fitforme" : "/contact"}>
                 <button className="mt-5 bg-[#459443] text-white px-7 py-3 rounded font-semibold text-sm hover:bg-[#3a7f38] transition-colors">
-                  Book a Free Consultation
+                  {subslug === "fitforme" ? "Try your SMSF readiness assessment" : "Book a Free Consultation"}
                 </button>
               </Link>
             </div>
