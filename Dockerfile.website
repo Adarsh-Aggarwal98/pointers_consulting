@@ -6,10 +6,15 @@ RUN npm install -g pnpm
 
 COPY pnpm-workspace.yaml pnpm-lock.yaml package.json tsconfig.base.json ./
 COPY artifacts/pointers-consulting/package.json ./artifacts/pointers-consulting/
+COPY lib/api-client-react/package.json ./lib/api-client-react/
+COPY lib/api-spec/package.json ./lib/api-spec/
+COPY lib/api-zod/package.json ./lib/api-zod/
+COPY lib/db/package.json ./lib/db/
 
 RUN pnpm install --frozen-lockfile
 
 COPY artifacts/pointers-consulting ./artifacts/pointers-consulting
+COPY lib ./lib
 
 WORKDIR /repo/artifacts/pointers-consulting
 RUN PORT=8085 BASE_PATH=/ pnpm run build
