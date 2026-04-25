@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { CheckCircle, Phone, User, Book, Zap, DollarSign, Globe, GraduationCap, Heart, Shield, Star } from "lucide-react";
 
-const BASE = "https://pointersconsulting.com.au/wp-content/uploads";
+const BASE = "/images";
 
 const whyUs = [
   {
@@ -93,11 +93,11 @@ const ersSteps = [
 ];
 
 const partnerLogos = [
-  { name: "JPATAX", src: `${BASE}/2026/01/jpatax-logo-2025.jpg`, sub: "Authorised Business Partner" },
-  { name: "Tax Practitioners Board", src: `${BASE}/2026/01/tax-board-2025-logo.jpg`, sub: "Registered Tax Agent: 26122730" },
-  { name: "CPA Australia", src: `${BASE}/2026/01/cpa-2025-logo.jpg`, sub: "Registered ASIC Agent" },
-  { name: "SMSF Association", src: `${BASE}/2026/01/sms-assocation.jpg` },
-  { name: "ASIC", src: `${BASE}/2026/01/asic-registerd-agent-logo-20205.jpg` },
+  { name: "JPATAX", src: "/logos/jpatax-logo-2025.jpg", sub: "Authorised Business Partner" },
+  { name: "Tax Practitioners Board", src: "/logos/tax-board-2025-logo.jpg", sub: "Registered Tax Agent: 26122730" },
+  { name: "CPA Australia", src: "/logos/cpa-2025-logo.jpg", sub: "Registered ASIC Agent" },
+  { name: "SMSF Association", src: "/logos/sms-assocation.jpg" },
+  { name: "ASIC", src: "/logos/asic-registerd-agent-logo-20205.jpg" },
 ];
 
 export default function About() {
@@ -111,7 +111,7 @@ export default function About() {
       {/* Hero Banner */}
       <section
         className="relative pt-44 pb-14 bg-cover bg-top"
-        style={{ backgroundImage: `url(${BASE}/2024/06/business-accountant.webp)` }}
+        style={{ backgroundImage: `url(${BASE}/business-accountant.webp)` }}
       >
         <div className="absolute inset-0 bg-[#1a2e1a]/75" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -141,7 +141,7 @@ export default function About() {
             </div>
             <div>
               <img
-                src={`${BASE}/2026/01/sliders3.jpg`}
+                src={`${BASE}/business-accountant.webp`}
                 alt="SMSF & Taxation Specialists"
                 className="w-full h-72 object-cover rounded-lg shadow-md"
               />

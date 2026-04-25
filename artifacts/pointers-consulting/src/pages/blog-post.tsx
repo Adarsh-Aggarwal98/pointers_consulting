@@ -12,30 +12,26 @@ export default function BlogPostPage() {
   const [notFound, setNotFound] = useState(false);
 
   useEffect(() => {
-    if (!slug) return;
+    window.scrollTo(0, 0);
     setIsLoading(true);
     setNotFound(false);
 
     Promise.all([
-      fetch(`/api/blogs/${slug}`).then((r) => {
-        if (r.status === 404) { setNotFound(true); return null; }
-        return r.json() as Promise<BlogPost>;
-      }),
-      fetch("/api/blogs").then((r) => r.json() as Promise<BlogSummary[]>),
+      fetch(`/api/blogs/${slug}`).then((r) => r.json()),
+      fetch("/api/blogs").then((r) => r.json()),
     ])
-      .then(([postData, allData]) => {
-        setPost(postData);
-        setAllPosts(allData ?? []);
+      .then(([postData, listData]) => {
+        if (postData.success && postData.post) {
+          setPost(postData.post);
+          document.title = `${postData.post.title} | Pointers Consulting`;
+        } else {
+          setNotFound(true);
+        }
+        if (listData.success) setAllPosts(listData.posts);
       })
+      .catch(() => setNotFound(true))
       .finally(() => setIsLoading(false));
   }, [slug]);
-
-  useEffect(() => {
-    if (post) {
-      document.title = `${post.title} | Pointers Consulting`;
-    }
-    window.scrollTo(0, 0);
-  }, [slug, post]);
 
   const related = allPosts
     .filter((p) => p.slug !== slug && p.category === post?.category)
@@ -118,11 +114,7 @@ export default function BlogPostPage() {
 
               <div
                 className="prose prose-lg max-w-none prose-headings:text-[#1a2e1a] prose-headings:font-bold prose-a:text-[#459443] prose-strong:text-[#1a2e1a]"
-                style={{
-                  fontWeight: 300,
-                  lineHeight: 1.8,
-                  color: "#374151",
-                }}
+                style={{ fontWeight: 300, lineHeight: 1.8, color: "#374151" }}
                 dangerouslySetInnerHTML={{
                   __html: post.content
                     .replace(/^## (.+)$/gm, '<h2 style="font-size:1.6rem;font-weight:700;color:#1a2e1a;margin-top:2.5rem;margin-bottom:1rem;border-bottom:2px solid #459443;padding-bottom:0.5rem">$1</h2>')

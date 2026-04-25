@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link, useRoute } from "wouter";
 import { CheckCircle, Phone, Mail, ArrowRight } from "lucide-react";
 
-const BASE = "https://pointersconsulting.com.au/wp-content/uploads";
+const BASE = "/images";
 
 const allServices = [
   { slug: "smsf", title: "Self-Managed Superfund (SMSF)" },
@@ -19,7 +19,7 @@ const serviceData: Record<string, {
 }> = {
   smsf: {
     title: "Self-Managed Superfund",
-    image: `${BASE}/2021/10/smsf-400x239.jpg`,
+    image: `${BASE}/smsf-400x239.jpg`,
     intro:
       "Your SMSF, expertly managed — compliant, strategic and future-focused. We are a one-stop shop for SMSF administration, audit defence and planning by specialists who simplify complexity, so you focus on growth.",
     sections: [
@@ -61,7 +61,7 @@ const serviceData: Record<string, {
   },
   "taxation-accounting": {
     title: "Taxation & Accounting",
-    image: `${BASE}/2021/10/legaldoc-400x239.jpg`,
+    image: `${BASE}/legaldoc-400x239.jpg`,
     intro:
       "Forget generic tax preparation — get the big picture of your structure and finances. We dig into your complete financial picture and endeavour to bring you a competitive edge for long-term growth. We transform complex tax laws and rules into clear strategies that protect your wealth and uncover legitimate opportunities. With deep tax & SMSF expertise, we approach every tax return as a planning opportunity — ensuring ATO compliance while maximising your after-tax income for investments, family security or business growth.",
     sections: [
@@ -97,7 +97,7 @@ const serviceData: Record<string, {
   },
   "business-advisory": {
     title: "Business Advisory & Taxation",
-    image: `${BASE}/2026/01/57-400x239.jpg`,
+    image: `${BASE}/57-400x239.jpg`,
     intro:
       "Business is quite a broad term, and Tax is just a sub-set of this broader framework. For most businesses and enterprises (irrespective of size), success depends on far more than lodging tax returns on time. They need clear strategy, the right structure, strong governance, operational clarity and the financial breathing space to grow. Our business advisory work is about bringing these elements together in a simple, actionable way for business owners and high net-worth individuals, along with tax compliance.",
     sections: [
@@ -131,7 +131,7 @@ const serviceData: Record<string, {
   },
   "assurance-risk": {
     title: "Audit & Risk Assurance",
-    image: `${BASE}/2021/10/audit-400x239.jpg`,
+    image: `${BASE}/audit-400x239.jpg`,
     intro:
       "We deliver strategic risk and assurance solutions through our proven E-R-S philosophy (Engage → Reassess → Solve). We help Australian businesses strengthen internal controls, mitigate threats and build stakeholder confidence — turning risk management from cost centre to competitive advantage.",
     sections: [
@@ -157,7 +157,7 @@ const serviceData: Record<string, {
   },
   "legal-compliance": {
     title: "Legal Aid – Setups, Registrations & Compliance",
-    image: `${BASE}/2022/07/company-taxreturn-400x239.jpg`,
+    image: `${BASE}/company-taxreturn-400x239.jpg`,
     intro:
       "We provide fast-track legal aid for Australian business registrations, entity formation and ongoing compliance — plus specialist guidance for international businesses establishing Australian presence. From sole traders to multinationals, we handle the paperwork, so you launch confidently and stay compliant.",
     sections: [

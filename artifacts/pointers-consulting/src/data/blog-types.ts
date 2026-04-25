@@ -1,5 +1,5 @@
 export interface BlogSummary {
-  id: number;
+  id?: number;
   slug: string;
   title: string;
   excerpt: string;

@@ -4,69 +4,6 @@ import { motion } from "framer-motion";
 import { Search, ArrowRight, Clock, Calendar } from "lucide-react";
 import type { BlogSummary } from "@/data/blog-types";
 
-const staticBlogs: BlogSummary[] = [
-  {
-    id: 1,
-    slug: "is-smsf-right-for-you",
-    title: "Is an SMSF Right for You? Key Questions to Ask Before You Start",
-    excerpt: "Self-Managed Super Funds offer control and flexibility, but they're not for everyone. Here's what you need to consider before taking the plunge.",
-    category: "SMSF",
-    date: "April 2026",
-    readTime: "5 min read",
-    author: "Sam Pointers",
-  },
-  {
-    id: 2,
-    slug: "ato-smsf-audit-2026",
-    title: "ATO's 2026 SMSF Audit Program: What Trustees Need to Know",
-    excerpt: "The ATO is ramping up SMSF compliance checks in 2026. Find out what they're targeting and how to ensure your fund is audit-ready.",
-    category: "SMSF",
-    date: "March 2026",
-    readTime: "6 min read",
-    author: "Sam Pointers",
-  },
-  {
-    id: 3,
-    slug: "business-structure-tax-efficiency",
-    title: "Choosing the Right Business Structure for Tax Efficiency",
-    excerpt: "Company, trust or sole trader? The structure you choose today has major tax implications for tomorrow. We break down the options.",
-    category: "Business Advisory",
-    date: "March 2026",
-    readTime: "7 min read",
-    author: "Sam Pointers",
-  },
-  {
-    id: 4,
-    slug: "payday-super-what-employers-need-to-know",
-    title: "Payday Super: What Employers Need to Know in 2026",
-    excerpt: "From July 2026, super must be paid on payday. Here's what this means for your payroll processes and cash flow planning.",
-    category: "Taxation",
-    date: "February 2026",
-    readTime: "4 min read",
-    author: "Sam Pointers",
-  },
-  {
-    id: 5,
-    slug: "trust-distributions-ato-compliance",
-    title: "Trust Distributions: Are You Compliant with ATO's Rules?",
-    excerpt: "Incorrect trust distributions can trigger ATO audits and significant penalties. Learn how to structure distributions correctly.",
-    category: "Taxation",
-    date: "February 2026",
-    readTime: "5 min read",
-    author: "Sam Pointers",
-  },
-  {
-    id: 6,
-    slug: "smsf-investment-strategy-guide",
-    title: "SMSF Investment Strategy: A Complete Guide for Trustees",
-    excerpt: "Your SMSF must have a documented investment strategy that meets strict ATO requirements. Here's everything you need to include.",
-    category: "SMSF",
-    date: "January 2026",
-    readTime: "8 min read",
-    author: "Sam Pointers",
-  },
-];
-
 const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
@@ -77,21 +14,27 @@ const stagger = {
 };
 
 export default function BlogList() {
-  const [blogPosts] = useState<BlogSummary[]>(staticBlogs);
+  const [posts, setPosts] = useState<BlogSummary[]>([]);
+  const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
     document.title = "Growth Insights | Pointers Consulting";
     window.scrollTo(0, 0);
+    fetch("/api/blogs")
+      .then((r) => r.json())
+      .then((data) => { if (data.success) setPosts(data.posts); })
+      .catch(() => {})
+      .finally(() => setLoading(false));
   }, []);
 
-  const categories = ["All", ...Array.from(new Set(blogPosts.map((p) => p.category)))];
+  const categories = ["All", ...Array.from(new Set(posts.map((p) => p.category)))];
 
-  const filtered = blogPosts.filter((post) => {
+  const filtered = posts.filter((post) => {
     const matchesSearch =
       post.title.toLowerCase().includes(search.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(search.toLowerCase());
+      (post.excerpt ?? "").toLowerCase().includes(search.toLowerCase());
     const matchesCategory = activeCategory === "All" || post.category === activeCategory;
     return matchesSearch && matchesCategory;
   });
@@ -149,7 +92,9 @@ export default function BlogList() {
 
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {filtered.length === 0 ? (
+          {loading ? (
+            <div className="text-center py-20 text-gray-400 text-sm">Loading articles...</div>
+          ) : filtered.length === 0 ? (
             <div className="text-center py-20 text-gray-500">
               <p className="text-lg mb-2">No articles found</p>
               <p className="text-sm">Try adjusting your search or filter</p>

@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="lg:col-span-1">
             <div className="mb-5">
               <img
-                src="https://pointersconsulting.com.au/wp-content/uploads/2026/01/banner-logo-Scoreapp-1769407742.png"
+                src="/images/banner-logo-Scoreapp-1769407742.png"
                 alt="Pointers Consulting"
                 className="h-12 w-auto object-contain"
                 onError={(e) => {

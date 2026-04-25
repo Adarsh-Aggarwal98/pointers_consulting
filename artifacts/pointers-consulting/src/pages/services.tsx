@@ -17,7 +17,7 @@ const stagger = {
   visible: { transition: { staggerChildren: 0.09 } },
 };
 
-const BASE = "https://pointersconsulting.com.au/wp-content/uploads";
+const BASE = "/images";
 
 const specialistServices = [
   {
@@ -25,7 +25,7 @@ const specialistServices = [
     title: "Self-Managed Super Fund (SMSF)",
     description:
       "SMSFs are not just another tax job. They are highly regulated structures with their own legislation, rules and obligations, and at the same time, SMSF serves the purpose of a long-term investment vessel for one's retirement. SMSF compliance is complex because trustees must manage both taxation requirements and superannuation law, and the penalties for getting it wrong can be significant. This is where we come in as Specialists — helping individual trustees and Accountants navigate the complexity with clarity and confidence.",
-    image: `${BASE}/2021/10/smsf-400x239.jpg`,
+    image: `${BASE}/smsf-400x239.jpg`,
     href: "/services/smsf",
     tags: ["B2B – For Accountants", "B2C – For Individual Trustees"],
     highlight: true,
@@ -35,7 +35,7 @@ const specialistServices = [
     title: "Business Advisory & Taxation",
     description:
       "\"Business\" is quite a broad term, and \"Tax\" is just a sub-set of this broader framework. For most businesses, success depends on far more than lodging tax returns on time. We bring clear strategy, the right structure, strong governance, operational clarity and tax compliance together in a simple, actionable way for business owners and high net-worth individuals.",
-    image: `${BASE}/2026/01/57-400x239.jpg`,
+    image: `${BASE}/57-400x239.jpg`,
     href: "/services/business-advisory",
     tags: [],
     subList: [
@@ -53,7 +53,7 @@ const otherServices = [
     title: "Legal Aid – Setups, Registrations & Compliance",
     description:
       "We provide fast-track legal aid for Australian business registrations, entity formation and ongoing compliance — plus specialist guidance for international businesses establishing Australian presence. From sole traders to multinationals, we handle the paperwork so you launch confidently and stay compliant.",
-    image: `${BASE}/2022/07/company-taxreturn-400x239.jpg`,
+    image: `${BASE}/company-taxreturn-400x239.jpg`,
     href: "/services/legal-compliance",
   },
   {
@@ -61,18 +61,18 @@ const otherServices = [
     title: "Audit & Risk Assurance",
     description:
       "We deliver strategic risk and assurance solutions through our proven E-R-S philosophy (Engage → Reassess → Solve). We help Australian businesses strengthen internal controls, mitigate threats and build stakeholder confidence — turning risk management from cost centre to competitive advantage.",
-    image: `${BASE}/2021/10/audit-400x239.jpg`,
+    image: `${BASE}/audit-400x239.jpg`,
     href: "/services/assurance-risk",
   },
 ];
 
 const partners = [
-  { name: "CPA Australia", src: `${BASE}/2026/01/cpa-2025-logo.jpg` },
-  { name: "ASIC Registered Agent", src: `${BASE}/2026/01/asic-registerd-agent-logo-20205.jpg` },
-  { name: "SMSF Association", src: `${BASE}/2026/01/sms-assocation.jpg` },
-  { name: "Xero Partner", src: `${BASE}/2026/01/xero-logo-20205.jpg` },
-  { name: "JPATAX", src: `${BASE}/2026/01/jpatax-logo-2025.jpg` },
-  { name: "Tax Practitioners Board", src: `${BASE}/2026/01/tax-board-2025-logo.jpg` },
+  { name: "CPA Australia", src: "/logos/cpa-2025-logo.jpg" },
+  { name: "ASIC Registered Agent", src: "/logos/asic-registerd-agent-logo-20205.jpg" },
+  { name: "SMSF Association", src: "/logos/sms-assocation.jpg" },
+  { name: "Xero Partner", src: "/logos/xero-logo-20205.jpg" },
+  { name: "JPATAX", src: "/logos/jpatax-logo-2025.jpg" },
+  { name: "Tax Practitioners Board", src: "/logos/tax-board-2025-logo.jpg" },
 ];
 
 export default function Services() {
@@ -85,7 +85,7 @@ export default function Services() {
       {/* Page Header */}
       <section
         className="relative pt-44 pb-16 bg-cover bg-top"
-        style={{ backgroundImage: `url(${BASE}/2021/10/smsf-400x239.jpg)` }}
+        style={{ backgroundImage: `url(${BASE}/smsf-400x239.jpg)` }}
       >
         <div className="absolute inset-0 bg-[#1a2e1a]/80" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

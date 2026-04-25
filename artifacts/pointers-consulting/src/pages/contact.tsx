@@ -17,6 +17,8 @@ const services = [
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -33,9 +35,40 @@ export default function Contact() {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+
+    const nameParts = form.name.trim().split(/\s+/);
+    const first_name = nameParts[0] ?? "";
+    const last_name = nameParts.slice(1).join(" ") || "";
+
+    const messageWithService = form.service
+      ? `Service: ${form.service}\n\n${form.message}`
+      : form.message;
+
+    try {
+      const res = await fetch("/api/leads", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          first_name,
+          last_name,
+          email: form.email,
+          phone: form.phone,
+          message: messageWithService,
+          form_type: "contact",
+        }),
+      });
+
+      if (!res.ok) throw new Error("Server error");
+      setSubmitted(true);
+    } catch {
+      setError("Something went wrong. Please try again or call us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -242,12 +275,17 @@ export default function Contact() {
                       By submitting this form, you agree to be contacted by our team. We will never share your personal information.
                     </p>
 
+                    {error && (
+                      <p className="text-red-600 text-sm font-normal">{error}</p>
+                    )}
+
                     <button
                       type="submit"
-                      className="w-full bg-[#459443] text-white py-3.5 rounded-lg font-semibold hover:bg-[#3a7f38] transition-colors flex items-center justify-center gap-2"
+                      disabled={submitting}
+                      className="w-full bg-[#459443] text-white py-3.5 rounded-lg font-semibold hover:bg-[#3a7f38] transition-colors flex items-center justify-center gap-2 disabled:opacity-60 disabled:cursor-not-allowed"
                     >
                       <Send size={16} />
-                      Send Message
+                      {submitting ? "Sending…" : "Send Message"}
                     </button>
                   </form>
                 </div>

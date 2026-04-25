@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { Link, useRoute } from "wouter";
 import { CheckCircle, Phone, Mail } from "lucide-react";
 
-const BASE = "https://pointersconsulting.com.au/wp-content/uploads";
+const BASE = "/images";
 
 const sidebarServices = [
   { slug: "/services/smsf", title: "Self-Managed Superfund", children: [
@@ -26,7 +26,7 @@ const subPageData: Record<string, {
   "for-accountants": {
     title: "B2B Model – For Accountants",
     heroTitle: "B2B Model – For Accountants",
-    image: `${BASE}/2021/10/legaldoc-400x239.jpg`,
+    image: `${BASE}/legaldoc-400x239.jpg`,
     intro:
       "Elevate your SMSF offering without the risk.\n\nWe are experts in partnering with Australian Accountants to deliver specialist SMSF services. Enjoy white-label administration, compliance reviews and technical support and serve your SMSF clients confidently while focusing on your core advisory relationships.",
     sections: [
@@ -45,7 +45,7 @@ const subPageData: Record<string, {
   "for-individuals": {
     title: "B2C Model – For Individual Trustees",
     heroTitle: "B2C Model – For Individual Trustees",
-    image: `${BASE}/2021/10/smsf-400x239.jpg`,
+    image: `${BASE}/smsf-400x239.jpg`,
     intro:
       "Is SMSF right for me? Get expert clarity before committing.\n\nSMSF is quite different to Taxation owing to many reasons — a financial product, highly regulated and hence complex. And that's exactly where we come in! Pointers Consulting specialises in SMSF space and guides individuals, professionals and families through every stage of Self-Managed Super Fund — from initial suitability assessment to setup, administration and ongoing ATO compliance.",
     sections: [
@@ -75,7 +75,7 @@ const subPageData: Record<string, {
   fitforme: {
     title: "SMSF FitForMe Checkup",
     heroTitle: "SMSF FitForMe Checkup",
-    image: `${BASE}/2026/01/673-400x239.jpg`,
+    image: `${BASE}/673-400x239.jpg`,
     intro:
       "Australia's first dual-assessment SMSF readiness tool.\n\nUnlock clarity before committing: our pioneering assessment reveals if SMSF aligns with your goals, risk tolerance and lifestyle — delivering honest, data-driven insights from Australia's SMSF specialists to empower your decision. Get your instant SMSF readiness score in minutes, completely free and with no obligation.",
     sections: [
@@ -249,11 +249,19 @@ export default function SmsfSubPage() {
                 </p>
               )}
 
-              <Link href={subslug === "fitforme" ? "/services/smsf/fitforme" : "/contact"}>
-                <button className="mt-5 bg-[#459443] text-white px-7 py-3 rounded font-semibold text-sm hover:bg-[#3a7f38] transition-colors">
-                  {subslug === "fitforme" ? "Try your SMSF readiness assessment" : "Book a Free Consultation"}
-                </button>
-              </Link>
+              {subslug === "fitforme" ? (
+                <a href="/smsf/">
+                  <button className="mt-5 bg-[#459443] text-white px-7 py-3 rounded font-semibold text-sm hover:bg-[#3a7f38] transition-colors">
+                    Try your SMSF readiness assessment
+                  </button>
+                </a>
+              ) : (
+                <Link href="/contact">
+                  <button className="mt-5 bg-[#459443] text-white px-7 py-3 rounded font-semibold text-sm hover:bg-[#3a7f38] transition-colors">
+                    Book a Free Consultation
+                  </button>
+                </Link>
+              )}
             </div>
           </div>
         </div>

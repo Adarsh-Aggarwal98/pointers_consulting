@@ -2,14 +2,14 @@ import { useEffect } from "react";
 import { Link } from "wouter";
 import { CheckCircle } from "lucide-react";
 
-const BASE = "https://pointersconsulting.com.au/wp-content/uploads";
+const BASE = "/images";
 
 const partnerLogos = [
-  { name: "JPATAX", src: `${BASE}/2026/01/jpatax-logo-2025.jpg`, sub: "Authorised Business Partner" },
-  { name: "Tax Practitioners Board", src: `${BASE}/2026/01/tax-board-2025-logo.jpg`, sub: "Registered Tax Agent: 26122730" },
-  { name: "CPA Australia", src: `${BASE}/2026/01/cpa-2025-logo.jpg`, sub: "Registered ASIC Agent" },
-  { name: "SMSF Association", src: `${BASE}/2026/01/sms-assocation.jpg` },
-  { name: "ASIC", src: `${BASE}/2026/01/asic-registerd-agent-logo-20205.jpg` },
+  { name: "JPATAX", src: "/logos/jpatax-logo-2025.jpg", sub: "Authorised Business Partner" },
+  { name: "Tax Practitioners Board", src: "/logos/tax-board-2025-logo.jpg", sub: "Registered Tax Agent: 26122730" },
+  { name: "CPA Australia", src: "/logos/cpa-2025-logo.jpg", sub: "Registered ASIC Agent" },
+  { name: "SMSF Association", src: "/logos/sms-assocation.jpg" },
+  { name: "ASIC", src: "/logos/asic-registerd-agent-logo-20205.jpg" },
 ];
 
 const paragraphs = [
@@ -31,7 +31,7 @@ export default function MessageFromDirector() {
       {/* Hero Banner */}
       <section
         className="relative pt-44 pb-10 bg-cover bg-center"
-        style={{ backgroundImage: `url(${BASE}/2026/01/sliders3.jpg)` }}
+        style={{ backgroundImage: `url(${BASE}/sliders3.jpg)` }}
       >
         <div className="absolute inset-0 bg-[#1a2e1a]/80" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -53,12 +53,12 @@ export default function MessageFromDirector() {
               <div className="relative mb-4">
                 <div className="w-56 h-64 rounded-lg overflow-hidden border-4 border-[#459443]/30 shadow-lg bg-gray-100">
                   <img
-                    src={`${BASE}/2026/01/sharat-sharma.jpg`}
+                    src={`${BASE}/director-sharat.png`}
                     alt="Sharat Sharma (Sam) — Founder & Director"
                     className="w-full h-full object-cover object-top"
                     onError={(e) => {
                       const target = e.currentTarget;
-                      target.src = `${BASE}/2026/01/banner1.jpg`;
+                      target.src = `${BASE}/banner1-2026.jpg`;
                     }}
                   />
                 </div>

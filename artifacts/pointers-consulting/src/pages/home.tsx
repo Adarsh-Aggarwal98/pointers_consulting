@@ -18,7 +18,7 @@ import {
 } from "lucide-react";
 import { blogPosts } from "@/data/blog";
 
-const BASE = "https://pointersconsulting.com.au/wp-content/uploads";
+const BASE = "/images";
 
 const fadeUp: Variants = {
   hidden: { opacity: 0, y: 32 },
@@ -68,19 +68,19 @@ function useCounter(target: number, inView: boolean) {
 
 const slides = [
   {
-    image: `${BASE}/2025/12/banner1.jpg`,
+    image: `${BASE}/banner1-2025.jpg`,
     badge: "Australia's SMSF Specialists",
     title: "Is SMSF Right for Me?",
     subtitle:
       "Try our Free SMSF FitForMe Checkup — Australia's first dual assessment online SMSF Tool. Get your instant SMSF readiness score in minutes.",
     prominentSubtitle: true,
     cta: "Start Free Checkup",
-    ctaHref: "/services/smsf/fitforme",
+    ctaHref: "/smsf/",
     ctaSecondary: "Book Appointment",
     ctaSecondaryHref: "/contact",
   },
   {
-    image: `${BASE}/2026/01/sliders3.jpg`,
+    image: `${BASE}/sliders3.jpg`,
     badge: "SMSF & Tax Specialists",
     title: "Think Big, Act Smart, Stay Compliant",
     subtitle:
@@ -98,7 +98,7 @@ const specialistServices = [
     title: "Self-Managed Superfund (SMSF)",
     description:
       "SMSFs are not just another tax job. They are highly regulated structures with their own legislation, rules and obligations, and serve as a long-term investment vessel for retirement. We help individual trustees and Accountants navigate the complexity with clarity and confidence.",
-    image: `${BASE}/2021/10/smsf-400x239.jpg`,
+    image: `${BASE}/smsf-400x239.jpg`,
     href: "/services/smsf",
     tags: ["B2B – For Accountants", "B2C – For Trustees"],
     highlight: true,
@@ -108,7 +108,7 @@ const specialistServices = [
     title: "Business Advisory & Taxation",
     description:
       "Business success depends on far more than lodging tax returns on time. We bring strategy, structure, governance and tax compliance together in a simple, actionable way for business owners and high net-worth individuals.",
-    image: `${BASE}/2026/01/57-400x239.jpg`,
+    image: `${BASE}/57-400x239.jpg`,
     href: "/services/business-advisory",
     tags: [],
     highlight: false,
@@ -118,7 +118,7 @@ const specialistServices = [
     title: "Self-Employed Professionals",
     description:
       "Specialist tax, structure and advisory for Medical Practitioners, Lawyers, Tradies, Mortgage Brokers and all sole business proprietors. We understand the unique challenges of running your own practice.",
-    image: `${BASE}/2021/10/legaldoc-400x239.jpg`,
+    image: `${BASE}/legaldoc-400x239.jpg`,
     href: "/services/business-advisory",
     tags: ["Medical", "Legal", "Trades", "Brokers"],
     highlight: false,
@@ -128,7 +128,7 @@ const specialistServices = [
     title: "Investors",
     description:
       "Strategic tax planning and advisory for Real Estate, Share and Crypto investors. We ensure every holding complies while maximising after-tax returns — balancing your growth aspirations with strict compliance requirements.",
-    image: `${BASE}/2021/10/audit-400x239.jpg`,
+    image: `${BASE}/audit-400x239.jpg`,
     href: "/services/business-advisory",
     tags: ["Real Estate", "Shares", "Crypto"],
     highlight: false,
@@ -141,7 +141,7 @@ const otherServices = [
     title: "Legal Aid – Setups, Registrations & Compliance",
     description:
       "Fast-track legal aid for Australian business registrations, entity formation and ongoing compliance. From sole traders to multinationals, we handle the paperwork so you launch confidently and stay compliant.",
-    image: `${BASE}/2022/07/company-taxreturn-400x239.jpg`,
+    image: `${BASE}/company-taxreturn-400x239.jpg`,
     href: "/services/legal-compliance",
   },
   {
@@ -149,18 +149,18 @@ const otherServices = [
     title: "Audit & Risk Assurance",
     description:
       "Strategic risk and assurance solutions through our proven E-R-S philosophy. We help Australian businesses strengthen internal controls, mitigate threats and build stakeholder confidence — turning risk management from cost centre to competitive advantage.",
-    image: `${BASE}/2021/10/audit-400x239.jpg`,
+    image: `${BASE}/audit-400x239.jpg`,
     href: "/services/assurance-risk",
   },
 ];
 
 const partnerLogos = [
-  { name: "CPA Australia", src: `${BASE}/2026/01/cpa-2025-logo.jpg` },
-  { name: "ASIC Registered Agent", src: `${BASE}/2026/01/asic-registerd-agent-logo-20205.jpg` },
-  { name: "SMSF Association", src: `${BASE}/2026/01/sms-assocation.jpg` },
-  { name: "Xero Partner", src: `${BASE}/2026/01/xero-logo-20205.jpg` },
-  { name: "JPATAX", src: `${BASE}/2026/01/jpatax-logo-2025.jpg` },
-  { name: "Tax Practitioners Board", src: `${BASE}/2026/01/tax-board-2025-logo.jpg` },
+  { name: "CPA Australia", src: "/logos/cpa-2025-logo.jpg" },
+  { name: "ASIC Registered Agent", src: "/logos/asic-registerd-agent-logo-20205.jpg" },
+  { name: "SMSF Association", src: "/logos/sms-assocation.jpg" },
+  { name: "Xero Partner", src: "/logos/xero-logo-20205.jpg" },
+  { name: "JPATAX", src: "/logos/jpatax-logo-2025.jpg" },
+  { name: "Tax Practitioners Board", src: "/logos/tax-board-2025-logo.jpg" },
 ];
 
 const stats = [
@@ -379,17 +379,17 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {[
               {
-                img: `${BASE}/2025/12/experienve.svg`,
+                img: `${BASE}/experienve.svg`,
                 title: "Core Expertise",
                 desc: "SMSF Structuring, Tax optimization and compliance strategies for Business & Individuals",
               },
               {
-                img: `${BASE}/2025/12/trust.svg`,
+                img: `${BASE}/trust.svg`,
                 title: "Proven Track Record",
                 desc: "Years of delivering proactive SMSF, Taxation & Business Advisory Solutions to Australian Clients.",
               },
               {
-                img: `${BASE}/2025/12/service.svg`,
+                img: `${BASE}/service.svg`,
                 title: "Tailored Client Support",
                 desc: "Personalized consultations to ensure alignment with your own business, super, investment and financial needs.",
               },
@@ -641,7 +641,7 @@ export default function Home() {
                   </li>
                 ))}
               </ul>
-              <Link href="/services/smsf/fitforme">
+              <a href="/smsf/">
                 <motion.button
                   whileHover={{ scale: 1.03, boxShadow: "0 8px 32px rgba(69,148,67,0.35)" }}
                   whileTap={{ scale: 0.97 }}
@@ -650,7 +650,7 @@ export default function Home() {
                   Start Free Checkup
                   <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                 </motion.button>
-              </Link>
+              </a>
             </AnimatedSection>
 
             <AnimatedSection>
@@ -740,7 +740,7 @@ export default function Home() {
             <AnimatedSection>
               <div className="relative rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src={`${BASE}/2024/06/business-accountant.webp`}
+                  src={`${BASE}/business-accountant.webp`}
                   alt="Professional Business Accountant"
                   className="w-full h-80 lg:h-96 object-cover"
                 />

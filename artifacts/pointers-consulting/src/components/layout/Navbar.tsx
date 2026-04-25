@@ -83,7 +83,7 @@ export default function Navbar() {
             <Link href="/">
               <div className="flex items-center cursor-pointer">
                 <img
-                  src="https://pointersconsulting.com.au/wp-content/uploads/2026/01/Pointers-logo.png"
+                  src="/images/Pointers-logo.png"
                   alt="Pointers Consulting"
                   className="h-16 lg:h-20 w-auto object-contain"
                   onError={(e) => {
@@ -98,7 +98,7 @@ export default function Navbar() {
               </div>
             </Link>
 
-            <div className="hidden lg:flex items-center gap-7">
+            <div className="hidden lg:flex items-center gap-7 lg:gap-5">
               {navLinks.map((link) =>
                 link.dropdown ? (
                   <div
@@ -170,6 +170,11 @@ export default function Navbar() {
                   Book Appointment
                 </button>
               </Link>
+              <a href="/crm/login">
+                <button className="border border-[#459443] text-[#459443] px-5 py-2 rounded text-base lg:text-lg font-semibold hover:bg-[#459443] hover:text-white transition-colors">
+                  Login
+                </button>
+              </a>
             </div>
 
             <button

@@ -1,13 +1,6 @@
-export interface BlogPost {
-  slug: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  date: string;
-  readTime: string;
-  author: string;
-  content: string;
-}
+import type { BlogPost } from "./blog-types";
+
+export type { BlogPost };
 
 export const blogPosts: BlogPost[] = [
   {

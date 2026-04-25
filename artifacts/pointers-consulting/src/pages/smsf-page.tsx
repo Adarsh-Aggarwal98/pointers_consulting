@@ -3,7 +3,7 @@ import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight, Zap } from "lucide-react";
 
-const BASE = "https://pointersconsulting.com.au/wp-content/uploads";
+const BASE = "/images";
 
 const subCards = [
   {
@@ -11,21 +11,21 @@ const subCards = [
     title: "B2B Model – For Accountants",
     description:
       "Elevate your SMSF offering without the risk. We are experts in partnering with Australian Accountants to deliver specialist SMSF services. Enjoy white-label administration, compliance reviews and technical support — serve your SMSF clients confidently while focusing on your core advisory relationships.",
-    image: `${BASE}/2021/10/legaldoc-400x239.jpg`,
+    image: `${BASE}/legaldoc-400x239.jpg`,
   },
   {
     slug: "for-individuals",
     title: "B2C Model – For Individual Trustees",
     description:
       "Is SMSF right for me? Get expert clarity before committing. Pointers Consulting specialises in SMSF space and guides individuals, professionals and families through every stage — from initial suitability assessment to setup, administration and ongoing ATO compliance.",
-    image: `${BASE}/2021/10/smsf-400x239.jpg`,
+    image: `${BASE}/smsf-400x239.jpg`,
   },
   {
     slug: "fitforme",
     title: "SMSF FitForMe Checkup",
     description:
       "By simply answering 25 Yes/No questions, this tool provides an instant tailored summary of your SMSF readiness in minutes. Our tool neither gives financial advice nor any recommendation — just personalised insights. And it's free!",
-    image: `${BASE}/2026/01/673-400x239.jpg`,
+    image: `${BASE}/673-400x239.jpg`,
   },
 ];
 
@@ -49,7 +49,7 @@ export default function SmsfPage() {
       {/* Hero Banner */}
       <section
         className="relative pt-44 pb-14 bg-cover bg-center"
-        style={{ backgroundImage: `url(${BASE}/2021/10/smsf-400x239.jpg)` }}
+        style={{ backgroundImage: `url(${BASE}/smsf-400x239.jpg)` }}
       >
         <div className="absolute inset-0 bg-[#1a2e1a]/80" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,7 +89,7 @@ export default function SmsfPage() {
               <p className="text-[#0a0a0a] text-xs leading-relaxed mb-8 border-l-2 border-[#459443]/30 pl-3">
                 Note: The SMSF FitForMe Checkup assessment provides general information only, not a personal financial advice or a recommendation to establish an SMSF.
               </p>
-              <Link href="/services/smsf/fitforme">
+              <a href="/smsf/">
                 <motion.button
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
@@ -97,7 +97,7 @@ export default function SmsfPage() {
                 >
                   <Zap size={15} /> Start Now — It's Free <ArrowRight size={14} />
                 </motion.button>
-              </Link>
+              </a>
             </motion.div>
 
             {/* Right: FitForMe Card */}
