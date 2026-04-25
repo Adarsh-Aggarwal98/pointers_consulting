@@ -20,7 +20,6 @@ const navLinks = [
   { href: "/about", label: "About Us", dropdown: aboutDropdown },
   { href: "/services", label: "Services", dropdown: servicesDropdown },
   { href: "/blog", label: "Growth Insights" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {

@@ -75,7 +75,8 @@ const slides = [
       "Try our Free SMSF FitForMe Checkup — Australia's first dual assessment online SMSF Tool. Get your instant SMSF readiness score in minutes.",
     prominentSubtitle: true,
     cta: "Start Free Checkup",
-    ctaHref: "/smsf/",
+    ctaHref: "/smsf",
+    ctaExternal: true,
     ctaSecondary: "Book Appointment",
     ctaSecondaryHref: "/contact",
   },
@@ -289,16 +290,29 @@ export default function Home() {
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Link href={slide.ctaHref}>
-                      <motion.button
-                        whileHover={{ scale: 1.03 }}
-                        whileTap={{ scale: 0.97 }}
-                        className="bg-[#459443] text-white px-8 py-4 rounded-xl font-semibold text-sm hover:bg-[#3a7f38] transition-colors flex items-center gap-2.5 justify-center shadow-lg shadow-[#459443]/30"
-                      >
-                        {slide.cta}
-                        <ArrowRight size={17} />
-                      </motion.button>
-                    </Link>
+                    {slide.ctaExternal ? (
+                      <a href={slide.ctaHref}>
+                        <motion.button
+                          whileHover={{ scale: 1.03 }}
+                          whileTap={{ scale: 0.97 }}
+                          className="bg-[#459443] text-white px-8 py-4 rounded-xl font-semibold text-sm hover:bg-[#3a7f38] transition-colors flex items-center gap-2.5 justify-center shadow-lg shadow-[#459443]/30"
+                        >
+                          {slide.cta}
+                          <ArrowRight size={17} />
+                        </motion.button>
+                      </a>
+                    ) : (
+                      <Link href={slide.ctaHref}>
+                        <motion.button
+                          whileHover={{ scale: 1.03 }}
+                          whileTap={{ scale: 0.97 }}
+                          className="bg-[#459443] text-white px-8 py-4 rounded-xl font-semibold text-sm hover:bg-[#3a7f38] transition-colors flex items-center gap-2.5 justify-center shadow-lg shadow-[#459443]/30"
+                        >
+                          {slide.cta}
+                          <ArrowRight size={17} />
+                        </motion.button>
+                      </Link>
+                    )}
                     {slide.ctaSecondaryHref.startsWith("tel:") ? (
                       <a href={slide.ctaSecondaryHref}>
                         <motion.button
