@@ -109,7 +109,7 @@ export default function Navbar() {
                   >
                     <Link href={link.href}>
                       <span
-                        className={`flex items-center gap-1 text-sm font-semibold transition-colors cursor-pointer ${
+                        className={`flex items-center gap-1 text-base lg:text-lg font-semibold transition-colors cursor-pointer ${
                           (link.label === "About Us" && isAboutActive) || (link.label === "Services" && isServicesActive)
                             ? "text-[#459443]"
                             : "text-[#0a0a0a] hover:text-[#459443]"
@@ -134,7 +134,7 @@ export default function Navbar() {
                           {link.dropdown.map((item) => (
                             <Link key={item.href} href={item.href}>
                               <div
-                                className={`px-4 py-3 text-sm cursor-pointer transition-colors hover:bg-[#459443]/5 hover:text-[#459443] flex items-center justify-between gap-2 ${
+                                className={`px-4 py-3 text-base lg:text-lg cursor-pointer transition-colors hover:bg-[#459443]/5 hover:text-[#459443] flex items-center justify-between gap-2 ${
                                   location === item.href ? "text-[#459443] bg-[#459443]/5 font-semibold" : "text-[#0a0a0a]"
                                 } ${"specialist" in item && (item as { specialist?: boolean }).specialist ? "border-b border-gray-100 font-medium" : ""}`}
                               >
@@ -154,7 +154,7 @@ export default function Navbar() {
                 ) : (
                   <Link key={link.href} href={link.href}>
                     <span
-                      className={`text-sm font-semibold transition-colors cursor-pointer ${
+                      className={`text-base lg:text-lg font-semibold transition-colors cursor-pointer ${
                         location === link.href
                           ? "text-[#459443]"
                           : "text-[#0a0a0a] hover:text-[#459443]"
@@ -166,7 +166,7 @@ export default function Navbar() {
                 )
               )}
               <Link href="/contact">
-                <button className="bg-[#459443] text-white px-5 py-2 rounded text-sm font-semibold hover:bg-[#3a7f38] transition-colors">
+                <button className="bg-[#459443] text-white px-5 py-2 rounded text-base lg:text-lg font-semibold hover:bg-[#3a7f38] transition-colors">
                   Book Appointment
                 </button>
               </Link>
