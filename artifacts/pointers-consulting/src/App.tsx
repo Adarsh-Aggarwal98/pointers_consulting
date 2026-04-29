@@ -1,8 +1,9 @@
-import { Switch, Route, Router as WouterRouter } from "wouter";
+import { Switch, Route, Router as WouterRouter, Redirect } from "wouter";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
+import { usePageTracking } from "@/hooks/usePageTracking";
 
 import Layout from "@/components/layout/Layout";
 import Home from "@/pages/home";
@@ -19,9 +20,16 @@ import MessageFromDirector from "@/pages/message-from-director";
 const queryClient = new QueryClient();
 
 function Router() {
+  usePageTracking();
+
   return (
     <Switch>
       <Route path="/" component={Home} />
+      {/* Legacy URL redirects */}
+      <Route path="/contact-us"><Redirect to="/contact" /></Route>
+      <Route path="/smsf"><Redirect to="/services/smsf" /></Route>
+      <Route path="/service/:slug" component={({ params }) => <Redirect to={`/services/${params.slug}`} />} />
+      {/* Current routes */}
       <Route path="/services" component={Services} />
       <Route path="/services/smsf" component={SmsfPage} />
       <Route path="/services/smsf/:subslug" component={SmsfSubPage} />
