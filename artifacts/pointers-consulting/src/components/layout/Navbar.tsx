@@ -237,6 +237,11 @@ export default function Navbar() {
                     Book Appointment
                   </button>
                 </Link>
+                <a href="/crm/login" className="block">
+                  <button className="w-full border border-[#459443] text-[#459443] py-3 rounded font-semibold hover:bg-[#459443] hover:text-white transition-colors">
+                    Login
+                  </button>
+                </a>
               </div>
             </div>
           </motion.div>
