@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { applySEO } from "@/lib/seo";
 import { Link } from "wouter";
 import { motion, useInView, AnimatePresence, type Variants } from "framer-motion";
 import {
@@ -217,7 +218,11 @@ export default function Home() {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    document.title = "Pointers Consulting | SMSF & Business Advisory Specialists";
+    applySEO({
+      title: "Pointers Consulting | SMSF & Business Advisory Specialists Melbourne",
+      description: "Melbourne-based SMSF, tax, and business advisory specialists. Expert guidance on SMSF setup, compliance, tax strategies, and business succession. Call +61 426 784 982.",
+      canonical: "/",
+    });
   }, []);
 
   useEffect(() => {

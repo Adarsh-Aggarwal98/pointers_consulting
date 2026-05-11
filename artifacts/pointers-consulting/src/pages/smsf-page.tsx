@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { applySEO } from "@/lib/seo";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { CheckCircle, ArrowRight, Zap } from "lucide-react";
@@ -40,7 +41,11 @@ const clientTypes = [
 
 export default function SmsfPage() {
   useEffect(() => {
-    document.title = "Self-Managed Superfund | Pointers Consulting";
+    applySEO({
+      title: "SMSF Specialists Australia | Self-Managed Super Fund | Pointers Consulting",
+      description: "Expert SMSF setup, compliance, audit, and strategy for individual trustees and accountants across Australia. Use our free SMSF FitForMe Checkup tool.",
+      canonical: "/services/smsf",
+    });
     window.scrollTo(0, 0);
   }, []);
 

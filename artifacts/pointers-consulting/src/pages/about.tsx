@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { applySEO } from "@/lib/seo";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { CheckCircle, Phone, User, Book, Zap, DollarSign, Globe, GraduationCap, Heart, Shield, Star } from "lucide-react";
@@ -102,7 +103,11 @@ const partnerLogos = [
 
 export default function About() {
   useEffect(() => {
-    document.title = "Who We Are | Pointers Consulting";
+    applySEO({
+      title: "About Pointers Consulting | SMSF & Tax Specialists Melbourne",
+      description: "Pointers Consulting is led by Sharat Sharma (CPA, Tax Agent #26122730), a specialist in SMSF, tax, and business advisory with 20+ years of experience across Australia.",
+      canonical: "/about",
+    });
     window.scrollTo(0, 0);
   }, []);
 
@@ -136,7 +141,7 @@ export default function About() {
                 Clean, practical guidance for those who want more control over super, smarter tax outcomes, and a trusted accountant to reach out. Pointers Consulting is a Melbourne based specialist in SMSF and tax accounting, empowering professionals, business owners and families with clear decisions on super, investments and compliance. As a forward-thinking, technology-driven firm, we leverage AI tools and automation to streamline routine admin tasks, from data processing and compliance checks to report generation, freeing you to focus on strategic growth and confident decision making.
               </p>
               <p className="text-[#0a0a0a] text-sm leading-relaxed font-normal">
-                With years of top and business experience across Australia and overseas, complex situations receive deep technical analysis delivered in straightforward, jargon-free language.
+                With years of tax and business experience across Australia and overseas, complex situations receive deep technical analysis delivered in straightforward, jargon-free language.
               </p>
             </div>
             <div>
@@ -156,7 +161,7 @@ export default function About() {
           <div className="text-center mb-12">
             <h2 className="text-2xl font-bold text-[#1a2e1a] mb-2">Why work with us ?</h2>
             <p className="text-[#0a0a0a] text-sm font-normal">
-              We stands out through client-centric practices that prioritise transparency, efficiency and empowerment.
+              We stand out through client-centric practices that prioritise transparency, efficiency and empowerment.
             </p>
           </div>
           <motion.div

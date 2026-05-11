@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { applySEO } from "@/lib/seo";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Search, ArrowRight, Clock, Calendar } from "lucide-react";
@@ -20,7 +21,11 @@ export default function BlogList() {
   const [activeCategory, setActiveCategory] = useState("All");
 
   useEffect(() => {
-    document.title = "Growth Insights | Pointers Consulting";
+    applySEO({
+      title: "SMSF & Tax Insights Blog | Pointers Consulting",
+      description: "Expert articles on SMSF, superannuation, tax strategies, and business succession planning for Australian businesses and investors.",
+      canonical: "/blog",
+    });
     window.scrollTo(0, 0);
     fetch("/api/blogs")
       .then((r) => r.json())

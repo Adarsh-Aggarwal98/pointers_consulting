@@ -24,22 +24,27 @@ export default function Footer() {
             <p className="text-white/60 text-sm leading-relaxed mb-3">
               Authorised Representative of JPATAX
             </p>
-            <p className="text-white/50 text-xs mb-5">Tax Agent # 26122730</p>
+            <p className="text-white/50 text-xs mb-5">Tax Agent #26122730</p>
+            <p className="text-white/50 text-xs mb-5">ABN: 27 676 524 747</p>
             <p className="text-white/60 text-sm leading-relaxed mb-5">
               A boutique advisory firm specialising in SMSF, tax and business advisory, backed by an AI powered support hub.
             </p>
             <div className="flex gap-3">
               <a
-                href="#"
+                href="https://www.linkedin.com/company/pointers-consulting"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#459443] text-white/60 hover:text-white flex items-center justify-center transition-colors"
-                aria-label="LinkedIn"
+                aria-label="Pointers Consulting on LinkedIn"
               >
                 <Linkedin size={16} />
               </a>
               <a
-                href="#"
+                href="https://www.facebook.com/pointersconsulting"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#459443] text-white/60 hover:text-white flex items-center justify-center transition-colors"
-                aria-label="Facebook"
+                aria-label="Pointers Consulting on Facebook"
               >
                 <Facebook size={16} />
               </a>

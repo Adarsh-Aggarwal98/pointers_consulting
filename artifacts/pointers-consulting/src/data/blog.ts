@@ -11,7 +11,7 @@ export const blogPosts: BlogPost[] = [
     category: "SMSF",
     date: "March 28, 2025",
     readTime: "6 min read",
-    author: "Pointers Consulting",
+    author: "Sharat Sharma, CPA",
     content: `Self-managed super funds (SMSFs) have become increasingly popular among Australians seeking greater control over their retirement savings. With over 600,000 SMSFs managing more than $900 billion in assets, it's clear that many Australians see value in this approach. But is an SMSF right for you?
 
 **What is an SMSF?**
@@ -50,7 +50,7 @@ At Pointers Consulting, we help clients navigate every aspect of SMSF establishm
     category: "Tax",
     date: "March 15, 2025",
     readTime: "7 min read",
-    author: "Pointers Consulting",
+    author: "Sharat Sharma, CPA",
     content: `For Australian small business owners, effective tax planning is not just about the end of the financial year — it's a year-round discipline. The strategies you implement now can significantly reduce your tax liability while keeping you on the right side of the ATO.
 
 **Instant Asset Write-Off**
@@ -91,7 +91,7 @@ The tax landscape changes frequently, and strategies that were optimal last year
     category: "SMSF",
     date: "February 20, 2025",
     readTime: "8 min read",
-    author: "Pointers Consulting",
+    author: "Sharat Sharma, CPA",
     content: `Running an SMSF comes with substantial compliance obligations. The Australian Tax Office actively monitors SMSF trustees, and the consequences of non-compliance can include fund disqualification, significant financial penalties, and in serious cases, criminal prosecution. This checklist outlines the key compliance requirements every trustee should know.
 
 **Annual Obligations**
@@ -138,7 +138,7 @@ Given the complexity of SMSF compliance, most trustees benefit from working with
     category: "Superannuation",
     date: "February 5, 2025",
     readTime: "5 min read",
-    author: "Pointers Consulting",
+    author: "Sharat Sharma, CPA",
     content: `The 2024-25 financial year brings updated superannuation contribution caps and rules that present significant opportunities for Australians looking to accelerate their retirement savings. Understanding these rules thoroughly is essential to making the most of the available strategies.
 
 **Concessional Contributions**
@@ -175,7 +175,7 @@ If you're unsure how to optimise your super contributions for your individual ci
     category: "Business Advisory",
     date: "January 22, 2025",
     readTime: "7 min read",
-    author: "Pointers Consulting",
+    author: "Sharat Sharma, CPA",
     content: `Business succession planning is one of the most important — and most frequently neglected — aspects of running a business. Research consistently shows that fewer than 30% of family businesses successfully transition to the next generation, and a significant factor is the absence of a formal succession plan.
 
 **Why Succession Planning Matters**
@@ -216,7 +216,7 @@ Pointers Consulting works with business owners at every stage of their successio
     category: "SMSF",
     date: "January 10, 2025",
     readTime: "8 min read",
-    author: "Pointers Consulting",
+    author: "Sharat Sharma, CPA",
     content: `Property investment within a self-managed super fund is one of the most discussed — and most misunderstood — strategies in the Australian financial advice landscape. While it can be an excellent way to build retirement wealth, the rules are complex and the consequences of getting them wrong can be severe.
 
 **What Properties Can an SMSF Purchase?**

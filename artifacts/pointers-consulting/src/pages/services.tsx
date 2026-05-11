@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { applySEO } from "@/lib/seo";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowRight, Phone, Users, Shield, Building2, FileText, BarChart3, Calculator, CheckCircle } from "lucide-react";
@@ -77,7 +78,11 @@ const partners = [
 
 export default function Services() {
   useEffect(() => {
-    document.title = "SMSF & Financial Services | Pointers Consulting — SMSF Specialists";
+    applySEO({
+      title: "SMSF & Advisory Services | Pointers Consulting Melbourne",
+      description: "SMSF setup, compliance and audit, tax planning, business advisory, legal registrations, and audit & risk assurance for Australian businesses and investors.",
+      canonical: "/services",
+    });
   }, []);
 
   return (

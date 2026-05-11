@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { applySEO } from "@/lib/seo";
 import { Link, useParams } from "wouter";
 import { motion } from "framer-motion";
 import { ArrowLeft, Clock, Calendar, Tag, ArrowRight } from "lucide-react";
@@ -23,7 +24,30 @@ export default function BlogPostPage() {
       .then(([postData, listData]) => {
         if (postData.success && postData.post) {
           setPost(postData.post);
-          document.title = `${postData.post.title} | Pointers Consulting`;
+          applySEO({
+            title: `${postData.post.title} | Pointers Consulting`,
+            description: postData.post.excerpt,
+            canonical: `/blog/${postData.post.slug}`,
+            ogType: "article",
+            schema: {
+              "@context": "https://schema.org",
+              "@type": "Article",
+              "headline": postData.post.title,
+              "description": postData.post.excerpt,
+              "datePublished": postData.post.date,
+              "author": {
+                "@type": "Person",
+                "name": "Sharat Sharma",
+                "jobTitle": "CPA, Registered Tax Agent #26122730",
+                "url": "https://pointersconsulting.com.au/about/message-from-director"
+              },
+              "publisher": {
+                "@type": "Organization",
+                "name": "Pointers Consulting",
+                "url": "https://pointersconsulting.com.au"
+              }
+            },
+          });
         } else {
           setNotFound(true);
         }
@@ -138,6 +162,28 @@ export default function BlogPostPage() {
                 <p className="text-xs text-gray-500 font-light leading-relaxed">
                   <strong className="text-gray-700">Disclaimer:</strong> This article is for general information purposes only and does not constitute financial, legal or tax advice. Australian tax laws change frequently — please consult a qualified adviser before acting on any information contained in this article.
                 </p>
+              </div>
+
+              {/* Author Bio */}
+              <div className="mt-8 p-6 border border-gray-200 rounded-xl flex gap-5 items-start">
+                <div className="w-14 h-14 rounded-full bg-[#459443]/10 flex items-center justify-center shrink-0">
+                  <span className="text-[#459443] font-bold text-xl">SS</span>
+                </div>
+                <div>
+                  <p className="font-bold text-[#1a2e1a] text-sm">Sharat Sharma (Sam)</p>
+                  <p className="text-[#459443] text-xs font-semibold mb-2">Founder & Director, CPA Australia</p>
+                  <p className="text-gray-600 text-xs leading-relaxed font-light">
+                    Sam is a CPA-qualified accountant and Registered Tax Agent (#26122730) with over 20 years of experience across Australia, Asia, and the Middle East. He specialises in SMSF strategy, tax planning, and business advisory for Australian SMEs and investors.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-3">
+                    {["CPA Australia", "Tax Agent #26122730", "SMSF Association", "ASIC Registered Agent"].map((cred) => (
+                      <span key={cred} className="text-[10px] bg-[#459443]/10 text-[#459443] px-2 py-0.5 rounded-full font-semibold">{cred}</span>
+                    ))}
+                  </div>
+                  <Link href="/about/message-from-director">
+                    <span className="text-[#459443] text-xs font-semibold hover:underline cursor-pointer mt-2 inline-block">View full profile →</span>
+                  </Link>
+                </div>
               </div>
             </motion.div>
 

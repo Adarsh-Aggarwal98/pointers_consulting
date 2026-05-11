@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { applySEO } from "@/lib/seo";
 import { Link, useRoute } from "wouter";
 import { CheckCircle, Phone, Mail } from "lucide-react";
 
@@ -110,10 +111,22 @@ export default function SmsfSubPage() {
   const data = subPageData[subslug];
   const currentPath = `/services/smsf/${subslug}`;
 
+  const subPageDescriptions: Record<string, string> = {
+    "for-accountants": "White-label SMSF administration and compliance support for Australian accounting practices. Grow your SMSF offering without the risk — technical support within 24 hours.",
+    "for-individuals": "Personalised SMSF guidance for individuals, professionals and families — from suitability assessment and fund setup to annual compliance and ATO lodgements.",
+    "fitforme": "Australia's free SMSF FitForMe Checkup — 25 yes/no questions to assess your SMSF readiness in ~10 minutes. Instant score, personalised insights, no obligation.",
+  };
+
   useEffect(() => {
-    document.title = data
-      ? `${data.title} | Pointers Consulting`
-      : "SMSF | Pointers Consulting";
+    applySEO({
+      title: data
+        ? `${data.title} | SMSF Specialists | Pointers Consulting`
+        : "SMSF Services | Pointers Consulting",
+      description: data
+        ? (subPageDescriptions[subslug] ?? `${data.title} — expert SMSF services from Pointers Consulting, Melbourne's specialist SMSF advisory firm.`)
+        : "Expert SMSF services from Pointers Consulting Melbourne.",
+      canonical: `/services/smsf/${subslug}`,
+    });
     window.scrollTo(0, 0);
   }, [subslug, data]);
 

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { applySEO } from "@/lib/seo";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, CheckCircle, Send } from "lucide-react";
 
@@ -28,7 +29,11 @@ export default function Contact() {
   });
 
   useEffect(() => {
-    document.title = "Contact Us | Pointers Consulting";
+    applySEO({
+      title: "Contact Pointers Consulting | Book a Free Consultation",
+      description: "Book a free initial consultation with our SMSF and tax specialists. Located in Docklands, Melbourne. Call +61 426 784 982 or email sam@pointersconsulting.com.au.",
+      canonical: "/contact",
+    });
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

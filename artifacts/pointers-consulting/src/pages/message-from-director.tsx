@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { applySEO } from "@/lib/seo";
 import { Link } from "wouter";
 import { CheckCircle } from "lucide-react";
 
@@ -22,7 +23,11 @@ const paragraphs = [
 
 export default function MessageFromDirector() {
   useEffect(() => {
-    document.title = "Message from Director | Pointers Consulting";
+    applySEO({
+      title: "Sharat Sharma (Sam) — Founder & Director | Pointers Consulting",
+      description: "Message from Sharat Sharma (Sam), CPA and Registered Tax Agent #26122730. Founder of Pointers Consulting with 20+ years of SMSF, tax and business advisory experience across Australia, Asia and the Middle East.",
+      canonical: "/about/message-from-director",
+    });
     window.scrollTo(0, 0);
   }, []);
 

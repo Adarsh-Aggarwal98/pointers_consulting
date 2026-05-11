@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { applySEO } from "@/lib/seo";
 import { Link, useRoute } from "wouter";
 import { CheckCircle, Phone, Mail, ArrowRight } from "lucide-react";
 
@@ -179,10 +180,24 @@ export default function ServiceDetail() {
   const slug = params?.slug ?? "";
   const data = serviceData[slug];
 
+  const serviceDescriptions: Record<string, string> = {
+    smsf: "Expert SMSF setup, compliance, audit and administration for accountants and individuals across Australia. White-label SMSF support and FitForMe readiness tool.",
+    "business-advisory": "Strategic business advisory and tax planning for Australian SMEs and high net-worth individuals. Company structuring, succession planning, and ATO compliance.",
+    "legal-compliance": "Fast-track business registrations, entity formation, ABN/TFN/GST applications, and ASIC lodgements for Australian businesses and international entrants.",
+    "assurance-risk": "Independent audit and risk assurance for Australian businesses. Internal audit, governance advisory, compliance health checks, and control optimisation.",
+    "taxation-accounting": "Comprehensive tax and accounting services including tax returns, BAS/GST, capital gains, payroll and ATO audit support for individuals and businesses.",
+  };
+
   useEffect(() => {
-    document.title = data
-      ? `${data.title} | Pointers Consulting`
-      : "Service | Pointers Consulting";
+    applySEO({
+      title: data
+        ? `${data.title} | Pointers Consulting Melbourne`
+        : "Service | Pointers Consulting",
+      description: data
+        ? (serviceDescriptions[slug] ?? `${data.title} services from Pointers Consulting — SMSF and tax specialists in Melbourne.`)
+        : "SMSF and tax advisory services from Pointers Consulting Melbourne.",
+      canonical: `/services/${slug}`,
+    });
     window.scrollTo(0, 0);
   }, [slug, data]);
 
