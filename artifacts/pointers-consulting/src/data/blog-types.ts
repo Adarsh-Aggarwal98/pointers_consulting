@@ -7,6 +7,8 @@ export interface BlogSummary {
   date: string;
   readTime: string;
   author: string;
+  coverImage?: string;
+  cover_image?: string;
 }
 
 export interface BlogPost extends BlogSummary {
