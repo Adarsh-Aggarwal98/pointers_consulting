@@ -219,9 +219,25 @@ export default function Home() {
 
   useEffect(() => {
     applySEO({
-      title: "Pointers Consulting | SMSF & Business Advisory Specialists Melbourne",
-      description: "Melbourne-based SMSF, tax, and business advisory specialists. Expert guidance on SMSF setup, compliance, tax strategies, and business succession. Call +61 426 784 982.",
+      title: "SMSF Accountant Melbourne | Tax & Business Advisory | Pointers Consulting",
+      description: "Melbourne SMSF accountants and tax advisers. Expert SMSF setup, compliance, audit, tax planning & business advisory. CPA-qualified, 20+ years experience. Free initial consultation — call +61 426 784 982.",
       canonical: "/",
+      schema: {
+        "@context": "https://schema.org",
+        "@type": "AccountingService",
+        "name": "Pointers Consulting",
+        "description": "Melbourne-based SMSF accountants and business advisory specialists. Expert SMSF setup, compliance, tax planning and business advisory.",
+        "url": "https://pointersconsulting.com.au",
+        "logo": "https://pointersconsulting.com.au/images/Pointers-logo.png",
+        "telephone": "+61426784982",
+        "email": "sam@pointersconsulting.com.au",
+        "address": { "@type": "PostalAddress", "streetAddress": "Level 17, Tower 4, 727 Collins Street", "addressLocality": "Docklands", "addressRegion": "VIC", "postalCode": "3008", "addressCountry": "AU" },
+        "geo": { "@type": "GeoCoordinates", "latitude": -37.818, "longitude": 144.953 },
+        "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" },
+        "priceRange": "$$",
+        "areaServed": "Australia",
+        "founder": { "@type": "Person", "name": "Sharat Sharma", "jobTitle": "Director & CPA", "hasCredential": "Registered Tax Agent #26122730" },
+      },
     });
   }, []);
 

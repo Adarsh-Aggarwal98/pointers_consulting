@@ -180,23 +180,51 @@ export default function ServiceDetail() {
   const slug = params?.slug ?? "";
   const data = serviceData[slug];
 
+  const serviceTitles: Record<string, string> = {
+    smsf: "SMSF Accountant Melbourne | SMSF Setup, Compliance & Audit | Pointers Consulting",
+    "business-advisory": "Business Tax Accountant Melbourne | Advisory & Tax Planning | Pointers Consulting",
+    "legal-compliance": "Business Registrations & Legal Compliance Melbourne | Pointers Consulting",
+    "assurance-risk": "Audit & Risk Assurance Melbourne | Pointers Consulting",
+    "taxation-accounting": "Tax Accountant Melbourne | Individual & Business Tax Returns | Pointers Consulting",
+  };
+
   const serviceDescriptions: Record<string, string> = {
-    smsf: "Expert SMSF setup, compliance, audit and administration for accountants and individuals across Australia. White-label SMSF support and FitForMe readiness tool.",
-    "business-advisory": "Strategic business advisory and tax planning for Australian SMEs and high net-worth individuals. Company structuring, succession planning, and ATO compliance.",
-    "legal-compliance": "Fast-track business registrations, entity formation, ABN/TFN/GST applications, and ASIC lodgements for Australian businesses and international entrants.",
-    "assurance-risk": "Independent audit and risk assurance for Australian businesses. Internal audit, governance advisory, compliance health checks, and control optimisation.",
-    "taxation-accounting": "Comprehensive tax and accounting services including tax returns, BAS/GST, capital gains, payroll and ATO audit support for individuals and businesses.",
+    smsf: "Melbourne SMSF accountants specialising in SMSF setup, compliance, audit & ongoing strategy. CPA-qualified with 20+ years experience. White-label support for accountants & free FitForMe readiness tool for individuals.",
+    "business-advisory": "Strategic business advisory and tax planning for Australian SMEs. Company structuring, Division 7A, trust distributions, succession planning, and ATO compliance — Melbourne CBD office, Australia-wide service.",
+    "legal-compliance": "Fast business registrations in Melbourne: company formation, ABN/TFN/GST applications, ASIC lodgements, and trust deeds. Trusted by startups, SMEs and international companies entering Australia.",
+    "assurance-risk": "Independent audit and risk assurance for Melbourne businesses. Internal audit, governance reviews, compliance health checks, and control optimisation by experienced CPAs.",
+    "taxation-accounting": "Comprehensive tax accounting in Melbourne: individual tax returns, BAS/GST, capital gains tax, payroll tax, and ATO audit support for individuals and businesses.",
+  };
+
+  const serviceSchemas: Record<string, object> = {
+    smsf: {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How much does it cost to set up an SMSF in Australia?", "acceptedAnswer": { "@type": "Answer", "text": "SMSF setup costs typically range from $1,500 to $3,000 depending on structure. Annual compliance and audit costs are $2,000–$5,000. Contact Pointers Consulting for a tailored quote." } },
+        { "@type": "Question", "name": "What is the minimum balance needed for an SMSF?", "acceptedAnswer": { "@type": "Answer", "text": "There is no legal minimum, but ASIC recommends at least $200,000–$500,000 to make SMSF costs worthwhile. Use our free SMSF FitForMe tool to check your readiness." } },
+        { "@type": "Question", "name": "Can an SMSF buy property in Australia?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. An SMSF can buy residential or commercial property, but strict ATO rules apply — including the sole purpose test, arm's length dealings, and LRBA rules for borrowing. Speak with our SMSF specialists." } },
+        { "@type": "Question", "name": "Do I need an accountant for my SMSF?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every SMSF needs an annual independent audit and ATO tax return lodged by a registered tax agent. Pointers Consulting handles full SMSF compliance and administration." } },
+        { "@type": "Question", "name": "What are the SMSF contribution caps for 2025-26?", "acceptedAnswer": { "@type": "Answer", "text": "For 2025-26, the concessional (pre-tax) cap is $30,000 and the non-concessional (after-tax) cap is $120,000. Contact us for current-year contribution planning." } },
+      ],
+    },
+    "taxation-accounting": {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "How much does a tax accountant cost in Melbourne?", "acceptedAnswer": { "@type": "Answer", "text": "Individual tax return preparation typically costs $150–$400, while business tax returns vary by complexity. Pointers Consulting offers transparent, fixed-fee pricing." } },
+        { "@type": "Question", "name": "What is the tax return deadline in Australia?", "acceptedAnswer": { "@type": "Answer", "text": "If lodging yourself, the deadline is 31 October. If using a registered tax agent like Pointers Consulting, extended deadlines apply — often to May the following year." } },
+        { "@type": "Question", "name": "Can I claim home office expenses on my tax return?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. The ATO allows home office deductions using the fixed rate method (67 cents per hour) or actual cost method. Our tax agents will identify all eligible deductions for you." } },
+      ],
+    },
   };
 
   useEffect(() => {
     applySEO({
-      title: data
-        ? `${data.title} | Pointers Consulting Melbourne`
-        : "Service | Pointers Consulting",
-      description: data
-        ? (serviceDescriptions[slug] ?? `${data.title} services from Pointers Consulting — SMSF and tax specialists in Melbourne.`)
-        : "SMSF and tax advisory services from Pointers Consulting Melbourne.",
+      title: serviceTitles[slug] ?? (data ? `${data.title} | Pointers Consulting Melbourne` : "Service | Pointers Consulting"),
+      description: serviceDescriptions[slug] ?? (data ? `${data.title} services from Pointers Consulting — SMSF and tax specialists in Melbourne.` : "SMSF and tax advisory services from Pointers Consulting Melbourne."),
       canonical: `/services/${slug}`,
+      schema: serviceSchemas[slug],
     });
     window.scrollTo(0, 0);
   }, [slug, data]);

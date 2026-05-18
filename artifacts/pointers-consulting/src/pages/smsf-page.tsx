@@ -42,9 +42,42 @@ const clientTypes = [
 export default function SmsfPage() {
   useEffect(() => {
     applySEO({
-      title: "SMSF Specialists Australia | Self-Managed Super Fund | Pointers Consulting",
-      description: "Expert SMSF setup, compliance, audit, and strategy for individual trustees and accountants across Australia. Use our free SMSF FitForMe Checkup tool.",
+      title: "SMSF Accountant Melbourne | SMSF Setup, Compliance & Audit | Pointers Consulting",
+      description: "Melbourne SMSF accountants specialising in SMSF setup, compliance, audit & strategy. CPA-qualified, 20+ years experience. Free SMSF FitForMe readiness check for individuals and white-label support for accountants.",
       canonical: "/services/smsf",
+      schema: [
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            { "@type": "Question", "name": "How much does it cost to set up an SMSF in Australia?", "acceptedAnswer": { "@type": "Answer", "text": "SMSF setup costs typically range from $1,500 to $3,000 depending on the fund structure. Annual compliance and audit costs are usually $2,000–$5,000. Contact Pointers Consulting for a tailored quote." } },
+            { "@type": "Question", "name": "What is the minimum balance needed for an SMSF?", "acceptedAnswer": { "@type": "Answer", "text": "There is no legal minimum balance, but ASIC and most advisers recommend at least $200,000–$500,000 in superannuation to make SMSF costs worthwhile. Our free SMSF FitForMe tool can assess your readiness in minutes." } },
+            { "@type": "Question", "name": "Can an SMSF buy property in Australia?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. An SMSF can buy residential or commercial property, but strict ATO rules apply — including the sole purpose test, related-party restrictions, and LRBA rules for borrowing. Our SMSF specialists can guide you through every step." } },
+            { "@type": "Question", "name": "Do I need an accountant for my SMSF?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Every SMSF must be audited annually by an approved SMSF auditor, and a tax return must be lodged with the ATO by a registered tax agent. Pointers Consulting manages full SMSF compliance and administration." } },
+            { "@type": "Question", "name": "What are the SMSF contribution caps for 2025-26?", "acceptedAnswer": { "@type": "Answer", "text": "For 2025-26, the concessional (pre-tax) contribution cap is $30,000 and the non-concessional (after-tax) cap is $120,000. Contact Pointers Consulting for personalised contribution planning." } },
+            { "@type": "Question", "name": "Where is Pointers Consulting located?", "acceptedAnswer": { "@type": "Answer", "text": "Pointers Consulting is located at Level 17, Tower 4, 727 Collins Street, Docklands VIC 3008, Melbourne. We serve clients Australia-wide via phone and online consultations." } },
+          ],
+        },
+        {
+          "@context": "https://schema.org",
+          "@type": "AccountingService",
+          "name": "Pointers Consulting — SMSF Specialists",
+          "description": "Melbourne SMSF accountants providing SMSF setup, compliance, audit and strategy for individual trustees and accountants across Australia.",
+          "url": "https://pointersconsulting.com.au/services/smsf",
+          "telephone": "+61426784982",
+          "email": "sam@pointersconsulting.com.au",
+          "address": { "@type": "PostalAddress", "streetAddress": "Level 17, Tower 4, 727 Collins Street", "addressLocality": "Docklands", "addressRegion": "VIC", "postalCode": "3008", "addressCountry": "AU" },
+          "openingHoursSpecification": { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "17:00" },
+          "priceRange": "$$",
+          "areaServed": "Australia",
+          "hasOfferCatalog": { "@type": "OfferCatalog", "name": "SMSF Services", "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SMSF Setup" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SMSF Compliance & Audit" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SMSF Investment Strategy" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SMSF Wind-Up" } },
+          ]},
+        },
+      ],
     });
     window.scrollTo(0, 0);
   }, []);
